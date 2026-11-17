@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><title>model sheet</title>
+<script type="importmap">{"imports":{"three":"/node_modules/three/build/three.module.js","three/addons/":"/node_modules/three/examples/jsm/"}}</script>
+<style>html,body{margin:0;background:#1a1822}canvas{display:block;image-rendering:pixelated}</style></head>
+<body><canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+import { makeChar, FW, FH } from './chars.js';
+const c = document.getElementById('c'), g = c.getContext('2d'); g.imageSmoothingEnabled = false;
+const Q = new URLSearchParams(location.search), kinds = (Q.get('k') || 'founder,lagzilla').split(','), only = Q.get('f') ? Q.get('f').split(',') : null;
+let y = 10; const S = +(Q.get('s') || 3);
+g.fillStyle = '#2a2836'; g.fillRect(0, 0, 1920, 1080);
+for (const k of kinds) {
+  const ch = makeChar(k), A = ch.atlas; let x = 10;
+  const names = only ? A.names.filter(n => only.includes(n)) : A.names;
+  for (const n of names) { const i = A.names.indexOf(n); if (x + FW * S > 1910) { x = 10; y += FH * S + 22; }
+    g.drawImage(A.canvas, i * FW, 0, FW, FH, x, y, FW * S, FH * S); g.fillStyle = '#aaa'; g.font = '12px monospace'; g.fillText(n, x, y + FH * S + 12); x += FW * S + 6; }
+  y += FH * S + 26;
+}
+window.DUR = 1; window.render = () => {}; window.READY = true;
+</script></body></html>

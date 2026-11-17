@@ -1,0 +1,16 @@
+[
+ {"id": "n1", "text": "Engraçado como algumas das maiores mudanças da nossa vida começam nos momentos mais comuns.", "voice": "pt-BR-AntonioNeural", "rate": "-12%", "pitch": "-2Hz"},
+ {"id": "n1b", "text": "Naquele dia, eu só tinha ido cortar o cabelo.", "voice": "pt-BR-AntonioNeural", "rate": "-12%", "pitch": "-2Hz"},
+ {"id": "l1", "text": "Estou à procura de alguém para alugar a sala lá atrás.", "voice": "pt-PT-DuarteNeural", "rate": "-4%"},
+ {"id": "f1", "text": "Eu tenho uma ideia que pode funcionar ali.", "voice": "pt-BR-AntonioNeural", "rate": "-2%", "pitch": "+4Hz"},
+ {"id": "n2", "text": "Era um projeto que eu já tinha na cabeça há algum tempo.", "voice": "pt-BR-AntonioNeural", "rate": "-12%", "pitch": "-2Hz"},
+ {"id": "n3", "text": "Apresentei a ideia ao Lucas. E o que era apenas uma possibilidade começou a tornar-se real.", "voice": "pt-BR-AntonioNeural", "rate": "-12%", "pitch": "-2Hz"},
+ {"id": "n4", "text": "Mas tinha um problema… eu não tinha dinheiro.", "say": "Mas tinha um problema... eu não tinha dinheiro.", "voice": "pt-BR-AntonioNeural", "rate": "-18%", "pitch": "-4Hz"},
+ {"id": "n5", "text": "Então continuei a trabalhar como garçom numa pizzaria. Cada turno era mais um passo. Cada equipamento comprado, uma parte daquele sonho a sair do papel.", "voice": "pt-BR-AntonioNeural", "rate": "-12%", "pitch": "-2Hz"},
+ {"id": "n6", "text": "Até que, um dia, olhei para aquela sala… e percebi que aquilo que antes só existia na minha cabeça estava mesmo ali.", "say": "Até que, um dia, olhei para aquela sala... e percebi que aquilo que antes só existia na minha cabeça estava mesmo ali.", "voice": "pt-BR-AntonioNeural", "rate": "-12%", "pitch": "-2Hz"},
+ {"id": "n7", "text": "No dia 17 de agosto, abrimos as portas. E finalmente outras pessoas começaram a viver aquele sonho comigo.", "say": "No dia dezessete de agosto, abrimos as portas. E finalmente outras pessoas começaram a viver aquele sonho comigo.", "asr": "No dia 17 de agosto, abrimos as portas. E finalmente outras pessoas começaram a viver aquele sonho comigo.", "voice": "pt-BR-AntonioNeural", "rate": "-12%", "pitch": "-2Hz"},
+ {"id": "n8a", "text": "Começou com uma ideia.", "voice": "pt-BR-AntonioNeural", "rate": "-12%", "pitch": "-2Hz"},
+ {"id": "n8b", "text": "Uma sala vazia.", "voice": "pt-BR-AntonioNeural", "rate": "-12%", "pitch": "-2Hz"},
+ {"id": "n8c", "text": "E muito trabalho.", "voice": "pt-BR-AntonioNeural", "rate": "-12%", "pitch": "-2Hz"},
+ {"id": "n8d", "text": "Hoje, cada pessoa que entra aqui faz parte de algo que eu nunca conseguiria construir sozinho.", "voice": "pt-BR-AntonioNeural", "rate": "-14%", "pitch": "-2Hz"}
+]

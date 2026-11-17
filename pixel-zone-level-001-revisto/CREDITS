@@ -1,0 +1,36 @@
+PIXEL ZONE — LEVEL 001: O COMEÇO (roteiro revisto)
+Curta em 2.5D Pixel Art, 1080×1920, 24 fps, 110,5 s.
+
+Material do cliente (Pixel Zone) — usado com autorização do próprio cliente
+- Roteiro e narração (texto): "PIXEL ZONE — LEVEL 001: O COMEÇO — Roteiro revisto".
+- Logótipo PIXEL ZONE: refs/logo-pixel-zone.png (tela final e letras do balcão).
+- Personagens: o fundador (refs/fundador.png), o Lucas (refs/lucas.png) e o Lagzilla (refs/lagzilla.png).
+  Os sprites são desenhos novos em pixel art feitos em código (chars.js) a partir dessas referências; as fotos não aparecem no filme.
+- Espaços: a Barbearia Barba Negra (refs/barbearia-real-*.jpg; nome, logótipo e interior usados com autorização, segundo o cliente),
+  a sala vazia antes da obra (refs/sala-vazia-*.jpg) e o Pixel Zone montado (refs/espaco-real-*.jpg), recriados em pixel art.
+- A pizzaria é genérica (sem nome nem marca). O ecrã do banco é uma interface fictícia ("A MINHA CONTA"), sem marca de banco.
+- Consolas sem logótipos de marcas de terceiros.
+
+Imagem
+- Toda a imagem é gerada por código nesta pasta (three.js + texturas de pixel desenhadas pixel a pixel).
+  Sem fotos no filme, sem pacotes de assets 3D e sem imagens geradas por IA.
+- Motor de base (px.js, kit.js, fx.js, post_ts.js) copiado e adaptado da biblioteca de estilos Lemo-Opuscar (licença MIT).
+- three.js r170 (MIT).
+
+Música
+- Trilha original composta para este filme em mix.py (piano, pads, baixo, arpejos e bateria feitos em numpy).
+- Piano: "Salamander Grand Piano V3" by Alexander Holm, licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+
+Vozes
+- Narração e fala do fundador: Microsoft Edge neural TTS pt-BR-AntonioNeural; Lucas: pt-PT-DuarteNeural.
+  Verifique os termos de uso da Microsoft para uso comercial das vozes; vozes gravadas podem substituir as sintéticas.
+- Verificação de fala: faster-whisper (MIT), modelo Whisper large-v3 (MIT).
+
+Efeitos sonoros e ambientes
+- Sintetizados em mix.py com core/audio/sfx.py da biblioteca Lemo-Opuscar. Sem gravações.
+
+Fontes (SIL Open Font License 1.1; licenças em fonts/)
+- Cinzel — The Cinzel Project Authors (Natanael Gama); Cormorant Garamond — The Cormorant Project Authors (Christian Thalmann).
+
+Masterização
+- ffmpeg (limitador + normalização, −14 LUFS).
