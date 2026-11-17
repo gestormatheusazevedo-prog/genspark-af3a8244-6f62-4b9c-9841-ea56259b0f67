@@ -19,7 +19,7 @@ Música
 - Piano: "Salamander Grand Piano V3" by Alexander Holm, licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
 
 Vozes
-- Narração: Microsoft Edge neural TTS pt-BR-AntonioNeural; protagonista e Lagzilla: pt-PT-DuarteNeural (o Lagzilla com tom mais agudo e efeito de glitch no mix), via edge-tts (LGPL-3.0).
+- Narração: Microsoft Edge neural TTS pt-BR-AntonioNeural; protagonista: pt-PT-DuarteNeural; Lagzilla: pt-BR-AntonioNeural (mais agudo, com bitcrush)
   Risos e gritos de fundo: pt-PT-RaquelNeural, pt-BR-FranciscaNeural, pt-PT-DuarteNeural, pt-BR-ThalitaMultilingualNeural.
   Verifique os termos de uso da Microsoft para uso comercial das vozes; para a versão final, vozes gravadas podem substituir as vozes sintéticas.
 - Verificação de fala: faster-whisper (MIT), modelo Whisper large-v3 (MIT).

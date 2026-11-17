@@ -1,6 +1,6 @@
 # PIXEL ZONE — LEVEL 002: A PORTA QUE NINGUÉM CONHECIA
 
-Tratamento · 2.5D Pixel Art · 1080×1920 vertical · 24 fps · 96.5 s · narrador pt-BR, personagens pt-PT
+Tratamento · 2.5D Pixel Art · 1080×1920 vertical · 24 fps · 96.5 s · narrador e Lagzilla pt-BR, protagonista pt-PT
 
 Base: o roteiro de 9 cenas do cliente. Ele usa o mesmo motor, o mesmo Lagzilla e a mesma sala do Level 001, num registo diferente: mistério → revelação calorosa.
 
@@ -70,7 +70,7 @@ Foram consideradas três estruturas:
 - **Vozes:**
   - **narrador:** pt-BR, lento e grave;
   - **protagonista:** pt-PT;
-  - **Lagzilla:** a mesma voz pt-PT, mais aguda e com bitcrush e glitch. A fala atrás da porta vai abafada (filtro passa-baixa) e com um eco curto.
+  - **Lagzilla:** pt-BR (falas adaptadas ao português do Brasil), voz mais aguda e com bitcrush e glitch. A fala atrás da porta vai abafada (filtro passa-baixa) e com um eco curto.
 
 ## Comparação com a demo do estilo
 

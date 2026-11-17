@@ -11,8 +11,8 @@ Toda cidade guarda segredos. Alguns estão escondidos à vista de todos.
 — Olá? Tem alguém aí?
 
 4
-00:00:37,000 --> 00:00:40,240
-— Ainda há lugar para mais um…
+00:00:37,000 --> 00:00:40,570
+— Ainda tem lugar pra mais um…
 
 5
 00:00:48,900 --> 00:00:51,800
@@ -23,19 +23,19 @@ Toda cidade guarda segredos. Alguns estão escondidos à vista de todos.
 — Uau…
 
 7
-00:01:02,400 --> 00:01:07,460
-— Até que enfim. Achei que ias ficar aí fora para sempre.
+00:01:02,400 --> 00:01:08,400
+— Até que enfim. Achei que você ia ficar aí fora pra sempre.
 
 8
 00:01:09,300 --> 00:01:12,200
 — Tu… falas?
 
 9
-00:01:12,200 --> 00:01:16,710
-— E jogo melhor do que tu. Queres descobrir?
+00:01:12,200 --> 00:01:17,000
+— E jogo melhor que você. Quer descobrir?
 
 10
-00:01:21,300 --> 00:01:24,520
+00:01:21,300 --> 00:01:24,800
 — Bem-vindo ao Pixel Zone.
 
 11
