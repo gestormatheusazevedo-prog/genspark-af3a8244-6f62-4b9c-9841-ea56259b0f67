@@ -19,7 +19,7 @@ Foram consideradas três estruturas:
 
 - **Três cenários com três temperaturas:**
   - **Cidade:** névoa azul e janelas que se apagam uma a uma. É o inverso do Level 001, porque aqui a cidade adormece.
-  - **Barbearia:** âmbar quente, chão em xadrez, cadeiras de couro e espelhos.
+  - **Barbearia Barba Negra:** recriada a partir das fotos reais (`refs/barbearia-real-*.jpg`). Fachada com a placa preta "BARBA NEGRA · BAR(BEARIA)" e o logótipo do bigode, porta de vidro, poste de barbeiro, montra e barris pretos com bancos na calçada. Por dentro: chão em xadrez preto e branco, paredes de tijolo cinzento, teto preto com focos, cadeiras de barbeiro pretas com lavatórios brancos, prateleiras pretas, o relógio grande de numeração romana, candeeiros pretos em cúpula, o bar ao fundo com bancos, garrafas, camisolas emolduradas e lâmpadas penduradas, o logótipo iluminado, o sofá chesterfield, o baú sobre a pele de vaca e os barris.
   - **Pixel Zone:** recriada a partir das fotos do espaço real (`refs/espaco-real-*.jpg`): paredes e teto pretos, a grande nuvem iluminada por dentro no teto (branco, ciano e azul, com rosa na borda), a fita LED rosa à volta do teto, o balcão de betão cinzento com as letras PIXEL ZONE e a luz quente sob o tampo de madeira, as TVs na parede com prateleiras pretas flutuantes, consolas e comandos brancos, o quadro com luz de quadro, e os puffs vermelhos e azuis sobre o tapete preto felpudo.
 - **A porta é a luz-protagonista:** frestas ciano à esquerda e magenta à direita, luz pela fechadura e feixes de luz no ar. Pulsa como um coração (72 bpm) e treme a cada batida.
 - **Consolas:** brancas, em pé nas prateleiras, sem logótipos de marcas de terceiros (os emblemas redondos da parede ficaram de fora).

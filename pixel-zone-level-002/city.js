@@ -56,18 +56,29 @@ export function buildCity() {
     const g = house({ x: o.x, z: -5.3, w: o.w, d: 5, h: o.h, wall: o.wall, roof: terra, rh: 1.4, chimney: i % 2 === 0, ownWin: true, door: o.shop ? null : (i % 2 ? -1.2 : 1.2),
       windows: o.shop ? [] : [[i % 2 ? .6 : -.6, lo + .1], [i % 2 ? 1.6 : -1.6, lo + .1]], upper: [[-1.2, up], [0, up], [1.2, up]] });
     scene.add(g); g.userData.windows.forEach((q, j) => wins.push({ q, i, j, on: .35 + h2(i, j, 3) * 5.4 }));
-    if (o.shop) {   // empty shop front: two dark panes + glass door + "ALUGA-SE"
+    if (o.shop) {   // Barba Negra as it is: black fascia with white letters + logo, small left window, glass door, pole, big right window, stone base, barrels outside
       const glass = new THREE.MeshStandardMaterial({ color: '#0d1626', roughness: .15, metalness: .4, emissive: '#1b2e52', emissiveIntensity: .25 });
-      for (const sx of [-1.35, 1.35]) { const p = new THREE.Mesh(new THREE.PlaneGeometry(1.5, 1.7), glass); p.position.set(o.x + sx, 1.25, -2.78); scene.add(p); }
-      const door = new THREE.Mesh(new THREE.PlaneGeometry(.95, 2.0), glass); door.position.set(o.x, 1.0, -2.78); scene.add(door);
-      const fr = box(4.0, .14, .12, mats().beam, { cast: false }); fr.position.set(o.x, 2.2, -2.74); scene.add(fr);
-      // BARBEARIA BARBA NEGRA: board over the shop front + striped pole; a cold light pulses deep inside
-      const bc = document.createElement('canvas'); bc.width = 128; bc.height = 16; const bg = bc.getContext('2d'); bg.fillStyle = '#0e0a08'; bg.fillRect(0, 0, 128, 16); bg.fillStyle = '#d8b060'; bg.font = 'bold 10px monospace'; bg.textAlign = 'center'; bg.textBaseline = 'middle'; bg.fillText('BARBEARIA BARBA NEGRA', 64, 8.5);
-      const bt = texOf(bc); const board = new THREE.Mesh(new THREE.PlaneGeometry(4.0, .5), new THREE.MeshStandardMaterial({ map: bt, emissive: '#ffffff', emissiveMap: bt, emissiveIntensity: .55 })); board.position.set(o.x, 2.5, -2.76); scene.add(board);
+      const FZ = -2.78, dx = -.55;
+      const stoneM = new THREE.MeshStandardMaterial({ color: '#b8b2a6', roughness: .6 });
+      const base = new THREE.Mesh(new THREE.BoxGeometry(4.4, .45, .1).translate(o.x, .225, FZ + .03), stoneM); scene.add(base);
+      for (const [x, w, y0] of [[-1.6, 1.0, .45], [1.25, 1.75, .45]]) { const p = new THREE.Mesh(new THREE.PlaneGeometry(w, 1.85 - y0 + .45), glass); p.position.set(o.x + x, y0 + (1.85 - y0 + .45) / 2, FZ); scene.add(p); const f = box(w + .06, .05, .08, mats().beam, { cast: false }); f.position.set(o.x + x, y0, FZ + .02); scene.add(f); }
+      const door = new THREE.Mesh(new THREE.PlaneGeometry(.9, 2.15), glass); door.position.set(o.x + dx, 1.075, FZ); scene.add(door);
+      for (const x of [dx - .47, dx + .47]) { const j = box(.06, 2.2, .08, mats().beam, { cast: false }); j.position.set(o.x + x, 0, FZ + .02); scene.add(j); }
+      for (const x of [-2.15, .0, 2.15]) { const pil = new THREE.Mesh(new THREE.BoxGeometry(x === 0 ? .55 : .12, 2.3, .14).translate(o.x + (x === 0 ? .2 : x), 1.15, FZ + .05), stoneM); scene.add(pil); }
+      // fascia: BARBA NEGRA in white serif, the logo at the left, BAR(BEARIA) underneath
+      const lg = new Image(); lg.src = 'refs/logo-barba-negra-px.png';
+      const bc = document.createElement('canvas'); bc.width = 176; bc.height = 24; const bg = bc.getContext('2d');
+      const drawBoard = () => { bg.fillStyle = '#0b0b0d'; bg.fillRect(0, 0, 176, 24); if (lg.complete && lg.width) bg.drawImage(lg, 14, 1, 17, 22); bg.fillStyle = '#f2f0ea'; bg.font = '13px Georgia, serif'; bg.textBaseline = 'top'; bg.fillText('BARBA NEGRA', 46, 2); bg.font = '6px Georgia, serif'; bg.fillText('BAR(BEARIA)', 128, 16); bt.needsUpdate = true; };
+      const bt = texOf(bc); lg.onload = drawBoard; drawBoard();
+      const board = new THREE.Mesh(new THREE.BoxGeometry(4.5, .62, .14), [mats().beam, mats().beam, mats().beam, mats().beam, new THREE.MeshStandardMaterial({ map: bt, emissive: '#ffffff', emissiveMap: bt, emissiveIntensity: .5 }), mats().beam]); board.position.set(o.x, 2.62, FZ + .12); scene.add(board);
       const pc = document.createElement('canvas'); pc.width = 8; pc.height = 32; const pg = pc.getContext('2d'); for (let y = 0; y < 32; y++) for (let x = 0; x < 8; x++) { pg.fillStyle = ['#e8e2d6', '#c0261f', '#2a4ab0'][((x + y) >> 2) % 3]; pg.fillRect(x, y, 1, 1); }
-      const ptx = texOf(pc); ptx.wrapS = ptx.wrapT = THREE.RepeatWrapping; shopPole = new THREE.Mesh(new THREE.CylinderGeometry(.09, .09, 1.0, 12), new THREE.MeshStandardMaterial({ map: ptx, emissive: '#ffffff', emissiveMap: ptx, emissiveIntensity: .45 })); shopPole.position.set(o.x + 2.05, 1.6, -2.62); scene.add(shopPole);
-      shopGlass = glass; shopX = o.x;
-      doorGlow = new THREE.Mesh(new THREE.PlaneGeometry(.12, 1.9), new THREE.MeshBasicMaterial({ color: '#4ff0ff', transparent: true, blending: THREE.AdditiveBlending, depthWrite: false })); doorGlow.position.set(o.x + .44, 1.0, -2.75); scene.add(doorGlow);
+      const ptx = texOf(pc); ptx.wrapS = ptx.wrapT = THREE.RepeatWrapping; shopPole = new THREE.Mesh(new THREE.CylinderGeometry(.08, .08, .6, 12), new THREE.MeshStandardMaterial({ map: ptx, emissive: '#ffffff', emissiveMap: ptx, emissiveIntensity: .45 })); shopPole.position.set(o.x + .2, 1.75, FZ + .22); scene.add(shopPole);
+      for (const y of [1.42, 2.08]) { const cap = new THREE.Mesh(new THREE.CylinderGeometry(.1, .1, .07, 12), new THREE.MeshStandardMaterial({ color: '#1a1a1e', metalness: .6, roughness: .4 })); cap.position.set(o.x + .2, y, FZ + .22); scene.add(cap); }
+      const barrelM = new THREE.MeshStandardMaterial({ color: '#131315', roughness: .4, metalness: .35 });
+      for (const x of [-1.75, .35, 2.0]) { const br = new THREE.Mesh(new THREE.CylinderGeometry(.25, .25, .8, 14).translate(0, .4, 0), barrelM); br.position.set(o.x + x, 0, -2.42); br.castShadow = br.receiveShadow = true; scene.add(br); }
+      for (const x of [.9, 1.35]) { const st = new THREE.Group(); st.position.set(o.x + x, 0, -2.45); st.add(new THREE.Mesh(new THREE.BoxGeometry(.28, .04, .28).translate(0, .5, 0), barrelM)); for (const [a, c] of [[-.11, -.11], [.11, -.11], [-.11, .11], [.11, .11]]) st.add(new THREE.Mesh(new THREE.BoxGeometry(.035, .5, .035).translate(a, .25, c), barrelM)); st.traverse(m => m.castShadow = true); scene.add(st); }
+      shopGlass = glass; shopX = o.x + dx;
+      doorGlow = new THREE.Mesh(new THREE.PlaneGeometry(.12, 2.0), new THREE.MeshBasicMaterial({ color: '#4ff0ff', transparent: true, blending: THREE.AdditiveBlending, depthWrite: false })); doorGlow.position.set(o.x + dx + .4, 1.05, FZ + .01); scene.add(doorGlow);
     }
   });
   // lamp posts (warm) + street trees
@@ -100,7 +111,7 @@ export function buildCity() {
   scene.add(splash);
 
   // founder path: walks the sidewalk from the left to the shop door
-  const walkX = t => t < 14.2 ? lerp(-11, 6.7, seg(t, 0, 14.2)) : lerp(6.7, 5.4, ss(seg(t, 18.6, 20.8)));
+  const walkX = t => t < 14.2 ? lerp(-11, 6.7, seg(t, 0, 14.2)) : lerp(6.7, 4.55, ss(seg(t, 18.6, 20.8)));
   const coldGlow = new THREE.PointLight('#3ae8ff', 0, 7, 1.4); coldGlow.position.set(shopX + .4, 1.3, -2.2); scene.add(coldGlow);
   const coldG = glow('#5ff0ff', 1.6, 0); coldG.position.set(shopX + .44, 1.1, -2.6); scene.add(coldG);
   const camW = { p: track([[0, [-3, 26, 30]], [6, [-8, 12, 15]], [10.67, [-5.6, 6.2, 6.4]]]), l: track([[0, [-3, 2, -4]], [6, [-7.2, 1.2, -2]], [10.67, [-1.8, 1.0, -1.9]]]) };
@@ -122,7 +133,7 @@ export function buildCity() {
     if (shot.id === 'cityWide') { const lt = eio(seg(t, 0, 10.67)) * 10.67; cam.position.set(...camW.p(lt)); cam.lookAt(...camW.l(lt)); cam.fov = 32; }
     else { // lateral track that stops with him, then drifts round toward the light
       const xs = Math.min(x, 6.7), d = ss(seg(t, 15.2, 21.3));
-      cam.position.set(lerp(xs - 1.6, 8.6, d), lerp(5.6, 4.4, d), lerp(6.6, 5.0, d)); cam.lookAt(lerp(xs + .8, shopX + .2, d), 1.0, lerp(-1.8, -2.3, d)); cam.fov = 34;
+      cam.position.set(lerp(xs - 1.6, 7.6, d), lerp(5.6, 4.4, d), lerp(6.6, 5.0, d)); cam.lookAt(lerp(xs + .8, shopX + .2, d), 1.0, lerp(-1.8, -2.3, d)); cam.fov = 34;
     }
     cam.updateProjectionMatrix();
     for (const tr of trees) tr.rotation.y = Math.atan2(cam.position.x - tr.position.x, cam.position.z - tr.position.z);

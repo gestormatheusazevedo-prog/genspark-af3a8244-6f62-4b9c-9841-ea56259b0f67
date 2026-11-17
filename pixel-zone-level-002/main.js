@@ -20,7 +20,7 @@ const camera = new THREE.PerspectiveCamera(34, W / H, .1, 2000);
 const ONLY = Q.get('only');
 const sets = {};
 if (!ONLY || ONLY === 'city') sets.city = buildCity();
-if (!ONLY || ONLY === 'barber') sets.barber = buildBarber();
+if (!ONLY || ONLY === 'barber') sets.barber = await buildBarber();
 if (!ONLY || ONLY === 'room') sets.room = await buildRoom();
 const post = makePost(renderer, Object.values(sets)[0].scene, camera, W, H, { ssaa: SS });
 const V = post.vig.uniforms;
