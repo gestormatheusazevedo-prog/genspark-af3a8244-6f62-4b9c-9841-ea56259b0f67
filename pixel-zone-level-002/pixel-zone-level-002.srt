@@ -1,0 +1,43 @@
+1
+00:00:03,150 --> 00:00:10,240
+Toda cidade guarda segredos. Alguns estão escondidos à vista de todos.
+
+2
+00:00:15,800 --> 00:00:19,250
+— Espera… que som foi esse?
+
+3
+00:00:24,100 --> 00:00:28,120
+— Olá? Tem alguém aí?
+
+4
+00:00:37,000 --> 00:00:40,240
+— Ainda há lugar para mais um…
+
+5
+00:00:48,900 --> 00:00:51,800
+— Que lugar é este?
+
+6
+00:00:53,300 --> 00:00:56,200
+— Uau…
+
+7
+00:01:02,400 --> 00:01:07,460
+— Até que enfim. Achei que ias ficar aí fora para sempre.
+
+8
+00:01:09,300 --> 00:01:12,200
+— Tu… falas?
+
+9
+00:01:12,200 --> 00:01:16,710
+— E jogo melhor do que tu. Queres descobrir?
+
+10
+00:01:21,300 --> 00:01:24,520
+— Bem-vindo ao Pixel Zone.
+
+11
+00:01:25,250 --> 00:01:30,600
+Alguns lugares não se encontram. Descobrem-se.
