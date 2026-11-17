@@ -9,7 +9,7 @@ import { track, seg, ss, eio, eo, clamp, lerp, back } from '/core/lib.js';
 import { T, BUILD, BEAT, bar } from './story.js';
 
 const CYAN = '#2fe6ff', MAG = '#ff2fb4';
-const DOORX = 1.9, BACKZ = -3.5, WALLH = 2.8;
+const DOORX = 1.9, BACKZ = -3.5, WALLH = 3.0, CEIL = 2.98;
 
 // —— pixel-art screens (64×40), drawn every frame ——
 function screen(kind) {
@@ -68,8 +68,8 @@ export async function buildRoom() {
   const img = new Image(); img.src = 'refs/logo-pixel-zone.png'; await img.decode();
 
   // —— shell: floor, three walls (front and ceiling cut away) ——
-  const floorM = mat(woodPlanks(96, 96, { pw: 6, len: 48, seed: 12, cols: ['#120d0c', '#1f1714', '#2e2320', '#3e302a', '#4f3f36'] }), { rough: .6 });
-  const wallM = mat(plaster(96, 96, { seed: 41, wall: ['#0e0e14', '#16161e', '#20202a', '#2a2a36'], beams: [{ t: 'h', y: 93 }] }));
+  const floorM = mat(woodPlanks(96, 96, { pw: 6, len: 48, seed: 12, cols: ['#22170f', '#33241a', '#443224', '#55402e', '#664e38'] }), { rough: .55 });
+  const wallM = mat(plaster(96, 96, { seed: 41, wall: ['#08080b', '#0d0d12', '#121218', '#17171e'], beams: [{ t: 'h', y: 93 }] }));
   scene.add(mesh(new THREE.BoxGeometry(6.4, .2, 7.4).translate(0, -.1, 0), floorM));
   const backW = new THREE.Group();
   // back wall with the door opening
@@ -89,11 +89,11 @@ export async function buildRoom() {
   const knob = new THREE.Mesh(new THREE.SphereGeometry(.035, 8, 6), new THREE.MeshStandardMaterial({ color: '#c8b070', metalness: .8, roughness: .3 })); knob.position.set(.88, 1.0, .06); doorPivot.add(knob);
   scene.add(doorPivot);
   // window on the right wall (moonlight)
-  const winM = new THREE.MeshBasicMaterial({ color: '#4a6aa8' }); const win = new THREE.Mesh(new THREE.PlaneGeometry(1.1, .9), winM); win.rotation.y = -Math.PI / 2; win.position.set(2.99, 1.65, .1); scene.add(win);
-  const winBar = box(.04, .9, .04, mats_beam(), { cast: false }); winBar.position.set(2.98, 1.2, .1); scene.add(winBar);
-  const moon = new THREE.DirectionalLight('#7f9ce6', .7); moon.position.set(9, 6, 1.5); moon.target.position.set(0, 0, 0); moon.castShadow = true; moon.shadow.mapSize.set(1024, 1024);
+  const winM = new THREE.MeshBasicMaterial({ color: '#4a6aa8' }); const win = new THREE.Mesh(new THREE.PlaneGeometry(1.1, .9), winM); win.rotation.y = -Math.PI / 2; win.position.set(2.99, 1.65, .1); 
+  const winBar = box(.04, .9, .04, mats_beam(), { cast: false }); winBar.position.set(2.98, 1.2, .1); 
+  const moon = new THREE.DirectionalLight('#6a5ad8', .7); moon.position.set(9, 6, 1.5); moon.target.position.set(0, 0, 0); moon.castShadow = true; moon.shadow.mapSize.set(1024, 1024);
   Object.assign(moon.shadow.camera, { left: -6, right: 6, top: 6, bottom: -6, near: 1, far: 30 }); moon.shadow.bias = -.001; scene.add(moon, moon.target);
-  const hemi = new THREE.HemisphereLight('#3a4a7a', '#120e14', .55); scene.add(hemi);
+  const hemi = new THREE.HemisphereLight('#3a3a8a', '#140c18', .55); scene.add(hemi);
 
   // —— the bare bulb ——
   const bulbPos = new THREE.Vector3(.2, 2.35, -.8);
@@ -128,51 +128,101 @@ export async function buildRoom() {
   // —— build items ——
   const items = {};
   const add = (id, obj) => { obj.userData.base = obj.scale.clone(); scene.add(obj); items[id] = obj; return obj; };
-  const rugT = (() => { const P = new PX(64, 48), F = ramp(['#1a1030', '#2a1850', '#3a2470', '#4a3290']); P.fill((x, y) => { const b = x < 3 || y < 3 || x > 60 || y > 44; if (b) return hex((x + y) % 4 < 2 ? '#2fe6ff' : '#ff2fb4'); return F(.5 + (((x >> 2) + (y >> 2)) % 2) * .15, x, y); }); return P.done(); })();
-  const rug = new THREE.Mesh(new THREE.PlaneGeometry(3.6, 2.6), new THREE.MeshStandardMaterial({ map: texOf(rugT), roughness: .95 })); rug.rotation.x = -Math.PI / 2; rug.position.set(-.8, .006, -1.3); rug.receiveShadow = true;
+  // —— the real Pixel Zone: black shaggy rug, wall TVs on floating shelves, red/blue bags, cloud ceiling, pink LED strip, the counter ——
+  const rugT = (() => { const P = new PX(96, 96), F = ramp(['#050506', '#0b0b0e', '#121216', '#1a1a20'], .6); P.fill((x, y) => F(.35 + (fbm(x * .3, y * .3, 8) - .5) * .5 + (h2(x, y, 4) - .5) * .35, x, y)); return P.done(); })();
+  const rug = new THREE.Mesh(new THREE.PlaneGeometry(4.2, 4.1), new THREE.MeshStandardMaterial({ map: texOf(rugT), roughness: 1 })); rug.rotation.x = -Math.PI / 2; rug.position.set(-.75, .008, -.75); rug.receiveShadow = true;
   add('rug', rug);
   const screens = { A: screen('race'), B: screen('ball'), C: screen('fight') };
   const tvM = new THREE.MeshStandardMaterial({ color: '#0e0e12', roughness: .4, metalness: .3 });
-  const tableM = new THREE.MeshStandardMaterial({ color: '#16161c', roughness: .6 });
+  const shelfM = new THREE.MeshStandardMaterial({ color: '#141418', roughness: .6 });
+  const whiteM = new THREE.MeshStandardMaterial({ color: '#e8eaf0', roughness: .45 });
   const tvLights = {};
   const station = (k, x, z, ry) => {
     const tv = new THREE.Group(); tv.position.set(x, 0, z); tv.rotation.y = ry;
-    const frame = new THREE.Mesh(new THREE.BoxGeometry(1.26, .76, .06), tvM); frame.position.set(0, 1.4, .05); frame.castShadow = true; tv.add(frame);
-    const scr = new THREE.Mesh(new THREE.PlaneGeometry(1.18, .69), new THREE.MeshBasicMaterial({ map: screens[k].tex, toneMapped: true })); scr.position.set(0, 1.4, .085); tv.add(scr);
+    const frame = new THREE.Mesh(new THREE.BoxGeometry(1.26, .76, .06), tvM); frame.position.set(0, 1.45, .05); frame.castShadow = true; tv.add(frame);
+    const scr = new THREE.Mesh(new THREE.PlaneGeometry(1.18, .69), new THREE.MeshBasicMaterial({ map: screens[k].tex, toneMapped: true })); scr.position.set(0, 1.45, .085); tv.add(scr);
+    // floating black shelf under the TV: a white console standing up, white controllers, a little figure (no brand marks)
     const con = new THREE.Group(); con.position.set(x, 0, z); con.rotation.y = ry;
-    const tb = new THREE.Mesh(new THREE.BoxGeometry(1.0, .42, .42).translate(0, .21, .25), tableM); tb.castShadow = tb.receiveShadow = true; con.add(tb);
-    const tall = k === 'B';   // one tall white console, two small black ones (no brand marks)
-    const cs = new THREE.Mesh(tall ? new THREE.BoxGeometry(.1, .4, .3).translate(.32, .62, .25) : new THREE.BoxGeometry(.26, .07, .26).translate(0, .455, .25), new THREE.MeshStandardMaterial({ color: tall ? '#eef0f4' : '#16161a', roughness: .4 })); cs.castShadow = true; con.add(cs);
-    if (tall) { const core = new THREE.Mesh(new THREE.BoxGeometry(.104, .36, .06).translate(.32, .62, .25), new THREE.MeshStandardMaterial({ color: '#111', roughness: .3 })); con.add(core); }
-    const led = new THREE.Mesh(new THREE.BoxGeometry(.08, .012, .01), new THREE.MeshBasicMaterial({ color: k === 'B' ? MAG : CYAN })); led.position.set(0, .46, .372); con.add(led);
-    const L = new THREE.PointLight('#ffffff', 0, 4.5, 1.6); L.position.set(x + Math.sin(ry) * .9, 1.35, z + Math.cos(ry) * .9); scene.add(L); tvLights[k] = L;
+    const sh = new THREE.Mesh(new THREE.BoxGeometry(.95, .045, .3).translate(0, .66, .16), shelfM); sh.castShadow = sh.receiveShadow = true; con.add(sh);
+    const cs = new THREE.Mesh(new THREE.BoxGeometry(.13, .3, .26).translate(.3, .833, .16), whiteM); cs.castShadow = true; con.add(cs);
+    const vent = new THREE.Mesh(new THREE.CircleGeometry(.045, 10), new THREE.MeshStandardMaterial({ color: '#1a1a1e' })); vent.rotation.x = -Math.PI / 2; vent.position.set(.3, .984, .16); con.add(vent);
+    for (const cx of [-.32, -.14]) { const pad = new THREE.Mesh(new THREE.BoxGeometry(.13, .035, .08).translate(cx, .7, .16), whiteM); pad.castShadow = true; con.add(pad); }
+    const fig = new THREE.Mesh(new THREE.BoxGeometry(.05, .1, .05).translate(.05, .733, .14), new THREE.MeshStandardMaterial({ color: k === 'B' ? '#3a8aff' : '#3aa86a', roughness: .5 })); con.add(fig);
+    const L = new THREE.PointLight('#ffffff', 0, 4.5, 1.6); L.position.set(x + Math.sin(ry) * .9, 1.4, z + Math.cos(ry) * .9); scene.add(L); tvLights[k] = L;
     add('tv' + k, tv); add('con' + k, con); return { scr };
   };
   station('A', -1.8, BACKZ + .02, 0); station('B', .1, BACKZ + .02, 0); station('C', -2.98, .45, Math.PI / 2);
-  const bagMat = { r: new THREE.MeshStandardMaterial({ map: texOf(fabric(['#3a0a10', '#6a1420', '#9c2230', '#c83a44'], 3)), roughness: .85 }), b: new THREE.MeshStandardMaterial({ map: texOf(fabric(['#0a1440', '#14287a', '#2240b0', '#3a62e0'], 5)), roughness: .85 }) };
-  const BAGS = [[-2.25, -1.85, 'r'], [-1.35, -1.85, 'b'], [-.35, -1.85, 'b'], [.55, -1.85, 'r'], [-1.7, -.05, 'r'], [-1.7, .95, 'b']];
-  BAGS.forEach(([x, z, c], i) => { const g = new THREE.SphereGeometry(.4, 14, 10); g.scale(1, .55, 1); g.translate(0, .2, 0); const m = new THREE.Mesh(g, bagMat[c]); m.castShadow = m.receiveShadow = true; m.position.set(x, 0, z); add('bag' + i, m); });
+  // framed poster between the TVs, warm picture light above it
+  const posterT = (() => { const P = new PX(20, 30), F = ramp(['#120a2a', '#2a1660', '#4a2a9a', '#7a4ad8', '#c08aff']); P.fill((x, y) => { const sil = Math.abs(x - 10) < 3 + (y > 14 ? (y - 14) * .35 : 0) && y > 8 && Math.hypot(x - 10, y - 9) > 2.4 - (y > 9 ? 9 : 0); if (sil) return hex('#08060e'); return F(.15 + (1 - y / 30) * .6 + (fbm(x * .4, y * .3, 6) - .5) * .5, x, y); }); return texOf(P.done()); })();
+  const poster = new THREE.Mesh(new THREE.PlaneGeometry(.42, .62), new THREE.MeshStandardMaterial({ map: posterT, roughness: .7 })); poster.position.set(-.85, 1.98, BACKZ + .03); scene.add(poster);
+  const pFrame = new THREE.Mesh(new THREE.BoxGeometry(.46, .66, .02), new THREE.MeshStandardMaterial({ color: '#0a0a0c' })); pFrame.position.set(-.85, 1.98, BACKZ + .015); scene.add(pFrame);
+  const pBar = new THREE.Mesh(new THREE.BoxGeometry(.3, .025, .05), new THREE.MeshStandardMaterial({ color: '#222', emissive: '#ffc070', emissiveIntensity: 2.5 })); pBar.position.set(-.85, 2.36, BACKZ + .05); scene.add(pBar);
+  const pL = new THREE.SpotLight('#ffbf70', 2.2, 1.6, .7, .6, 1.5); pL.position.set(-.85, 2.34, BACKZ + .12); pL.target.position.set(-.85, 1.8, BACKZ); scene.add(pL, pL.target);
+  const bagMat = { r: new THREE.MeshStandardMaterial({ map: texOf(fabric(['#4a0806', '#8a1408', '#c8240e', '#f04018'], 3)), roughness: .85 }), b: new THREE.MeshStandardMaterial({ map: texOf(fabric(['#080e3a', '#10206e', '#1a32a8', '#2a4ad8'], 5)), roughness: .85 }) };
+  const BAGS = [[-2.25, -1.85, 'b'], [-1.35, -1.85, 'r'], [-.35, -1.85, 'r'], [.55, -1.85, 'b'], [-1.7, -.05, 'b'], [-1.7, .95, 'b']];
+  BAGS.forEach(([x, z, c], i) => { const g = new THREE.SphereGeometry(.42, 14, 10); g.scale(1, .55, 1); g.translate(0, .2, 0); const m = new THREE.Mesh(g, bagMat[c]); m.castShadow = m.receiveShadow = true; m.position.set(x, 0, z); add('bag' + i, m); });
+  const extraBag = new THREE.Mesh(new THREE.SphereGeometry(.42, 14, 10).scale(1, .55, 1).translate(0, .2, 0), bagMat.r); extraBag.position.set(.2, 0, .3); extraBag.castShadow = extraBag.receiveShadow = true; scene.add(extraBag);
+  // ceiling + the pink LED strip that runs round the room under it
+  const ceil = new THREE.Mesh(new THREE.PlaneGeometry(6.4, 7.4), new THREE.MeshStandardMaterial({ color: '#050508', roughness: 1 })); ceil.rotation.x = Math.PI / 2; ceil.position.set(0, CEIL, 0); scene.add(ceil);
   const ledMat = (col) => new THREE.MeshStandardMaterial({ color: '#111', emissive: col, emissiveIntensity: 0 });
-  const ledL = new THREE.Mesh(new THREE.BoxGeometry(.04, .04, 6.6), ledMat(CYAN)); ledL.position.set(-2.98, 2.6, 0); add('ledL', ledL);
-  const ledR = new THREE.Mesh(new THREE.BoxGeometry(.04, .04, 6.6), ledMat(MAG)); ledR.position.set(2.98, 2.6, 0); add('ledR', ledR);
-  // LED cloud on the back wall
-  const cloudC = document.createElement('canvas'); cloudC.width = 64; cloudC.height = 32; { const g = cloudC.getContext('2d'); g.strokeStyle = '#ffffff'; g.lineWidth = 2; g.beginPath(); g.arc(18, 20, 8, Math.PI * .5, Math.PI * 1.5); g.arc(28, 12, 9, Math.PI, 0); g.arc(42, 14, 8, Math.PI * 1.2, Math.PI * .1); g.arc(48, 22, 6, -Math.PI * .5, Math.PI * .5); g.closePath(); g.stroke(); }
-  const cloudT = texOf(cloudC); const cloudM = new THREE.MeshStandardMaterial({ color: '#000', emissive: '#9fe8ff', emissiveMap: cloudT, map: cloudT, transparent: true, alphaTest: .3, emissiveIntensity: 0 });
-  const cloud = new THREE.Mesh(new THREE.PlaneGeometry(1.5, .75), cloudM); cloud.position.set(-.85, 2.15, BACKZ + .04); scene.add(cloud);
-  const ledB = new THREE.Mesh(new THREE.BoxGeometry(4.6, .04, .04), ledMat('#8a4aff')); ledB.position.set(-.7, 2.6, BACKZ + .05); scene.add(ledB);
+  const LEDY = CEIL - .1;
+  const ledL = new THREE.Mesh(new THREE.BoxGeometry(.035, .035, 7.2), ledMat(MAG)); ledL.position.set(-2.98, LEDY, 0); add('ledL', ledL);
+  const ledR = new THREE.Mesh(new THREE.BoxGeometry(.035, .035, 7.2), ledMat(MAG)); ledR.position.set(2.98, LEDY, 0); add('ledR', ledR);
+  const ledB = new THREE.Mesh(new THREE.BoxGeometry(6.0, .035, .035), ledMat(MAG)); ledB.position.set(0, LEDY, BACKZ + .05); scene.add(ledB);
+  // the cloud: hundreds of lumpy pieces hanging from the ceiling, lit from inside (white, cyan, blue; purple and pink at the rim)
+  const CLX = -.45, CLZ = -.75, CRX = 2.3, CRZ = 2.55, NCL = 1500;
+  const blobG = new THREE.IcosahedronGeometry(1, 1); blobG.scale(1, .62, 1);
+  { const n = blobG.attributes.position.count, cols = new Float32Array(n * 3), pos = blobG.attributes.position;
+    for (let f = 0; f < n; f += 3) { const y = (pos.getY(f) + pos.getY(f + 1) + pos.getY(f + 2)) / 3; const sh = (y < 0 ? 1 : .55) * (.6 + .4 * h2(f, 7, 3)); for (let j = 0; j < 3; j++) cols.set([sh, sh, sh], (f + j) * 3); }
+    blobG.setAttribute('color', new THREE.BufferAttribute(cols, 3)); }
+  const cloud = new THREE.InstancedMesh(blobG, new THREE.MeshBasicMaterial({ vertexColors: true, toneMapped: true }), NCL);
+  { const M = new THREE.Matrix4(), Q = new THREE.Quaternion(), S = new THREE.Vector3(), Pp = new THREE.Vector3(), C = new THREE.Color(), E = new THREE.Euler();
+    const pal = [['#5a3ab0', 0], ['#3a62f0', .3], ['#4ad0ff', .4], ['#a8e8ff', .5], ['#e6f6ff', .6]];
+    for (let i = 0; i < NCL; i++) {
+      const a = h2(i, 1, 7) * 6.283, r = Math.sqrt(h2(i, 2, 7)) * (1 + .12 * Math.sin(a * 5 + 1.3));
+      const x = CLX + Math.cos(a) * r * CRX, z = CLZ + Math.sin(a) * r * CRZ;
+      const s = (.08 + h2(i, 3, 7) * .13) * (1.15 - r * .35);
+      const y = CEIL - .14 - h2(i, 4, 7) * .26 * (1.1 - r * .7);
+      Pp.set(x, y, z); E.set(0, h2(i, 6, 7) * 6.28, 0); Q.setFromEuler(E); S.set(s, s, s); M.compose(Pp, Q, S); cloud.setMatrixAt(i, M);
+      let v = fbm(x * .55 + 3, z * .55, 3) + (h2(i, 5, 7) - .5) * .25; let col = pal[0][0]; for (const [c, th] of pal) if (v > th) col = c;
+      C.set(col); if (r > .86) C.lerp(new THREE.Color('#ff4fb8'), (r - .86) / .2); cloud.setColorAt(i, C);
+    }
+    cloud.instanceMatrix.needsUpdate = true; cloud.instanceColor.needsUpdate = true; }
+  scene.add(cloud);
+  // —— the counter (right wall): grey concrete front with the PIXEL ZONE letters, wood top, warm strip under the lip ——
+  const counter = new THREE.Group();
+  const concM = mat(plaster(48, 32, { seed: 77, wall: ['#26262a', '#303036', '#3a3a40', '#46464c'], beams: [] }));
+  const body = mesh(new THREE.BoxGeometry(.55, 1.04, 2.5).translate(2.62, .52, .2), concM); counter.add(body);
+  const topM = mat(woodPlanks(32, 64, { pw: 32, len: 64, seed: 31, nails: false, cols: ['#6a4a30', '#86603e', '#a07850', '#b88e60'] }));
+  const ctop = mesh(new THREE.BoxGeometry(.72, .045, 2.6).translate(2.56, 1.06, .2), topM); counter.add(ctop);
+  const lip = new THREE.Mesh(new THREE.BoxGeometry(.02, .02, 2.2), new THREE.MeshStandardMaterial({ color: '#222', emissive: '#ffb45a', emissiveIntensity: 3 })); lip.position.set(2.31, 1.02, .2); counter.add(lip);
+  const letT = (() => { const c = document.createElement('canvas'); c.width = 128; c.height = 24; const g = c.getContext('2d');
+    g.fillStyle = '#ffffff'; g.font = 'bold 17px "Arial Black", Arial, sans-serif'; g.textBaseline = 'middle'; g.fillText('PIXEL', 4, 13); g.fillText('ZONE', 70, 13);
+    g.fillStyle = '#3aa0ff'; g.fillRect(62, 1, 3, 11); g.fillStyle = '#ff3a4a'; g.fillRect(60, 13, 3, 10);
+    const d = g.getImageData(0, 0, 128, 24); for (let i = 3; i < d.data.length; i += 4) d.data[i] = d.data[i] > 110 ? 255 : 0; g.putImageData(d, 0, 0); return texOf(c); })();
+  const letters = new THREE.Mesh(new THREE.PlaneGeometry(1.5, .28), new THREE.MeshStandardMaterial({ map: letT, transparent: true, alphaTest: .5, emissive: '#ffffff', emissiveMap: letT, emissiveIntensity: .35, roughness: .6 }));
+  letters.rotation.y = -Math.PI / 2; letters.position.set(2.336, .66, .2); counter.add(letters);
+  const warmL = new THREE.PointLight('#ffb060', 1.4, 1.6, 1.6); warmL.position.set(2.1, .98, .2); counter.add(warmL);
+  // on the counter: laptop, desk fan, a basket of snacks, a menu board
+  const lapB = new THREE.Mesh(new THREE.BoxGeometry(.24, .015, .32).translate(2.55, 1.09, -.6), new THREE.MeshStandardMaterial({ color: '#2a2a30' })); counter.add(lapB);
+  const lapS = new THREE.Mesh(new THREE.PlaneGeometry(.3, .2), new THREE.MeshBasicMaterial({ color: '#5a7ad8' })); lapS.rotation.y = -Math.PI / 2 + .0; lapS.rotation.z = 0; lapS.position.set(2.66, 1.2, -.6); counter.add(lapS);
+  const fanM = new THREE.MeshStandardMaterial({ color: '#e8e4ee', roughness: .5 });
+  const fanH = new THREE.Mesh(new THREE.CylinderGeometry(.16, .16, .05, 16), fanM); fanH.rotation.z = Math.PI / 2; fanH.position.set(2.55, 1.38, .65); counter.add(fanH);
+  const fanS = new THREE.Mesh(new THREE.CylinderGeometry(.015, .05, .3, 8).translate(0, .15, 0), fanM); fanS.position.set(2.58, 1.08, .65); counter.add(fanS);
+  const bask = new THREE.Mesh(new THREE.BoxGeometry(.2, .14, .26).translate(2.55, 1.15, .1), new THREE.MeshStandardMaterial({ color: '#e0601a', roughness: .8 })); counter.add(bask);
+  const menu = new THREE.Mesh(new THREE.BoxGeometry(.03, .26, .2).translate(2.72, 1.21, 1.2), new THREE.MeshStandardMaterial({ color: '#0e0e12', emissive: '#3a4aa0', emissiveIntensity: .5 })); counter.add(menu);
+  counter.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+  scene.add(counter);
   const signM = new THREE.MeshBasicMaterial({ map: logoTex(img), transparent: true, alphaTest: .4, color: new THREE.Color(.3, .3, .3) });
-  const sign = new THREE.Mesh(new THREE.PlaneGeometry(.62, .62), signM); sign.position.set(DOORX, 2.42, BACKZ + .03); add('sign', sign);
-  const signG = glow('#c04aff', 1.3, .0); signG.position.set(DOORX, 2.42, BACKZ + .2); scene.add(signG);
-  const plantT = (() => { const P = new PX(24, 40), G = ramp(['#0a2018', '#12382a', '#1d5a3e', '#2e7a52'], .4), Pt = ramp(['#2a1a14', '#4a2e20', '#6a4430']); P.fill((x, y) => { if (y > 30 && x > 6 && x < 18) return Pt(.5 + (x < 9 ? -.2 : 0), x, y); const a = Math.atan2(y - 30, x - 12), r = Math.hypot(x - 12, (y - 30) * .7); if (y <= 30 && r < 13 && Math.sin(a * 7 + r * .3) > -.2) return G(.4 + (13 - r) / 26 + (fbm(x * .3, y * .3, 2) - .5) * .3, x, y); return null; }); P.outline(.25); return texOf(P.done()); })();
-  const plant = new THREE.Mesh(new THREE.PlaneGeometry(.75, 1.25).translate(0, .62, 0), new THREE.MeshLambertMaterial({ map: plantT, alphaTest: .5, side: THREE.DoubleSide })); plant.position.set(2.6, 0, -3.0); plant.castShadow = true; add('plant', plant);
-  // neon practicals (cyan left, magenta right): shadow-casting key + soft partner
-  const cyan1 = new THREE.PointLight(CYAN, 0, 9, 1.3); cyan1.position.set(-2.55, 2.35, -1.2); cyan1.castShadow = true; cyan1.shadow.mapSize.set(512, 512); cyan1.shadow.bias = -.004;
-  const cyan2 = new THREE.PointLight(CYAN, 0, 7, 1.4); cyan2.position.set(-2.55, 2.3, 1.6);
-  const mag1 = new THREE.PointLight(MAG, 0, 9, 1.3); mag1.position.set(2.55, 2.35, -1.4); mag1.castShadow = true; mag1.shadow.mapSize.set(512, 512); mag1.shadow.bias = -.004;
-  const mag2 = new THREE.PointLight(MAG, 0, 7, 1.4); mag2.position.set(2.55, 2.3, 1.4);
+  const signG = glow('#c04aff', 1.3, .0);
+  // light: cool white-blue from inside the cloud, pink from the strip at the walls
+  const cyan1 = new THREE.PointLight('#9fdcff', 0, 9, 1.3); cyan1.position.set(-.6, CEIL - .45, -1.6); cyan1.castShadow = true; cyan1.shadow.mapSize.set(512, 512); cyan1.shadow.bias = -.004;
+  const cyan2 = new THREE.PointLight('#7fb8ff', 0, 7, 1.4); cyan2.position.set(-.4, CEIL - .45, .6);
+  const mag1 = new THREE.PointLight(MAG, 0, 9, 1.3); mag1.position.set(2.55, LEDY - .2, -1.6); mag1.castShadow = true; mag1.shadow.mapSize.set(512, 512); mag1.shadow.bias = -.004;
+  const mag2 = new THREE.PointLight(MAG, 0, 7, 1.4); mag2.position.set(-2.55, LEDY - .2, 0);
   scene.add(cyan1, cyan2, mag1, mag2);
-  const glows = [[-2.95, 2.6, -2], [-2.95, 2.6, 0], [-2.95, 2.6, 2]].map(p => { const s = glow(CYAN, 1.4, 0); s.position.set(...p); scene.add(s); return s; })
-    .concat([[2.95, 2.6, -2], [2.95, 2.6, 0], [2.95, 2.6, 2]].map(p => { const s = glow(MAG, 1.4, 0); s.position.set(...p); scene.add(s); s.userData.m = 1; return s; }));
+  const glows = [[-2.95, LEDY, -2], [-2.95, LEDY, 0], [-2.95, LEDY, 2], [-1.5, LEDY, BACKZ + .1], [1, LEDY, BACKZ + .1]].map(p => { const s = glow(MAG, 1.3, 0); s.position.set(...p); scene.add(s); return s; })
+    .concat([[2.95, LEDY, -2], [2.95, LEDY, 0], [2.95, LEDY, 2]].map(p => { const s = glow(MAG, 1.3, 0); s.position.set(...p); scene.add(s); s.userData.m = 1; return s; }));
 
   // —— cast ——
   const F = makeChar('hero'), C = makeChar('client'), P1 = makeChar('p1'), P2 = makeChar('p2'), P3 = makeChar('p3'), P4 = makeChar('p4'), P5 = makeChar('p5');
@@ -213,8 +263,8 @@ export async function buildRoom() {
     const pre = ['door', 'bulb', 'desk'].includes(shotId);
     const on = pre ? 0 : (shotId === 'build' ? ss(seg(t, T.lightsOn, T.lightsOn + .35)) * (t < T.lightsOn + .5 ? (Math.floor(t * 20) % 3 ? 1 : .35) : 1) : 1);
     const fl = 1 + .03 * Math.sin(t * 11.3);
-    cyan1.intensity = 7.5 * on * fl; cyan2.intensity = 4 * on; mag1.intensity = 7.5 * on * fl; mag2.intensity = 4 * on;
-    ledL.material.emissiveIntensity = ledR.material.emissiveIntensity = 3.5 * on; ledB.material.emissiveIntensity = 2.2 * on;
+    cyan1.intensity = 6 * on * fl; cyan2.intensity = 4 * on; mag1.intensity = 5 * on * fl; mag2.intensity = 4 * on;
+    ledL.material.emissiveIntensity = ledR.material.emissiveIntensity = 3.5 * on; ledB.material.emissiveIntensity = 3.5 * on;
     glows.forEach(g => g.material.opacity = .85 * on);
     signM.color.setScalar(.28 + .9 * on); signG.material.opacity = .55 * on;
     for (const L of [cyan1, cyan2, mag1, mag2]) L.visible = L.intensity > .01;
@@ -223,20 +273,22 @@ export async function buildRoom() {
 
   // —— cameras per shot (Level 002) ——
   const CAM = {
-    reveal: { p: track([[0, [2.0, 4.3, -6.8]], [2.6, [2.05, 4.6, -6.0]], [6.5, [3.4, 6.6, 1.6]], [10.67, [3.4, 8.6, 7.4]]]), l: track([[0, [1.5, .8, -.8]], [2.6, [1.4, .8, -.6]], [6.5, [-.2, .5, -1.0]], [10.67, [-.5, .3, -1.1]]]), fov: 36 },
-    guardian: { p: track([[0, [1.4, 3.6, 4.6]], [4.0, [.7, 3.0, 3.8]], [8.0, [-.1, 2.3, 3.0]]]), l: track([[0, [-1.3, .55, .6]], [4.0, [-1.5, .55, .8]], [8.0, [-1.65, .6, .95]]]), fov: 34 },
-    react: { p: track([[0, [1.7, 3.3, 3.9]], [5.33, [1.5, 3.1, 3.6]]]), l: track([[0, [-.9, .8, .55]], [5.33, [-.95, .8, .6]]]), fov: 36 },
-    handoff: { p: track([[0, [.5, 2.9, 3.9]], [4.0, [.3, 2.7, 3.6]]]), l: track([[0, [-1.35, .6, .6]], [4.0, [-1.4, .6, .55]]]), fov: 34 },
-    duo: { p: track([[0, [.6, 2.8, 3.8]], [2.6, [1.2, 3.6, 4.6]], [6.67, [3.2, 7.8, 7.6]]]), l: track([[0, [-1.7, .6, .45]], [2.6, [-1.5, .6, .3]], [6.67, [-.6, .3, -1.0]]]), fov: 36 },
+    // two set-ups with a cut on bar 22: through the doorway from the corridor, then the wide room from the front-left (counter, TV wall, cloud)
+    reveal: { p: lt => lt < 5.333 ? track([[0, [.25, 1.45, .45]], [5.333, [.45, 1.45, .05]]])(lt) : track([[5.333, [-1.3, 1.75, 2.9]], [10.67, [-1.8, 1.7, 4.2]]])(lt),
+      l: lt => lt < 5.333 ? track([[0, [1.85, 1.35, -3.2]], [5.333, [1.62, 1.25, -2.7]]])(lt) : track([[5.333, [2.0, 1.3, -.45]], [10.67, [1.95, 1.3, -.4]]])(lt), get fov() { return 50; } },
+    guardian: { p: track([[0, [1.4, 2.6, 4.4]], [4.0, [.7, 2.2, 3.7]], [8.0, [-.1, 1.8, 3.0]]]), l: track([[0, [-1.3, .7, .6]], [4.0, [-1.5, .65, .8]], [8.0, [-1.65, .6, .95]]]), fov: 36 },
+    react: { p: track([[0, [1.6, 2.2, 3.8]], [5.33, [1.45, 2.1, 3.5]]]), l: track([[0, [-.9, .95, .55]], [5.33, [-.95, .95, .6]]]), fov: 38 },
+    handoff: { p: track([[0, [.5, 2.1, 3.8]], [4.0, [.3, 2.0, 3.5]]]), l: track([[0, [-1.35, .65, .6]], [4.0, [-1.4, .65, .55]]]), fov: 36 },
+    duo: { p: track([[0, [.6, 2.0, 3.7]], [2.6, [.2, 1.95, 4.1]], [6.67, [-1.8, 1.75, 4.7]]]), l: track([[0, [-1.7, .65, .45]], [2.6, [-.6, .9, .1]], [6.67, [2.1, 1.2, -.2]]]), fov: 44 },
   };
   const LZW = new THREE.Vector3();
   function update(t, shot, cam, post) {
     const lt = t - shot.a, id = shot.id, Cm = CAM[id];
     cam.up.set(0, 1, 0); cam.position.set(...Cm.p(lt)); cam.fov = Cm.fov; cam.updateProjectionMatrix();
-    if (id === 'reveal' && lt < 6.5) { const k = seg(t, 54.6, 57.4), hx = lerp(DOORX, 1.25, ss(k)), hz = lerp(BACKZ + .35, -1.9, ss(k)), w = ss(seg(lt, 3.5, 6.5)), L = Cm.l(lt); cam.lookAt(lerp(hx, L[0], w), lerp(.8, L[1], w), lerp(hz, L[2], w)); } else cam.lookAt(...Cm.l(lt));
+    if (false) { const k = seg(t, 54.6, 57.4), hx = lerp(DOORX, 1.25, ss(k)), hz = lerp(BACKZ + .35, -1.9, ss(k)), w = ss(seg(lt, 3.5, 6.5)), L = Cm.l(lt); cam.lookAt(lerp(hx, L[0], w), lerp(.8, L[1], w), lerp(hz, L[2], w)); } else cam.lookAt(...Cm.l(lt));
     setBuild(t, id); const neon = lightsState(t, id);
     hideAll(); holos.forEach(h => h.visible = false); holoSpark.visible = false; holoL.intensity = 0; sparkle.visible = false;
-    desk.visible = chair.visible = false; backW.visible = cam.position.z > BACKZ + .05;
+    desk.visible = chair.visible = false; backW.visible = cam.position.y < WALLH + .1 || cam.position.z > BACKZ + .05;
     let door = 0, focusOn = null, aper = 360;
     const goal = (t > 57.2 && t < 58.6) || (t > 80.0 && t < 81.2);
     // the room is already alive
@@ -254,10 +306,10 @@ export async function buildRoom() {
     // the protagonist
     if (id === 'reveal') {
       door = 1 - ss(seg(t, 58.0, 59.0));
-      const k = seg(t, 54.6, 57.4), x = lerp(DOORX, 1.25, ss(k)), z = lerp(BACKZ + .35, -1.9, ss(k));
+      const k = seg(t, 51.3, 53.9), x = lerp(DOORX, 1.6, ss(k)), z = lerp(BACKZ + .35, -2.55, ss(k));
       const behind = cam.position.z < z;
       place(F, x, z, k > 0 && k < 1 ? (behind ? ['backW0', 'back', 'backW1', 'back'][Math.floor(t * 6) % 4] : step4(t)) : (behind ? 'back' : (t > 53.4 && t < 55 ? 'frontO' : 'frontO')), cam, !behind && k > 0 && k < 1);
-      focusOn = t < 56 ? F.root.position.clone().setY(1) : new THREE.Vector3(-.5, .4, -1.3); aper = t < 56 ? 300 : 0;
+      focusOn = lt < 5.333 ? F.root.position.clone().setY(1.2) : new THREE.Vector3(1.6, 1.0, -.8); aper = lt < 5.333 ? 110 : 0;
     } else if (id === 'guardian') {
       place(F, -.55, .5, idle(t, 'idle0', 'blink', .7), cam, true);
       LAGZ.root.getWorldPosition(LZW); focusOn = LZW.clone().setY(.55); aper = 260 + lt * 15;
@@ -275,12 +327,13 @@ export async function buildRoom() {
     doorPivot.rotation.y = -door * 1.75; hallL.intensity = 1.5 * door; hallL.visible = door > .01; hall.material.color.set('#2a1640').multiplyScalar(.4 + .6 * door);
     bulbM.emissiveIntensity = 0; bulbL.intensity = 0; bulbL.visible = false; bulbG.material.opacity = 0;
     deskL.intensity = 0; deskL.visible = false; deskG.material.opacity = 0; lampHead.material.emissiveIntensity = 0;
-    moon.intensity = .25; winM.color.set('#1a2440'); hemi.intensity = .55;
+    moon.intensity = .2; hemi.intensity = .6;
     for (const k of ['A', 'B', 'C']) {
       screens[k].draw(t, k, k === 'B' ? 57.3 : k === 'C' ? null : null);
       const L = tvLights[k]; L.color.copy(screens[k].avg); L.intensity = 3.2; L.visible = true;
     }
-    cloudM.emissiveIntensity = 2.2 * (.85 + .15 * Math.sin(t * 2.1));
+    cloud.material.color.setScalar(.92 + .08 * Math.sin(t * 1.3));
+    ceil.visible = cam.position.y < CEIL - .02 && cam.position.z < 3.7;
     const hero = (id === 'guardian' || id === 'handoff') ? LAGZ : F; fill.position.copy(hero.root.position).add(new THREE.Vector3(.4, 1.5, 1.5)); fill.intensity = 1.8;
     dust.userData.update(t);
     if (focusOn) { post.dof.focus = cam.position.distanceTo(focusOn); post.dof.aper = aper; post.dof.maxCoc = aper > 0 ? 20 : 0; }

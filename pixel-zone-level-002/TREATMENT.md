@@ -20,9 +20,9 @@ Foram consideradas três estruturas:
 - **Três cenários com três temperaturas:**
   - **Cidade:** névoa azul e janelas que se apagam uma a uma. É o inverso do Level 001, porque aqui a cidade adormece.
   - **Barbearia:** âmbar quente, chão em xadrez, cadeiras de couro e espelhos.
-  - **Pixel Zone:** paredes pretas, ciano à esquerda e magenta à direita, e uma nuvem de LED na parede do fundo.
+  - **Pixel Zone:** recriada a partir das fotos do espaço real (`refs/espaco-real-*.jpg`): paredes e teto pretos, a grande nuvem iluminada por dentro no teto (branco, ciano e azul, com rosa na borda), a fita LED rosa à volta do teto, o balcão de betão cinzento com as letras PIXEL ZONE e a luz quente sob o tampo de madeira, as TVs na parede com prateleiras pretas flutuantes, consolas e comandos brancos, o quadro com luz de quadro, e os puffs vermelhos e azuis sobre o tapete preto felpudo.
 - **A porta é a luz-protagonista:** frestas ciano à esquerda e magenta à direita, luz pela fechadura e feixes de luz no ar. Pulsa como um coração (72 bpm) e treme a cada batida.
-- **Consolas:** uma alta branca e duas pequenas pretas, sem logótipos de marcas de terceiros.
+- **Consolas:** brancas, em pé nas prateleiras, sem logótipos de marcas de terceiros (os emblemas redondos da parede ficaram de fora).
 - **Protagonista:** personagem novo, de casaco escuro com fecho, calças pretas e cabelo castanho.
 - **Lagzilla:** sentado num puff azul com um comando na mão. O visor acende quando ele fala pela primeira vez.
 - **Interface de RPG:**
@@ -40,9 +40,10 @@ Foram consideradas três estruturas:
 | 3 | 21.3–32 | Interior da barbearia, sobre o ombro | Travelling lento pelo salão até ao corredor |
 | 4 | 32–42.7 | Corredor estreito, a porta ao fundo | Dolly-in progressivo; a porta vibra |
 | 5 | 42.7–50.7 | Mão a caminho da maçaneta | Aproximação; holograma; clarão |
-| 6 | 50.7–61.3 | Revelação da Pixel Zone | Começa atrás dele na porta e sobe até à vista isométrica |
+| 6 | 50.7–61.3 | Revelação da Pixel Zone | De frente para a porta: ele entra e diz "Uau…"; corte no compasso 22 para o plano aberto com a nuvem, a fita rosa e o balcão PIXEL ZONE |
 | 7 | 61.3–74.7 | Lagzilla no puff; reação do protagonista | Plano médio → aproximação ao visor; corte para a reação |
 | 8 | 74.7–85.3 | O comando muda de mãos; os dois jogam | Close na entrega → travelling lateral → plano aberto |
+| 8b | 82–85.3 | Final do plano 8 | Recua até ao plano aberto do balcão e da nuvem |
 | 9 | 85.3–96.5 | O corredor da barbearia; o Lagzilla na porta aberta faz sinal | Dolly-out pelo corredor → logótipo |
 
 ## Som

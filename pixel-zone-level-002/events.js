@@ -21,7 +21,7 @@ ev(T.voice - .1, 'thrum');
 ev(T.ui1, 'uiDiscover'); ev(T.ui2, 'uiStart'); ev(T.touch - .05, 'click'); ev(T.touch, 'riser'); ev(T.flash, 'flash');
 // the reveal and the room
 ev(T.reveal, 'boom');
-for (let t = 54.6; t < 57.4; t += .3) ev(t, 'step', { surf: 'wood', g: .5 });
+for (let t = 51.4; t < 53.9; t += .36) ev(t, "step", { surf: "wood", g: .5 });
 ev(57.3, 'goal'); ev(57.45, 'shout', { id: 'c4', g: .55, pan: -.2 }); ev(60.0, 'shout', { id: 'c5', g: .4, pan: .4 });
 ev(T.visor, 'visor');
 for (let t = 50.8; t < 90.5; t += .27) ev(t, 'button', { g: .22 });
