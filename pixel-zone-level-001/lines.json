@@ -1,0 +1,106 @@
+[
+ {
+  "id": "n1",
+  "text": "Há algum tempo, tive uma ideia.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-10%"
+ },
+ {
+  "id": "n2",
+  "text": "Criar um lugar onde jogar fosse apenas o começo.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-10%"
+ },
+ {
+  "id": "n3",
+  "text": "Não era um espaço enorme. Não tinha nada de extraordinário.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-8%"
+ },
+ {
+  "id": "n4",
+  "text": "Mas eu conseguia imaginar o que ele poderia ser.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-8%",
+  "say": "Mas eu conseguia, imaginar o que ele poderia ser."
+ },
+ {
+  "id": "n5",
+  "text": "Comecei com o que tinha. Uma ideia, alguns planos e a vontade de fazer acontecer.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-6%"
+ },
+ {
+  "id": "n6",
+  "text": "Cada peça que chegava, cada detalhe que ficava pronto… fazia aquele sonho parecer um pouco mais real.",
+  "say": "Cada peça que chegava, cada detalhe que ficava pronto... fazia aquele sonho parecer um pouco mais real.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-6%"
+ },
+ {
+  "id": "n7",
+  "text": "Mas havia uma coisa que eu não podia construir sozinho.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-12%"
+ },
+ {
+  "id": "n8",
+  "text": "As histórias que aconteceriam aqui.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-14%"
+ },
+ {
+  "id": "d1",
+  "text": "Dá pra jogar?",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+4%",
+  "pitch": "+28Hz",
+  "asr": "Dá para jogar?"
+ },
+ {
+  "id": "d2",
+  "text": "Claro. Entra aí!",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+0%",
+  "pitch": "+4Hz"
+ },
+ {
+  "id": "n9",
+  "text": "E então começaram a chegar pessoas.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-12%",
+  "say": "E então, começaram a chegar pessoas."
+ },
+ {
+  "id": "n10",
+  "text": "Vieram jogar, competir, rir… e criar memórias.",
+  "say": "Vieram jogar, competir, rir... e criar memórias.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-8%"
+ },
+ {
+  "id": "n11",
+  "text": "Foi aí que entendi.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-12%"
+ },
+ {
+  "id": "n12",
+  "text": "Eu não tinha criado apenas um lugar para jogar.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-10%"
+ },
+ {
+  "id": "n13",
+  "text": "Tinha criado um lugar para pertencer.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-14%"
+ },
+ {
+  "id": "n14",
+  "text": "E esta aventura… está só a começar.",
+  "say": "E esta aventura... está só a começar.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-14%"
+ }
+]

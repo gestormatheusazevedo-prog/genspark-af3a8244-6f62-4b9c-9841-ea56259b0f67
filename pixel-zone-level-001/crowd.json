@@ -1,0 +1,6 @@
+[
+ {"id":"c1","text":"Gooool!","voice":"pt-BR-AntonioNeural","rate":"+0%","pitch":"+20Hz"},
+ {"id":"c2","text":"Boa!","voice":"pt-BR-FranciscaNeural","rate":"+5%"},
+ {"id":"c3","text":"Mais uma!","voice":"pt-PT-DuarteNeural","rate":"+5%"},
+ {"id":"c4","text":"Vai, vai, vai!","voice":"pt-BR-ThalitaMultilingualNeural","rate":"+10%"}
+]
