@@ -1,0 +1,59 @@
+1
+00:00:00,000 --> 00:00:01,000
+Sete da manhã.
+
+2
+00:00:01,000 --> 00:00:02,790
+You lose ten HP!
+
+3
+00:00:04,000 --> 00:00:07,880
+Trânsito parado. Menos 20.
+
+4
+00:00:07,900 --> 00:00:11,150
+O chefe chamou na sala. Menos 30.
+
+5
+00:00:11,150 --> 00:00:14,800
+E-mail urgente às 6 da tarde. Menos 25.
+
+6
+00:00:14,800 --> 00:00:16,500
+Sobrou 15 HP.
+
+7
+00:00:16,500 --> 00:00:20,550
+Aí ele abriu a porta lá do fundo da barbearia.
+
+8
+00:00:20,550 --> 00:00:22,200
+Safe zone found!
+
+9
+00:00:22,450 --> 00:00:24,950
+Comando na mão. Mais 30.
+
+10
+00:00:24,950 --> 00:00:27,850
+Os amigos de sempre. Mais 25.
+
+11
+00:00:27,850 --> 00:00:31,400
+Uma risada que ele nem lembrava que tinha. Mais 30.
+
+12
+00:00:31,400 --> 00:00:32,850
+100 HP de novo.
+
+13
+00:00:32,850 --> 00:00:35,750
+Se quer viver isso, vem conhecer o Pixel Zone.
+
+14
+00:00:35,750 --> 00:00:37,400
+Reserva pelo link na bio.
+
+15
+00:00:37,400 --> 00:00:41,600
+Todo dia você perde HP. Aqui você recupera.
