@@ -1,0 +1,46 @@
+PIXEL ZONE — LEVEL 002 "A PORTA QUE NINGUÉM CONHECIA" — VERSÃO REEL
+Remontagem do Level 002 no formato dinâmico: 68,6 s, 1080×1920, 24 fps, 120 BPM, um ângulo novo a cada 2 s.
+- Os cenários, personagens e vozes são os do Level 002 (abaixo). edit.js remapeia o tempo do filme original (cortando os tempos mortos)
+  e escolhe uma câmara nova para cada fatia de 2 s; o HUD de jogo (XP, missões, LEVEL UP) e a chamada para ação são novos (ui_reel.js).
+- Chamada para ação: voz do Lagzilla (pt-BR-AntonioNeural +38 Hz), a mesma dos Reels Side Quest / Safe Zone.
+- Trilha chiptune nova (mix.py); a trilha original do Level 002 está em mix_src.py. Fontes Lilita One e Fredoka (OFL).
+- Os números de XP são uma mecânica visual: não contam curtidas reais.
+
+——— Créditos do Level 002 original ———
+PIXEL ZONE — LEVEL 002: A PORTA QUE NINGUÉM CONHECIA
+Curta em 2.5D Pixel Art, 1080×1920, 24 fps.
+
+Material do cliente (Pixel Zone) — usado com autorização do próprio cliente
+- Roteiro, narração (texto), conceito e direção de arte: roteiro "PIXEL ZONE — LEVEL 002: A PORTA QUE NINGUÉM CONHECIA".
+- Logótipo PIXEL ZONE: refs/logo-pixel-zone.png (usado na tela final e, pixelizado, na parede da sala)
+- Nome "Barbearia Barba Negra": usado com autorização da barbearia, segundo o cliente. Letreiro desenhado em pixel art (sem o logótipo da barbearia)..
+- Referência de personagem: refs/lagzilla.png (mascote Lagzilla). O protagonista é um personagem novo, desenhado para este filme.
+  Os sprites são desenhos novos em pixel art feitos em código (chars.js) a partir dessas referências; as fotos não aparecem no filme.
+
+Imagem
+- Toda a imagem é gerada por código nesta pasta (three.js + texturas de pixel desenhadas pixel a pixel).
+  Sem fotos, sem pacotes de assets 3D e sem imagens geradas por IA.
+- Motor de base (px.js, kit.js, fx.js, post_ts.js) copiado e adaptado da biblioteca de estilos Lemo-Opuscar (licença MIT).
+- three.js r170 (MIT).
+
+Música
+- Trilha original composta para este filme em mix.py (piano, drones e synthwave feitos em numpy).
+- Piano: "Salamander Grand Piano V3" by Alexander Holm, licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+
+Vozes
+- Narração: Microsoft Edge neural TTS pt-BR-AntonioNeural; protagonista: pt-PT-DuarteNeural; Lagzilla: pt-BR-AntonioNeural (mais agudo, com bitcrush)
+  Risos e gritos de fundo: pt-PT-RaquelNeural, pt-BR-FranciscaNeural, pt-PT-DuarteNeural, pt-BR-ThalitaMultilingualNeural.
+  Verifique os termos de uso da Microsoft para uso comercial das vozes; para a versão final, vozes gravadas podem substituir as vozes sintéticas.
+- Verificação de fala: faster-whisper (MIT), modelo Whisper large-v3 (MIT).
+
+Efeitos sonoros e ambientes
+- Sintetizados em mix.py com core/audio/sfx.py da biblioteca Lemo-Opuscar (ruído, filtros, envelopes). Sem gravações.
+
+Fontes (SIL Open Font License 1.1; subconjuntos latinos woff2 via pacotes @fontsource; licenças em fonts/)
+- Cinzel — The Cinzel Project Authors (Natanael Gama): fonts/h0.woff2 (500), fonts/h1.woff2 (700), fonts/OFL-Cinzel.txt
+- Cormorant Garamond — The Cormorant Project Authors (Christian Thalmann): fonts/h2–h4.woff2 (italic 500, 500, 600), fonts/OFL-CormorantGaramond.txt
+
+Masterização
+- ffmpeg (loudnorm em duas passagens, −14 LUFS).
+
+Barbearia Barba Negra: name, logo and interior recreated from photos supplied by the client, used with permission.

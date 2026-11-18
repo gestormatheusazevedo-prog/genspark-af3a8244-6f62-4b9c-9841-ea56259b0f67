@@ -1,0 +1,95 @@
+[
+ {
+  "id": "n1",
+  "text": "Toda cidade guarda segredos. Alguns estão escondidos à vista de todos.",
+  "say": "Toda cidade guarda segredos... Alguns estão escondidos à vista de todos.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-16%",
+  "pitch": "-6Hz"
+ },
+ {
+  "id": "h1",
+  "text": "Espera… que som foi esse?",
+  "say": "Espera... que som foi esse?",
+  "voice": "pt-PT-DuarteNeural",
+  "rate": "-6%"
+ },
+ {
+  "id": "h2",
+  "text": "Olá? Tem alguém aí?",
+  "voice": "pt-PT-DuarteNeural",
+  "rate": "-8%"
+ },
+ {
+  "id": "l0",
+  "text": "Ainda tem lugar pra mais um…",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-6%",
+  "pitch": "+38Hz",
+  "say": "Ainda tem lugar pra mais um..."
+ },
+ {
+  "id": "h3",
+  "text": "Que lugar é este?",
+  "voice": "pt-PT-DuarteNeural",
+  "rate": "-6%"
+ },
+ {
+  "id": "h4",
+  "text": "Uau…",
+  "say": "Uau...",
+  "voice": "pt-PT-DuarteNeural",
+  "rate": "-10%"
+ },
+ {
+  "id": "l1",
+  "text": "Até que enfim. Achei que você ia ficar aí fora pra sempre.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+8%",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "h5",
+  "text": "Tu… falas?",
+  "say": "Tu... falas?",
+  "voice": "pt-PT-DuarteNeural",
+  "rate": "-4%"
+ },
+ {
+  "id": "l2",
+  "text": "E jogo melhor que você. Quer descobrir?",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+8%",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "l3",
+  "text": "Bem-vindo ao Pixel Zone.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+2%",
+  "pitch": "+38Hz",
+  "asr": "Bem-vindo ao Pixel Zone."
+ },
+ {
+  "id": "n2",
+  "text": "Alguns lugares não se encontram. Descobrem-se.",
+  "say": "Alguns lugares não se encontram... Descobrem-se.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "-16%",
+  "pitch": "-6Hz"
+ },
+ {
+  "id": "c1",
+  "text": "Se quer viver isso, vem conhecer o Pixel Zone.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+6%",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "c2",
+  "text": "Reserva pelo link na bio.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+4%",
+  "pitch": "+38Hz"
+ }
+]
