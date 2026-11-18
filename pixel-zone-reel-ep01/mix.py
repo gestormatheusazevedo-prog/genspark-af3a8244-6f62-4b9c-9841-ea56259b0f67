@@ -64,7 +64,7 @@ def lead(b, v=.13, oct=0):
     for bb, n, d in LEAD: add(music, pulse(m(n) + 12 * oct, d * BEAT * .95, v, .25, .006), bt(b) + bb * BEAT, 1, .1)
 
 # 1 (0–2): the defeat jingle
-for i, n in enumerate(['G4', 'F#4', 'F4', 'E4']): add(music, pulse(m(n), .26 if i < 3 else .9, .14, .5, .01 if i == 3 else 0), .25 + i * .27, 1, 0)
+for i, n in enumerate(['G4', 'F#4', 'F4', 'E4']): add(music, pulse(m(n), .26 if i < 3 else .9, .14, .5, .01 if i == 3 else 0), .95 + i * .27, 1, 0)
 add(music, tri(m('E2'), 1.1, .35), 1.06, 1, 0)
 # 2 (2–4): nothing but the TV
 # 3 (4–6): the rewind, then a curious little groove … that stops dead at 6.0 when everyone turns
@@ -130,7 +130,7 @@ def crowd8(d=1.6, v=.4):
     return (x * adsr(d, .05, .3, .6, .6) * v).astype(np.float32)
 for e in E:
     t, ty = e['t'], e['type']
-    if ty == 'lose': add(fx, buzzer(), t, .8)
+    if ty == 'lose': add(fx, buzzer(), t, .3)
     elif ty == 'tvhum': add(amb, (np.sin(2 * np.pi * 60 * t_(e['d'])) * .2 + lp(noise(e['d']), 200) * .1).astype(np.float32) * adsr(e['d'], .2, .1, 1, .6).astype(np.float32), t, .4)
     elif ty == 'rewind': add(fx, rewind(), t, .8)
     elif ty == 'door': add(fx, X.creak(.7).astype(np.float32), t, .4, .35); add(fx, bell2(), t + .1, .45, .4)
