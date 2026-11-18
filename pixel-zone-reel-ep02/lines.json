@@ -1,0 +1,125 @@
+[
+ {
+  "id": "z1",
+  "text": "Sete da manhã.",
+  "rate": "+4%",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "a1",
+  "text": "You lose ten HP!",
+  "voice": "en-US-GuyNeural",
+  "rate": "-8%",
+  "pitch": "-12Hz"
+ },
+ {
+  "id": "z2",
+  "text": "Trânsito parado. Menos 20.",
+  "say": "Trânsito parado. Menos vinte.",
+  "asr": "Trânsito parado. Menos vinte.",
+  "rate": "+6%",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z3",
+  "text": "O chefe chamou na sala. Menos 30.",
+  "say": "O chefe chamou na sala. Menos trinta.",
+  "asr": "O chefe chamou na sala. Menos trinta.",
+  "rate": "+6%",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z4",
+  "text": "E-mail urgente às 6 da tarde. Menos 25.",
+  "say": "E-mail urgente às seis da tarde. Menos vinte e cinco.",
+  "asr": "E-mail urgente às seis da tarde. Menos vinte e cinco.",
+  "rate": "+16%",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z5",
+  "text": "Sobrou 15 HP.",
+  "say": "Sobrou quinze agá pê.",
+  "asr": "Sobrou quinze HP.",
+  "rate": "-4%",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z6",
+  "text": "Aí ele abriu a porta lá do fundo da barbearia.",
+  "rate": "+6%",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "a2",
+  "text": "Safe zone found!",
+  "voice": "en-US-GuyNeural",
+  "rate": "-8%",
+  "pitch": "-12Hz"
+ },
+ {
+  "id": "z8",
+  "text": "Comando na mão. Mais 30.",
+  "say": "Comando na mão. Mais trinta.",
+  "asr": "Comando na mão. Mais trinta.",
+  "rate": "+12%",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z9",
+  "text": "Os amigos de sempre. Mais 25.",
+  "say": "Os amigos de sempre. Mais vinte e cinco.",
+  "asr": "Os amigos de sempre. Mais vinte e cinco.",
+  "rate": "+18%",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z10",
+  "text": "Uma risada que ele nem lembrava que tinha. Mais 30.",
+  "say": "Uma risada que ele nem lembrava que tinha. Mais trinta.",
+  "asr": "Uma risada que ele nem lembrava que tinha. Mais trinta.",
+  "rate": "+18%",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z11",
+  "text": "100 HP de novo.",
+  "say": "Cem agá pê de novo!",
+  "asr": "Cem HP de novo.",
+  "rate": "+4%",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z12",
+  "text": "Se quer viver isso, vem conhecer o Pixel Zone.",
+  "rate": "+6%",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z13",
+  "text": "Reserva pelo link na bio.",
+  "rate": "+4%",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z14",
+  "text": "Todo dia você perde HP. Aqui você recupera.",
+  "say": "Todo dia você perde agá pê. Aqui você recupera.",
+  "asr": "Todo dia você perde HP. Aqui você recupera.",
+  "rate": "+8%",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz"
+ }
+]

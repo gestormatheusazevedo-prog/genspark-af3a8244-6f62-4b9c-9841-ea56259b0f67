@@ -1,0 +1,22 @@
+PIXEL ZONE · SAFE ZONE 01 — "O DIA DELE"
+Reel em 2.5D Pixel Art, 1080×1920, 24 fps, 41,6 s, 120 BPM (um ângulo novo a cada ~2 s).
+
+Material do cliente (Pixel Zone) — usado com autorização do próprio cliente
+- Roteiro: pixel-zone-reels/ROTEIROS.md, Episódio 2, "Safe Zone — O Dia Dele" (aprovado pelo cliente).
+- Logótipo PIXEL ZONE (refs/logo-pixel-zone.png): barra de XP, néon na parede e balcão.
+- Lagzilla (refs/lagzilla.png): sprite novo em pixel art feito em código (chars.js); a imagem não aparece no filme.
+- Sala: o Pixel Zone real (fotos do cliente), recriado em pixel art no Level 001/002.
+- O trabalhador, o chefe e os jogadores são personagens fictícios (arquétipos), não pessoas reais. Os números de HP são ilustrativos.
+- Barbearia Barba Negra (fachada, interior, logótipo) e o Lucas: recriados em pixel art com autorização, segundo o cliente.
+- O jogo na TV é um futebol genérico em pixel art, sem marcas. Consolas sem logótipos.
+- Os números de XP são uma mecânica visual: não contam curtidas reais.
+
+Imagem
+- Toda a imagem é gerada por código nesta pasta (three.js + texturas desenhadas pixel a pixel), sem fotos, sem pacotes de assets e sem imagens geradas por IA.
+- Motor de base (px.js, kit.js, fx.js, post_ts.js) adaptado da biblioteca de estilos Lemo-Opuscar (licença MIT). three.js (MIT).
+- Fontes: Lilita One e Fredoka (SIL Open Font License, fonts/OFL.md).
+
+Som
+- Trilha chiptune, efeitos e mistura sintetizados em código (mix.py), sem samples de terceiros.
+- Vozes por síntese (Microsoft Edge TTS): Lagzilla — pt-BR-AntonioNeural (+38 Hz); (sem diálogos);
+  locutor de arcada (YOU LOSE TEN HP / SAFE ZONE FOUND) — en-US-GuyNeural. Verificadas por transcrição (Whisper large-v3).
