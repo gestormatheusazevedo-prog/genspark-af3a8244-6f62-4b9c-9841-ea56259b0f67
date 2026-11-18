@@ -14,7 +14,7 @@ const RUNS = [
   [[50, 77.0, 2, 'orig'], [52, 79.0, 2, 'close']],                          // PLAYER 2 CONNECTED
   [[54, 81.4, 2, 'orig'], [56, 83.4, 2, 'high']],                           // Bem-vindo ao Pixel Zone (l3)
   [[58, 85.4, 2, 'orig'], [60, 87.4, 2, 'close'], [62, 89.4, 1.4, 'orig']],   // the secret (n2)
-  [[63.4, 79.6, 2.2, 'side'], [65.6, 81.8, 3.0, 'high']],                   // call to action, over the duo
+  [[63.4, 79.6, 2.2, 'side'], [65.6, 81.8, 3.0, 'orig']],                   // call to action, over the duo
 ];
 export const SLOTS = RUNS.flat().map(([a, src, d, cam]) => ({ a, b: a + d, src, cam }));
 export const DUR = SLOTS[SLOTS.length - 1].b;   // 68.6
