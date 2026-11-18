@@ -1,0 +1,116 @@
+[
+ {
+  "id": "a1",
+  "text": "You lose!",
+  "voice": "en-US-GuyNeural",
+  "rate": "-8%",
+  "pitch": "-12Hz"
+ },
+ {
+  "id": "z1",
+  "text": "5 a 0 no Pixel Zone.",
+  "say": "Cinco a zero no Pixel Zone.",
+  "asr": "5 a 0 no Pixel Zone.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+8%",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z2",
+  "text": "Entrou sozinho.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+2%",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z3",
+  "text": "0 amigos aqui dentro.",
+  "say": "Zero amigos aqui dentro.",
+  "asr": "Zero amigos aqui dentro.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+4%",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z4",
+  "text": "Pegou o único comando que sobrou.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+6%",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z5",
+  "text": "Aí alguém sentou do lado dele.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+6%",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "v1",
+  "text": "Segura o botão assim, ó.",
+  "voice": "pt-PT-DuarteNeural",
+  "rate": "+2%",
+  "pitch": "-6Hz"
+ },
+ {
+  "id": "a2",
+  "text": "Try again!",
+  "voice": "en-US-GuyNeural",
+  "rate": "-8%",
+  "pitch": "-12Hz"
+ },
+ {
+  "id": "z7",
+  "text": "Mesmo jogo, mesma TV.",
+  "say": "Mesmo jogo, mesma tevê.",
+  "asr": "Mesmo jogo, mesma TV.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+6%",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z8",
+  "text": "Gol no último minuto.",
+  "say": "Gol no último minuto!",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+10%",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "a3",
+  "text": "You win!",
+  "voice": "en-US-GuyNeural",
+  "rate": "-8%",
+  "pitch": "-12Hz"
+ },
+ {
+  "id": "z10",
+  "text": "Entrou sozinho. Saiu com 3 amigos.",
+  "say": "Entrou sozinho. Saiu com três amigos.",
+  "asr": "Entrou sozinho. Saiu com 3 amigos.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+14%",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z11",
+  "text": "Se quer viver isso, vem conhecer o Pixel Zone.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+6%",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z12",
+  "text": "Reserva pelo link na bio.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+4%",
+  "pitch": "+38Hz"
+ },
+ {
+  "id": "z13",
+  "text": "No Pixel Zone, ninguém perde sozinho.",
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+0%",
+  "pitch": "+38Hz"
+ }
+]
