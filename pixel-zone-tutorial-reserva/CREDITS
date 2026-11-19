@@ -1,0 +1,10 @@
+PIXEL ZONE — TUTORIAL: COMO RESERVAR EM PIXELZONE.PT
+Vídeo vertical 1080×1920, 24 fps, 55 s.
+
+- Imagens: capturas reais do site pixelzone.pt num ecrã de telemóvel (iPhone 13, 390×844), feitas a 19/11/2026 com tools/capture.js
+  e tools/capture_home.js (a barra de navegação fixa foi escondida na captura da página inicial para a página não a repetir a meio).
+- Nada foi enviado no site: o percurso pára antes de "Enviar pedido de reserva". Os botões tocados só mudam o ecrã (consola, jogadores,
+  dia, horário 12h de 20/11, 2h, um Combo Copo Gamer). O menu do cliente (Início, Reservas, Torneios, Pedidos) aparece só no ecrã de
+  entrada da conta, sem sessão iniciada, como pedido.
+- Narração: Lagzilla (Microsoft Edge TTS, pt-BR-AntonioNeural +38 Hz), verificada por transcrição (Whisper large-v3).
+- Trilha chiptune e sons de interface sintetizados em código (mix.py). Fontes Lilita One e Fredoka (OFL).

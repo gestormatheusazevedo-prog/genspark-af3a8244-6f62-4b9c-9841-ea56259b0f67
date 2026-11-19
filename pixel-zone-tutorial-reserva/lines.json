@@ -1,0 +1,95 @@
+[
+ {
+  "id": "v1",
+  "text": "Quer jogar no Pixel Zone? Eu te mostro como reservar em menos de um minuto.",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz",
+  "rate": "+6%"
+ },
+ {
+  "id": "v2",
+  "text": "Entra em pixelzone ponto pt e toca em Reservar sessão.",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz",
+  "rate": "+6%"
+ },
+ {
+  "id": "v3",
+  "text": "Etapa um: escolhe a consola. PS5 ou Xbox.",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz",
+  "rate": "+6%",
+  "say": "Etapa um: escolhe a consola. Pê ésse cinco ou Xbox.",
+  "asr": "Etapa um: escolhe a consola. PS5 ou Xbox."
+ },
+ {
+  "id": "v4",
+  "text": "Quantos jogadores? Até quatro por estação.",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz",
+  "rate": "+6%"
+ },
+ {
+  "id": "v5",
+  "text": "Escolhe o dia e um horário livre.",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz",
+  "rate": "+6%"
+ },
+ {
+  "id": "v6",
+  "text": "E toca em Continuar.",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz",
+  "rate": "+6%"
+ },
+ {
+  "id": "v7",
+  "text": "Etapa dois: a duração. Seis euros por hora, por consola.",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz",
+  "rate": "+6%"
+ },
+ {
+  "id": "v8",
+  "text": "Com três horas, ganhas um copo gamer de brinde.",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz",
+  "rate": "+6%"
+ },
+ {
+  "id": "v9",
+  "text": "Se quiseres, junta uma bebida ou um combo.",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz",
+  "rate": "+6%"
+ },
+ {
+  "id": "v10",
+  "text": "Etapa três: o teu nome, o telefone, aceita a privacidade e envia o pedido.",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz",
+  "rate": "+6%"
+ },
+ {
+  "id": "v11",
+  "text": "A equipa confirma o horário. O pagamento é feito no espaço.",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz",
+  "rate": "+6%"
+ },
+ {
+  "id": "v12",
+  "text": "Na tua conta tens Início, Reservas, Torneios e Pedidos. Cria a conta grátis, ou reserva sem conta.",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz",
+  "rate": "+6%"
+ },
+ {
+  "id": "v13",
+  "text": "Segunda a sábado, das onze às vinte. Reserva já, pelo link na bio.",
+  "voice": "pt-BR-AntonioNeural",
+  "pitch": "+38Hz",
+  "rate": "+6%"
+ }
+]
