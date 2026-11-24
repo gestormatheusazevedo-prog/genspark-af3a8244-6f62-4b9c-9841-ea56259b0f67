@@ -1,0 +1,71 @@
+[
+ {
+  "id": "v0",
+  "at": 0.15,
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+20%",
+  "pitch": "+0Hz",
+  "text": "4 amigos. 1 consola. Qual é o seu squad?",
+  "say": "Quatro amigos, uma consola: qual é o seu squad?"
+ },
+ {
+  "id": "v1",
+  "at": 3.1,
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+10%",
+  "pitch": "+0Hz",
+  "text": "Player 1 perdeu? A culpa é do comando."
+ },
+ {
+  "id": "v2",
+  "at": 6.0,
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+10%",
+  "pitch": "+0Hz",
+  "text": "O 2 só joga se for o primeiro.",
+  "say": "O dois só joga se for o primeiro."
+ },
+ {
+  "id": "v3",
+  "at": 8.0,
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+10%",
+  "pitch": "+0Hz",
+  "text": "O 3 tá no \"só mais uma\" há três horas.",
+  "say": "O três tá no só mais uma, há três horas."
+ },
+ {
+  "id": "v4",
+  "at": 10.5,
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+10%",
+  "pitch": "+0Hz",
+  "text": "O 4 paga os snacks. Segura esse.",
+  "say": "O quatro paga os snacks, segura esse."
+ },
+ {
+  "id": "v5",
+  "at": 13.3,
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+10%",
+  "pitch": "+0Hz",
+  "text": "Desbloqueado: Lagzilla, que culpa o lag."
+ },
+ {
+  "id": "v6",
+  "at": 16.15,
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+10%",
+  "pitch": "+0Hz",
+  "text": "Squad completo, 6 euros a hora por consola.",
+  "say": "Squad completo. Seis euros a hora por consola."
+ },
+ {
+  "id": "v7",
+  "at": 19.85,
+  "voice": "pt-BR-AntonioNeural",
+  "rate": "+6%",
+  "pitch": "+0Hz",
+  "text": "Marca o seu squad."
+ }
+]
