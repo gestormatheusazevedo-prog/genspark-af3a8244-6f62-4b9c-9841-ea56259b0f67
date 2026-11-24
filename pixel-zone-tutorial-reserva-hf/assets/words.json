@@ -1,0 +1,382 @@
+{
+ "v0": {
+  "dur": 3.354,
+  "words": [
+   {
+    "text": "Reservar",
+    "start": 0.0,
+    "end": 0.5
+   },
+   {
+    "text": "no",
+    "start": 0.5,
+    "end": 0.6
+   },
+   {
+    "text": "Pixel",
+    "start": 0.6,
+    "end": 0.92
+   },
+   {
+    "text": "Zone?",
+    "start": 0.92,
+    "end": 1.36
+   },
+   {
+    "text": "São",
+    "start": 1.92,
+    "end": 2.48
+   },
+   {
+    "text": "3",
+    "start": 2.48,
+    "end": 2.74
+   },
+   {
+    "text": "passos.",
+    "start": 2.74,
+    "end": 3.26
+   }
+  ]
+ },
+ "v1": {
+  "dur": 3.614,
+  "words": [
+   {
+    "text": "Entra",
+    "start": 0.0,
+    "end": 0.437
+   },
+   {
+    "text": "em",
+    "start": 0.437,
+    "end": 0.611
+   },
+   {
+    "text": "pixelzone.pt",
+    "start": 0.611,
+    "end": 1.659
+   },
+   {
+    "text": "e",
+    "start": 1.659,
+    "end": 1.746
+   },
+   {
+    "text": "toca",
+    "start": 1.746,
+    "end": 2.096
+   },
+   {
+    "text": "em",
+    "start": 2.096,
+    "end": 2.27
+   },
+   {
+    "text": "Reservar",
+    "start": 2.27,
+    "end": 2.969
+   },
+   {
+    "text": "sessão.",
+    "start": 2.969,
+    "end": 3.58
+   }
+  ]
+ },
+ "v2": {
+  "dur": 4.022,
+  "words": [
+   {
+    "text": "Passo",
+    "start": 0.0,
+    "end": 0.36
+   },
+   {
+    "text": "1:",
+    "start": 0.36,
+    "end": 0.58
+   },
+   {
+    "text": "consola,",
+    "start": 1.28,
+    "end": 1.96
+   },
+   {
+    "text": "jogadores,",
+    "start": 2.18,
+    "end": 2.84
+   },
+   {
+    "text": "dia",
+    "start": 3.14,
+    "end": 3.46
+   },
+   {
+    "text": "e",
+    "start": 3.46,
+    "end": 3.6
+   },
+   {
+    "text": "horário.",
+    "start": 3.6,
+    "end": 4.0
+   }
+  ]
+ },
+ "v3": {
+  "dur": 2.143,
+  "words": [
+   {
+    "text": "Passo",
+    "start": 0.0,
+    "end": 0.26
+   },
+   {
+    "text": "2:",
+    "start": 0.26,
+    "end": 0.44
+   },
+   {
+    "text": "quanto",
+    "start": 0.78,
+    "end": 1.14
+   },
+   {
+    "text": "tempo",
+    "start": 1.14,
+    "end": 1.44
+   },
+   {
+    "text": "vão",
+    "start": 1.44,
+    "end": 1.72
+   },
+   {
+    "text": "jogar.",
+    "start": 1.72,
+    "end": 1.94
+   }
+  ]
+ },
+ "v4": {
+  "dur": 1.943,
+  "words": [
+   {
+    "text": "6",
+    "start": 0.0,
+    "end": 0.32
+   },
+   {
+    "text": "euros",
+    "start": 0.32,
+    "end": 0.54
+   },
+   {
+    "text": "a",
+    "start": 0.54,
+    "end": 0.78
+   },
+   {
+    "text": "hora",
+    "start": 0.78,
+    "end": 1.0
+   },
+   {
+    "text": "por",
+    "start": 1.0,
+    "end": 1.38
+   },
+   {
+    "text": "consola.",
+    "start": 1.38,
+    "end": 1.88
+   }
+  ]
+ },
+ "v5": {
+  "dur": 3.27,
+  "words": [
+   {
+    "text": "Passo",
+    "start": 0.0,
+    "end": 0.3
+   },
+   {
+    "text": "3:",
+    "start": 0.3,
+    "end": 0.48
+   },
+   {
+    "text": "nome,",
+    "start": 0.82,
+    "end": 1.26
+   },
+   {
+    "text": "telefone,",
+    "start": 1.5,
+    "end": 2.1
+   },
+   {
+    "text": "e",
+    "start": 2.1,
+    "end": 2.44
+   },
+   {
+    "text": "envia",
+    "start": 2.44,
+    "end": 2.78
+   },
+   {
+    "text": "o",
+    "start": 2.78,
+    "end": 2.82
+   },
+   {
+    "text": "pedido.",
+    "start": 2.82,
+    "end": 3.24
+   }
+  ]
+ },
+ "v6": {
+  "dur": 3.115,
+  "words": [
+   {
+    "text": "A",
+    "start": 0.0,
+    "end": 0.08
+   },
+   {
+    "text": "equipa",
+    "start": 0.08,
+    "end": 0.46
+   },
+   {
+    "text": "confirma.",
+    "start": 0.46,
+    "end": 1.06
+   },
+   {
+    "text": "O",
+    "start": 1.74,
+    "end": 1.96
+   },
+   {
+    "text": "pagamento",
+    "start": 1.96,
+    "end": 2.48
+   },
+   {
+    "text": "é",
+    "start": 2.48,
+    "end": 2.62
+   },
+   {
+    "text": "no",
+    "start": 2.62,
+    "end": 2.66
+   },
+   {
+    "text": "espaço.",
+    "start": 2.66,
+    "end": 2.84
+   }
+  ]
+ },
+ "v7": {
+  "dur": 2.622,
+  "words": [
+   {
+    "text": "Segunda",
+    "start": 0.0,
+    "end": 0.574
+   },
+   {
+    "text": "a",
+    "start": 0.574,
+    "end": 0.656
+   },
+   {
+    "text": "sábado,",
+    "start": 0.656,
+    "end": 1.23
+   },
+   {
+    "text": "das",
+    "start": 1.23,
+    "end": 1.476
+   },
+   {
+    "text": "11",
+    "start": 1.476,
+    "end": 1.64
+   },
+   {
+    "text": "às",
+    "start": 1.64,
+    "end": 1.804
+   },
+   {
+    "text": "20",
+    "start": 1.804,
+    "end": 1.968
+   },
+   {
+    "text": "horas.",
+    "start": 1.968,
+    "end": 2.46
+   }
+  ]
+ },
+ "v8": {
+  "dur": 3.545,
+  "words": [
+   {
+    "text": "Reserva",
+    "start": 0.0,
+    "end": 0.52
+   },
+   {
+    "text": "pelo",
+    "start": 0.52,
+    "end": 0.68
+   },
+   {
+    "text": "link",
+    "start": 0.68,
+    "end": 1.0
+   },
+   {
+    "text": "na",
+    "start": 1.0,
+    "end": 1.16
+   },
+   {
+    "text": "bio.",
+    "start": 1.16,
+    "end": 1.36
+   },
+   {
+    "text": "São",
+    "start": 2.02,
+    "end": 2.5
+   },
+   {
+    "text": "só",
+    "start": 2.5,
+    "end": 2.74
+   },
+   {
+    "text": "3",
+    "start": 2.74,
+    "end": 2.96
+   },
+   {
+    "text": "passos.",
+    "start": 2.96,
+    "end": 3.44
+   }
+  ]
+ }
+}

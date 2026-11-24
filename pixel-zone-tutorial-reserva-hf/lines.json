@@ -1,0 +1,56 @@
+[
+ {
+  "id": "v0",
+  "text": "Reservar no Pixel Zone? São 3 passos.",
+  "say": "Reservar no Pixel Zone? São três passos.",
+  "rate": "+8%"
+ },
+ {
+  "id": "v1",
+  "text": "Entra em pixelzone.pt e toca em Reservar sessão.",
+  "say": "Entra em pixel zone ponto pt, e toca em Reservar sessão.",
+  "rate": "+4%"
+ },
+ {
+  "id": "v2",
+  "text": "Passo 1: consola, jogadores, dia e horário.",
+  "say": "Passo um. Consola, jogadores, dia e horário.",
+  "rate": "+4%"
+ },
+ {
+  "id": "v3",
+  "text": "Passo 2: quanto tempo vão jogar.",
+  "say": "Passo dois: quanto tempo vão jogar.",
+  "rate": "+8%"
+ },
+ {
+  "id": "v4",
+  "text": "6 euros a hora por consola.",
+  "say": "Seis euros a hora, por consola.",
+  "rate": "+8%"
+ },
+ {
+  "id": "v5",
+  "text": "Passo 3: nome, telefone, e envia o pedido.",
+  "say": "Passo três: nome, telefone, e envia o pedido.",
+  "rate": "+8%"
+ },
+ {
+  "id": "v6",
+  "text": "A equipa confirma. O pagamento é no espaço.",
+  "say": "A equipa confirma. O pagamento é no espaço.",
+  "rate": "+8%"
+ },
+ {
+  "id": "v7",
+  "text": "Segunda a sábado, das 11 às 20 horas.",
+  "say": "Segunda a sábado, das onze às vinte horas.",
+  "rate": "+4%"
+ },
+ {
+  "id": "v8",
+  "text": "Reserva pelo link na bio. São só 3 passos.",
+  "say": "Reserva pelo link na bio. São só três passos.",
+  "rate": "+6%"
+ }
+]

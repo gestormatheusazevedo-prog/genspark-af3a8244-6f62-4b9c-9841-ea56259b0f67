@@ -1,0 +1,77 @@
+<template>
+  <style>@font-face { font-family:'BarlowX'; src:url('assets/fonts/BarlowCondensed-ExtraBoldItalic.ttf') format('truetype'); font-weight:800; }
+@font-face { font-family:'BarlowB'; src:url('assets/fonts/BarlowCondensed-BoldItalic.ttf') format('truetype'); font-weight:700; }
+    #root { position:absolute; inset:0; }
+    #ph-win { position:absolute; left:150px; top:380px; width:780px; height:710px; border-radius:46px; overflow:hidden; background:#05060f; }
+    #ph-bezel { position:absolute; left:138px; top:368px; width:804px; height:734px; border-radius:58px;
+                border:12px solid #15172b; box-shadow:0 0 0 2px #2a2d4a, 0 0 26px rgba(40,230,255,0.35), 0 30px 60px rgba(0,0,0,0.6); }
+  </style>
+  <div id="root" data-composition-id="phone" data-width="1080" data-height="1920" data-layout-allow-overlap data-layout-allow-overflow>
+    <div id="ph-all" style="position:absolute;inset:0">
+      <div id="ph-win">
+      <img id="sc-home" class="clip" src="assets/shots/home.png" data-start="0.000" data-duration="6.070" style="position:absolute;left:0;top:0.0px;width:780px;height:1328px">
+      <img id="sc-s1_console" class="clip" src="assets/shots/s1_console.png" data-start="6.070" data-duration="2.910" style="position:absolute;left:0;top:-618.0px;width:780px;height:1328px">
+      <img id="sc-s1_players" class="clip" src="assets/shots/s1_players.png" data-start="8.980" data-duration="0.900" style="position:absolute;left:0;top:-419.8px;width:780px;height:1328px">
+      <img id="sc-s1_day" class="clip" src="assets/shots/s1_day.png" data-start="9.880" data-duration="0.960" style="position:absolute;left:0;top:-618.0px;width:780px;height:1328px">
+      <img id="sc-s1_time" class="clip" src="assets/shots/s1_time.png" data-start="10.840" data-duration="0.460" style="position:absolute;left:0;top:-419.3px;width:780px;height:1328px">
+      <img id="sc-s1_continue" class="clip" src="assets/shots/s1_continue.png" data-start="11.300" data-duration="0.530" style="position:absolute;left:0;top:-618.0px;width:780px;height:1328px">
+      <img id="sc-s2_duration" class="clip" src="assets/shots/s2_duration.png" data-start="11.830" data-duration="3.470" style="position:absolute;left:0;top:-618.0px;width:780px;height:1328px">
+      <img id="sc-s2_continue" class="clip" src="assets/shots/s2_continue.png" data-start="15.300" data-duration="1.000" style="position:absolute;left:0;top:-500.8px;width:780px;height:1328px">
+      <img id="sc-s3_form" class="clip" src="assets/shots/s3_form.png" data-start="16.300" data-duration="0.970" style="position:absolute;left:0;top:-618.0px;width:780px;height:1328px">
+      <img id="sc-s3_name" class="clip" src="assets/shots/s3_name.png" data-start="17.270" data-duration="0.680" style="position:absolute;left:0;top:-618.0px;width:780px;height:1328px">
+      <img id="sc-s3_filled" class="clip" src="assets/shots/s3_filled.png" data-start="17.950" data-duration="0.540" style="position:absolute;left:0;top:-618.0px;width:780px;height:1328px">
+      <img id="sc-s3_send" class="clip" src="assets/shots/s3_send.png" data-start="18.490" data-duration="4.410" style="position:absolute;left:0;top:-475.0px;width:780px;height:1328px">
+      </div>
+      <div id="ph-bezel"></div>
+    <svg id="mk1" class="clip" data-start="14.150" data-duration="1.150" width="1080" height="1920" style="position:absolute;left:0;top:0;overflow:visible;pointer-events:none"><ellipse id="mk1-e" cx="296" cy="774" rx="134" ry="95" fill="none" stroke="#ff2dc8" stroke-width="7" pathLength="100" stroke-dasharray="100" style="filter:drop-shadow(0 0 8px #ff2dc8)" transform="rotate(-3 296 774)"/></svg>
+    <svg id="mk2" class="clip" data-start="19.950" data-duration="2.950" width="1080" height="1920" style="position:absolute;left:0;top:0;overflow:visible;pointer-events:none"><ellipse id="mk2-e" cx="540" cy="798" rx="378" ry="39" fill="none" stroke="#ff2dc8" stroke-width="7" pathLength="100" stroke-dasharray="100" style="filter:drop-shadow(0 0 8px #ff2dc8)" transform="rotate(-3 540 798)"/></svg>
+      <div id="finger" style="position:absolute;left:0;top:0;width:72px;height:72px;opacity:0">
+        <div id="finger-dot" style="width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,0.78);border:4px solid #0a0b18;box-shadow:0 4px 14px rgba(0,0,0,0.6)"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#sc-s1_console", {scale:1.02, filter:"brightness(1.25)"}, {scale:1, filter:"brightness(1)", duration:0.25, ease:"expo.out"}, 6.070);
+    tl.fromTo("#sc-s1_players", {scale:1.02, filter:"brightness(1.25)"}, {scale:1, filter:"brightness(1)", duration:0.25, ease:"expo.out"}, 8.980);
+    tl.fromTo("#sc-s1_day", {scale:1.02, filter:"brightness(1.25)"}, {scale:1, filter:"brightness(1)", duration:0.25, ease:"expo.out"}, 9.880);
+    tl.fromTo("#sc-s1_time", {scale:1.02, filter:"brightness(1.25)"}, {scale:1, filter:"brightness(1)", duration:0.25, ease:"expo.out"}, 10.840);
+    tl.fromTo("#sc-s1_continue", {scale:1.02, filter:"brightness(1.25)"}, {scale:1, filter:"brightness(1)", duration:0.25, ease:"expo.out"}, 11.300);
+    tl.fromTo("#sc-s2_duration", {scale:1.02, filter:"brightness(1.25)"}, {scale:1, filter:"brightness(1)", duration:0.25, ease:"expo.out"}, 11.830);
+    tl.fromTo("#sc-s2_continue", {scale:1.02, filter:"brightness(1.25)"}, {scale:1, filter:"brightness(1)", duration:0.25, ease:"expo.out"}, 15.300);
+    tl.fromTo("#sc-s3_form", {scale:1.02, filter:"brightness(1.25)"}, {scale:1, filter:"brightness(1)", duration:0.25, ease:"expo.out"}, 16.300);
+    tl.fromTo("#sc-s3_name", {scale:1.02, filter:"brightness(1.25)"}, {scale:1, filter:"brightness(1)", duration:0.25, ease:"expo.out"}, 17.270);
+    tl.fromTo("#sc-s3_filled", {scale:1.02, filter:"brightness(1.25)"}, {scale:1, filter:"brightness(1)", duration:0.25, ease:"expo.out"}, 17.950);
+    tl.fromTo("#sc-s3_send", {scale:1.02, filter:"brightness(1.25)"}, {scale:1, filter:"brightness(1)", duration:0.25, ease:"expo.out"}, 18.490);
+    tl.fromTo("#ph-all", {y:140}, {y:0, duration:0.7, ease:"expo.out"}, 0);
+    tl.fromTo("#sc-home", {y:0}, {y:-616.4, duration:0.7, ease:"power2.inOut"}, 4.311);
+    tl.fromTo("#finger", {opacity:0}, {opacity:1, duration:0.2}, 4.711);
+    tl.to("#finger", {x:700, y:699, duration:0.32, ease:"power2.inOut"}, 5.590);
+    tl.to("#finger-dot", {scale:0.78, duration:0.07, ease:"power2.in", yoyo:true, repeat:1}, 5.900);
+    tl.to("#finger", {x:260, y:832, duration:0.32, ease:"power2.inOut"}, 8.500);
+    tl.to("#finger-dot", {scale:0.78, duration:0.07, ease:"power2.in", yoyo:true, repeat:1}, 8.810);
+    tl.to("#finger", {x:412, y:699, duration:0.32, ease:"power2.inOut"}, 9.400);
+    tl.to("#finger-dot", {scale:0.78, duration:0.07, ease:"power2.in", yoyo:true, repeat:1}, 9.710);
+    tl.to("#finger", {x:687, y:738, duration:0.32, ease:"power2.inOut"}, 10.360);
+    tl.to("#finger-dot", {scale:0.78, duration:0.07, ease:"power2.in", yoyo:true, repeat:1}, 10.670);
+    tl.to("#finger", {x:796, y:699, duration:0.32, ease:"power2.inOut"}, 10.820);
+    tl.to("#finger-dot", {scale:0.78, duration:0.07, ease:"power2.in", yoyo:true, repeat:1}, 11.130);
+    tl.to("#finger", {x:704, y:784, duration:0.32, ease:"power2.inOut"}, 11.350);
+    tl.to("#finger-dot", {scale:0.78, duration:0.07, ease:"power2.in", yoyo:true, repeat:1}, 11.660);
+    tl.to("#finger", {x:504, y:738, duration:0.32, ease:"power2.inOut"}, 13.190);
+    tl.to("#finger-dot", {scale:0.78, duration:0.07, ease:"power2.in", yoyo:true, repeat:1}, 13.500);
+    tl.to("#finger", {x:704, y:699, duration:0.32, ease:"power2.inOut"}, 15.820);
+    tl.to("#finger-dot", {scale:0.78, duration:0.07, ease:"power2.in", yoyo:true, repeat:1}, 16.130);
+    tl.to("#finger", {x:704, y:642, duration:0.2, ease:"power2.inOut"}, 16.910);
+    tl.to("#finger-dot", {scale:0.78, duration:0.07, ease:"power2.in", yoyo:true, repeat:1}, 17.100);
+    tl.to("#finger", {x:704, y:854, duration:0.32, ease:"power2.inOut"}, 17.470);
+    tl.to("#finger-dot", {scale:0.78, duration:0.07, ease:"power2.in", yoyo:true, repeat:1}, 17.780);
+    tl.to("#finger", {x:704, y:667, duration:0.32, ease:"power2.inOut"}, 18.410);
+    tl.to("#finger-dot", {scale:0.78, duration:0.07, ease:"power2.in", yoyo:true, repeat:1}, 18.720);
+    tl.to("#finger", {opacity:0, duration:0.15}, 22.500);
+    tl.fromTo("#mk1-e", {strokeDashoffset:100}, {strokeDashoffset:0, duration:0.35, ease:"power2.out"}, 14.150);
+    tl.fromTo("#mk2-e", {strokeDashoffset:100}, {strokeDashoffset:0, duration:0.35, ease:"power2.out"}, 19.950);
+    tl.to("#ph-all", {y:1200, filter:"blur(14px)", duration:0.3, ease:"power3.in"}, 22.600);
+    window.__timelines["phone"] = tl;
+  </script>
+</template>

@@ -1,0 +1,53 @@
+<template>
+  <style>@font-face { font-family:'BarlowX'; src:url('assets/fonts/BarlowCondensed-ExtraBoldItalic.ttf') format('truetype'); font-weight:800; }
+@font-face { font-family:'BarlowB'; src:url('assets/fonts/BarlowCondensed-BoldItalic.ttf') format('truetype'); font-weight:700; }
+    #root { position:absolute; inset:0; }
+    .cp { position:absolute; left:0; width:1080px; top:1128px; text-align:center; font:800 66px BarlowX; color:#fff; text-shadow:0 4px 0 #000, 0 0 14px rgba(0,0,0,0.9); }
+  </style>
+  <div id="root" data-composition-id="caps" data-width="1080" data-height="1920">
+    <div id="cp0" class="clip cp" data-start="3.65" data-duration="1.71">ENTRA EM PIXELZONE.PT</div>
+    <div id="cp1" class="clip cp" data-start="5.36" data-duration="0.61">E TOCA EM</div>
+    <div id="cp2" class="clip cp" data-start="5.97" data-duration="1.56">RESERVAR SESSÃO.</div>
+    <div id="cp3" class="clip cp" data-start="7.55" data-duration="0.88">PASSO 1:</div>
+    <div id="cp4" class="clip cp" data-start="8.83" data-duration="0.95">CONSOLA</div>
+    <div id="cp5" class="clip cp" data-start="9.78" data-duration="0.91">JOGADORES</div>
+    <div id="cp6" class="clip cp" data-start="10.69" data-duration="1.16">DIA E HORÁRIO.</div>
+    <div id="cp7" class="clip cp" data-start="11.85" data-duration="0.69">PASSO 2:</div>
+    <div id="cp8" class="clip cp" data-start="12.58" data-duration="0.99">QUANTO TEMPO VÃO</div>
+    <div id="cp9" class="clip cp" data-start="13.57" data-duration="0.47">JOGAR.</div>
+    <div id="cp10" class="clip cp" data-start="14.10" data-duration="0.83">6 EUROS A</div>
+    <div id="cp11" class="clip cp" data-start="14.93" data-duration="1.35">HORA POR CONSOLA.</div>
+    <div id="cp12" class="clip cp" data-start="16.30" data-duration="0.78">PASSO 3:</div>
+    <div id="cp13" class="clip cp" data-start="17.12" data-duration="0.73">NOME</div>
+    <div id="cp14" class="clip cp" data-start="17.85" data-duration="0.60">TELEFONE</div>
+    <div id="cp15" class="clip cp" data-start="18.45" data-duration="0.72">E ENVIA O</div>
+    <div id="cp16" class="clip cp" data-start="19.17" data-duration="0.67">PEDIDO.</div>
+    <div id="cp17" class="clip cp" data-start="19.84" data-duration="1.32">A EQUIPA CONFIRMA.</div>
+    <div id="cp18" class="clip cp" data-start="21.54" data-duration="0.93">O PAGAMENTO É</div>
+    <div id="cp19" class="clip cp" data-start="22.47" data-duration="0.47">NO ESPAÇO.</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#cp0", {opacity:0}, {opacity:1, duration:0.06}, 3.65);
+    tl.fromTo("#cp1", {opacity:0}, {opacity:1, duration:0.06}, 5.36);
+    tl.fromTo("#cp2", {opacity:0}, {opacity:1, duration:0.06}, 5.97);
+    tl.fromTo("#cp3", {opacity:0}, {opacity:1, duration:0.06}, 7.55);
+    tl.fromTo("#cp4", {opacity:0}, {opacity:1, duration:0.06}, 8.83);
+    tl.fromTo("#cp5", {opacity:0}, {opacity:1, duration:0.06}, 9.78);
+    tl.fromTo("#cp6", {opacity:0}, {opacity:1, duration:0.06}, 10.69);
+    tl.fromTo("#cp7", {opacity:0}, {opacity:1, duration:0.06}, 11.85);
+    tl.fromTo("#cp8", {opacity:0}, {opacity:1, duration:0.06}, 12.58);
+    tl.fromTo("#cp9", {opacity:0}, {opacity:1, duration:0.06}, 13.57);
+    tl.fromTo("#cp10", {opacity:0}, {opacity:1, duration:0.06}, 14.10);
+    tl.fromTo("#cp11", {opacity:0}, {opacity:1, duration:0.06}, 14.93);
+    tl.fromTo("#cp12", {opacity:0}, {opacity:1, duration:0.06}, 16.30);
+    tl.fromTo("#cp13", {opacity:0}, {opacity:1, duration:0.06}, 17.12);
+    tl.fromTo("#cp14", {opacity:0}, {opacity:1, duration:0.06}, 17.85);
+    tl.fromTo("#cp15", {opacity:0}, {opacity:1, duration:0.06}, 18.45);
+    tl.fromTo("#cp16", {opacity:0}, {opacity:1, duration:0.06}, 19.17);
+    tl.fromTo("#cp17", {opacity:0}, {opacity:1, duration:0.06}, 19.84);
+    tl.fromTo("#cp18", {opacity:0}, {opacity:1, duration:0.06}, 21.54);
+    tl.fromTo("#cp19", {opacity:0}, {opacity:1, duration:0.06}, 22.47);
+    window.__timelines["caps"] = tl;
+  </script>
+</template>

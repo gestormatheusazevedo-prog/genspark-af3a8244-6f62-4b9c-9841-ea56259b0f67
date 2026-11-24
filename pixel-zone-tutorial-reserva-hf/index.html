@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>@font-face { font-family:'BarlowX'; src:url('assets/fonts/BarlowCondensed-ExtraBoldItalic.ttf') format('truetype'); font-weight:800; }
+@font-face { font-family:'BarlowB'; src:url('assets/fonts/BarlowCondensed-BoldItalic.ttf') format('truetype'); font-weight:700; }
+      * { margin:0; padding:0; box-sizing:border-box; }
+      html, body { width:1080px; height:1920px; overflow:hidden; background:#05060f; }
+      #root { position:relative; width:100%; height:100%; }
+      #bg { position:absolute; inset:0; z-index:0; background:
+          linear-gradient(90deg, rgba(40,230,255,0.55) 0px, rgba(40,230,255,0.12) 60px, rgba(40,230,255,0) 140px),
+          linear-gradient(270deg, rgba(255,45,200,0.55) 0px, rgba(255,45,200,0.12) 60px, rgba(255,45,200,0) 140px), #05060f; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="30.5" data-width="1080" data-height="1920">
+      <div id="bg"></div>
+      <img id="bg-room" src="assets/img/lounge_puffs.png" style="position:absolute;left:-60px;top:1270px;width:1200px;height:650px;object-fit:cover;opacity:0.32;z-index:1;-webkit-mask-image:linear-gradient(transparent 0,#000 220px);mask-image:linear-gradient(transparent 0,#000 220px)">
+      <div id="phone" data-composition-id="phone" data-composition-src="compositions/phone.html" data-start="0" data-duration="22.9" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+      <div id="cta" data-composition-id="cta" data-composition-src="compositions/cta.html" data-start="22.9" data-duration="7.60" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:5"></div>
+      <div id="heads" data-composition-id="heads" data-composition-src="compositions/heads.html" data-start="0" data-duration="22.9" data-track-index="2" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:6"></div>
+      <div id="caps" data-composition-id="caps" data-composition-src="compositions/caps.html" data-start="0" data-duration="22.9" data-track-index="3" data-track-kind="captions" data-width="1080" data-height="1920" style="z-index:7"></div>
+      <audio id="vo0" class="clip" src="assets/voice/v0.wav" data-start="0.15" data-duration="3.354" data-volume="1.25" data-track-index="10" data-audio-group="voiceover"></audio>
+      <audio id="vo1" class="clip" src="assets/voice/v1.wav" data-start="3.70" data-duration="3.614" data-volume="1.25" data-track-index="10" data-audio-group="voiceover"></audio>
+      <audio id="vo2" class="clip" src="assets/voice/v2.wav" data-start="7.60" data-duration="4.022" data-volume="1.25" data-track-index="10" data-audio-group="voiceover"></audio>
+      <audio id="vo3" class="clip" src="assets/voice/v3.wav" data-start="11.85" data-duration="2.143" data-volume="1.25" data-track-index="10" data-audio-group="voiceover"></audio>
+      <audio id="vo4" class="clip" src="assets/voice/v4.wav" data-start="14.15" data-duration="1.943" data-volume="1.25" data-track-index="10" data-audio-group="voiceover"></audio>
+      <audio id="vo5" class="clip" src="assets/voice/v5.wav" data-start="16.35" data-duration="3.270" data-volume="1.25" data-track-index="10" data-audio-group="voiceover"></audio>
+      <audio id="vo6" class="clip" src="assets/voice/v6.wav" data-start="19.85" data-duration="3.115" data-volume="1.25" data-track-index="10" data-audio-group="voiceover"></audio>
+      <audio id="vo7" class="clip" src="assets/voice/v7.wav" data-start="23.15" data-duration="2.622" data-volume="1.25" data-track-index="10" data-audio-group="voiceover"></audio>
+      <audio id="vo8" class="clip" src="assets/voice/v8.wav" data-start="25.95" data-duration="3.545" data-volume="1.25" data-track-index="10" data-audio-group="voiceover"></audio>
+      <audio id="music" class="clip" src="assets/music/cyberpunk_beat.mp3" data-start="0" data-duration="30.5" data-volume="1.25" data-fade-in="0.4" data-fade-out="1.5" data-track-index="11" data-fx-chain="{&quot;version&quot;: 1, &quot;nodes&quot;: [{&quot;type&quot;: &quot;limiter&quot;, &quot;id&quot;: &quot;lim&quot;, &quot;params&quot;: {&quot;limit&quot;: -1}}]}" data-automation="{&quot;version&quot;: 1, &quot;lanes&quot;: [{&quot;target&quot;: &quot;volume&quot;, &quot;points&quot;: [{&quot;t&quot;: 0.0, &quot;v&quot;: 0.34}, {&quot;t&quot;: 0.13, &quot;v&quot;: 0.15}, {&quot;t&quot;: 3.454, &quot;v&quot;: 0.15}, {&quot;t&quot;: 3.55, &quot;v&quot;: 0.34}, {&quot;t&quot;: 3.68, &quot;v&quot;: 0.15}, {&quot;t&quot;: 3.704, &quot;v&quot;: 0.34}, {&quot;t&quot;: 7.264, &quot;v&quot;: 0.15}, {&quot;t&quot;: 7.45, &quot;v&quot;: 0.34}, {&quot;t&quot;: 7.514, &quot;v&quot;: 0.34}, {&quot;t&quot;: 7.58, &quot;v&quot;: 0.15}, {&quot;t&quot;: 11.572, &quot;v&quot;: 0.15}, {&quot;t&quot;: 11.7, &quot;v&quot;: 0.34}, {&quot;t&quot;: 11.822, &quot;v&quot;: 0.34}, {&quot;t&quot;: 11.83, &quot;v&quot;: 0.15}, {&quot;t&quot;: 13.943, &quot;v&quot;: 0.15}, {&quot;t&quot;: 14.0, &quot;v&quot;: 0.34}, {&quot;t&quot;: 14.13, &quot;v&quot;: 0.15}, {&quot;t&quot;: 14.193, &quot;v&quot;: 0.34}, {&quot;t&quot;: 16.043, &quot;v&quot;: 0.15}, {&quot;t&quot;: 16.2, &quot;v&quot;: 0.34}, {&quot;t&quot;: 16.293, &quot;v&quot;: 0.34}, {&quot;t&quot;: 16.33, &quot;v&quot;: 0.15}, {&quot;t&quot;: 19.57, &quot;v&quot;: 0.15}, {&quot;t&quot;: 19.7, &quot;v&quot;: 0.34}, {&quot;t&quot;: 19.82, &quot;v&quot;: 0.34}, {&quot;t&quot;: 19.83, &quot;v&quot;: 0.15}, {&quot;t&quot;: 22.915, &quot;v&quot;: 0.15}, {&quot;t&quot;: 23.0, &quot;v&quot;: 0.34}, {&quot;t&quot;: 23.13, &quot;v&quot;: 0.15}, {&quot;t&quot;: 23.165, &quot;v&quot;: 0.34}, {&quot;t&quot;: 25.722, &quot;v&quot;: 0.15}, {&quot;t&quot;: 25.8, &quot;v&quot;: 0.34}, {&quot;t&quot;: 25.93, &quot;v&quot;: 0.15}, {&quot;t&quot;: 25.972, &quot;v&quot;: 0.34}, {&quot;t&quot;: 29.445, &quot;v&quot;: 0.15}, {&quot;t&quot;: 29.695, &quot;v&quot;: 0.34}]}]}"></audio>
+      <audio id="sfx0" class="clip" src="assets/sfx/whoosh_c.wav" data-start="3.492" data-duration="0.536" data-volume="0.56" data-track-index="20" data-audio-group="sfx"></audio>
+      <audio id="sfx1" class="clip" src="assets/sfx/tap_a.wav" data-start="5.996" data-duration="0.094" data-volume="1.12" data-track-index="20" data-audio-group="sfx"></audio>
+      <audio id="sfx2" class="clip" src="assets/sfx/tap_b.wav" data-start="8.906" data-duration="0.103" data-volume="1.12" data-track-index="20" data-audio-group="sfx"></audio>
+      <audio id="sfx3" class="clip" src="assets/sfx/tap_c.wav" data-start="9.806" data-duration="0.062" data-volume="1.12" data-track-index="20" data-audio-group="sfx"></audio>
+      <audio id="sfx4" class="clip" src="assets/sfx/tap_a.wav" data-start="10.766" data-duration="0.094" data-volume="1.12" data-track-index="20" data-audio-group="sfx"></audio>
+      <audio id="sfx5" class="clip" src="assets/sfx/tap_b.wav" data-start="11.226" data-duration="0.103" data-volume="1.12" data-track-index="20" data-audio-group="sfx"></audio>
+      <audio id="sfx6" class="clip" src="assets/sfx/tap_c.wav" data-start="11.756" data-duration="0.062" data-volume="1.12" data-track-index="20" data-audio-group="sfx"></audio>
+      <audio id="sfx7" class="clip" src="assets/sfx/tap_a.wav" data-start="13.596" data-duration="0.094" data-volume="1.12" data-track-index="20" data-audio-group="sfx"></audio>
+      <audio id="sfx8" class="clip" src="assets/sfx/tap_b.wav" data-start="16.226" data-duration="0.103" data-volume="1.12" data-track-index="20" data-audio-group="sfx"></audio>
+      <audio id="sfx9" class="clip" src="assets/sfx/tap_c.wav" data-start="17.196" data-duration="0.062" data-volume="1.12" data-track-index="20" data-audio-group="sfx"></audio>
+      <audio id="sfx10" class="clip" src="assets/sfx/tap_a.wav" data-start="17.876" data-duration="0.094" data-volume="1.12" data-track-index="20" data-audio-group="sfx"></audio>
+      <audio id="sfx11" class="clip" src="assets/sfx/tap_b.wav" data-start="18.816" data-duration="0.103" data-volume="1.12" data-track-index="20" data-audio-group="sfx"></audio>
+      <audio id="sfx12" class="clip" src="assets/sfx/whoosh_a.wav" data-start="7.400" data-duration="1.056" data-volume="0.56" data-track-index="21" data-audio-group="sfx"></audio>
+      <audio id="sfx13" class="clip" src="assets/sfx/whoosh_b.wav" data-start="11.626" data-duration="1.090" data-volume="0.56" data-track-index="21" data-audio-group="sfx"></audio>
+      <audio id="sfx14" class="clip" src="assets/sfx/whoosh_c.wav" data-start="16.122" data-duration="0.536" data-volume="0.56" data-track-index="21" data-audio-group="sfx"></audio>
+      <audio id="sfx15" class="clip" src="assets/sfx/pop.wav" data-start="14.527" data-duration="0.150" data-volume="0.75" data-track-index="22" data-audio-group="sfx"></audio>
+      <audio id="sfx16" class="clip" src="assets/sfx/pop.wav" data-start="20.327" data-duration="0.150" data-volume="0.75" data-track-index="20" data-audio-group="sfx"></audio>
+      <audio id="sfx17" class="clip" src="assets/sfx/world.wav" data-start="22.696" data-duration="1.030" data-volume="0.75" data-track-index="20" data-audio-group="sfx"></audio>
+    </div>
+    <script>
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

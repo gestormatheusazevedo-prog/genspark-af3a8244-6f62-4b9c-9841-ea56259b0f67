@@ -1,0 +1,187 @@
+{
+ "home": {
+  "tap": {
+   "x": 20,
+   "y": 459.71875,
+   "w": 349.984375,
+   "h": 52
+  },
+  "text": "Saltar para o conteúdo GAMING LOUNGE · CALDAS DA RAINHA SAI DO SOFÁ. O JOGO É AQUI. PS5, Xbox e os teus amigos nas Caldas da Rainha. 6,00 €/hora por consola Até 4 jogadores RESERVAR SESSÃO Tu escolhes o horário. A equipa confirma. Joga à tua maneira. Escolhe a estação, junta o teu grupo e faz acontecer a próxima partida. Reservar em grupo Aniversário fora do óbvio. Jogos, amigos e uma festa à tua medida. Conhecer pacotes A próxima disputa é tua. Inscreve-te e acompanha grupos, partidas e resultados. Ver central O tédio fica lá fora. Conhece quem defende — e quem desafia — o jogo em conjunto. Conhecer a história UM EXTRA NA PARTIDA Mais uma partida. E um combo? Explorar a loja O JOGO É JUNTO. Mais do que jogos. Uma comunidade. Uma pausa na rotina para encontrar amigos, disputar um x1 ou descobrir uma nova parceria de jogo. PS5 + Xbox Casais e grupos Todos são bem-vindos Conhece o espaço O PRÓXIMO ENCONTRO Da comunidade para a agenda. Todos os eventos NO RADAR DA PIXEL ZONE DESTINATION VICE CITY GTA VI, os teus amigos e um encontro para ficar na história. Projeto em preparação Programação, kits e condições serão anunciados após confirmação. Tenho interesse Destination Vice City · Dia de lançamento GTA VI 19/11 · 11h Conhecer evento A história continua fora do ecrã. Partidas, encontros e bastidores da Pixel Zone. Seguir @pixelzone.pt Joga. Liga-te. Faz parte. Encontra os teus amigos Praça 5 de Outubro, 29 B · sala B Dentro da Barbearia Barba Negra Caldas da Rainha Como chegar Bo",
+  "marks": {}
+ },
+ "s1_console": {
+  "tap": {
+   "x": 16,
+   "y": 478.984375,
+   "w": 114,
+   "h": 148
+  },
+  "text": "Saltar para o conteúdo Voltar ao site Reserva sem pagamento online 1 Escolha 2 Personalização 3 Confirmação ETAPA 1 DE 3 Escolhe a tua estação. Consola, data e horário. O preço é por estação, com até 4 jogadores, conforme o jogo. Consola Reservar em grupo PS5 PlayStation 5 Xbox 02 Xbox Series S Xbox 03 Xbox Series S Jogadores por estação 1 2 3 4 Data Hoje Amanhã Horário disponível 12h 13h 14h 15h 16h 17h 18h 19h Segunda a sábado · 11h–20h. Domingo fechado. Não encontras o horário que querias? Entra na lista de espera O teu próximo jogo 24/11 PS5 · 2 jogadores por estação Na próxima etapa, escolhes a duração e vês os valores. Continuar",
+  "marks": {}
+ },
+ "s1_players": {
+  "tap": {
+   "x": 107.5,
+   "y": 359.375,
+   "w": 83.5,
+   "h": 56
+  },
+  "text": "Saltar para o conteúdo Voltar ao site Reserva sem pagamento online 1 Escolha 2 Personalização 3 Confirmação ETAPA 1 DE 3 Escolhe a tua estação. Consola, data e horário. O preço é por estação, com até 4 jogadores, conforme o jogo. Consola Reservar em grupo PS5 PlayStation 5 Xbox 02 Xbox Series S Xbox 03 Xbox Series S Jogadores por estação 1 2 3 4 Data Hoje Amanhã Horário disponível 12h 13h 14h 15h 16h 17h 18h 19h Segunda a sábado · 11h–20h. Domingo fechado. Não encontras o horário que querias? Entra na lista de espera O teu próximo jogo 24/11 PS5 · 2 jogadores por estação Na próxima etapa, escolhes a duração e vês os valores. Continuar",
+  "marks": {}
+ },
+ "s1_day": {
+  "tap": {
+   "x": 199,
+   "y": 477.765625,
+   "w": 175,
+   "h": 56
+  },
+  "text": "Saltar para o conteúdo Voltar ao site Reserva sem pagamento online 1 Escolha 2 Personalização 3 Confirmação ETAPA 1 DE 3 Escolhe a tua estação. Consola, data e horário. O preço é por estação, com até 4 jogadores, conforme o jogo. Consola Reservar em grupo PS5 PlayStation 5 Xbox 02 Xbox Series S Xbox 03 Xbox Series S Jogadores por estação 1 2 3 4 Data Hoje Amanhã Horário disponível 12h 13h 14h 15h 16h 17h 18h 19h Segunda a sábado · 11h–20h. Domingo fechado. Não encontras o horário que querias? Entra na lista de espera O teu próximo jogo 24/11 PS5 · 2 jogadores por estação Na próxima etapa, escolhes a duração e vês os valores. Continuar",
+  "marks": {}
+ },
+ "s1_time": {
+  "tap": {
+   "x": 308,
+   "y": 359.15625,
+   "w": 66,
+   "h": 56
+  },
+  "text": "Saltar para o conteúdo Voltar ao site Reserva sem pagamento online 1 Escolha 2 Personalização 3 Confirmação ETAPA 1 DE 3 Escolhe a tua estação. Consola, data e horário. O preço é por estação, com até 4 jogadores, conforme o jogo. Consola Reservar em grupo PS5 PlayStation 5 Xbox 02 Xbox Series S Xbox 03 Xbox Series S Jogadores por estação 1 2 3 4 Data Hoje Amanhã Horário disponível 11h 12h 13h 14h 15h 16h 17h 18h 19h Segunda a sábado · 11h–20h. Domingo fechado. Não encontras o horário que querias? Entra na lista de espera O teu próximo jogo 25/11 PS5 · 2 jogadores por estação Na próxima etapa, escolhes a duração e vês os valores. Continuar",
+  "slots": [
+   "11h",
+   "12h",
+   "13h",
+   "14h",
+   "15h",
+   "16h",
+   "17h",
+   "18h",
+   "19h"
+  ],
+  "pick": "15h",
+  "marks": {}
+ },
+ "s1_continue": {
+  "tap": {
+   "x": 16,
+   "y": 504.21875,
+   "w": 358,
+   "h": 50
+  },
+  "text": "Saltar para o conteúdo Voltar ao site Reserva sem pagamento online 1 Escolha 2 Personalização 3 Confirmação ETAPA 1 DE 3 Escolhe a tua estação. Consola, data e horário. O preço é por estação, com até 4 jogadores, conforme o jogo. Consola Reservar em grupo PS5 PlayStation 5 Xbox 02 Xbox Series S Xbox 03 Xbox Series S Jogadores por estação 1 2 3 4 Data Hoje Amanhã Horário disponível 11h 12h 13h 14h 15h 16h 17h 18h 19h Segunda a sábado · 11h–20h. Domingo fechado. Não encontras o horário que querias? Entra na lista de espera O teu próximo jogo 25/11 · 15h PS5 · 2 jogadores por estação Na próxima etapa, escolhes a duração e vês os valores. Continuar",
+  "marks": {}
+ },
+ "s2_duration": {
+  "tap": {
+   "x": 138,
+   "y": 470.375,
+   "w": 114,
+   "h": 71.4375
+  },
+  "text": "Saltar para o conteúdo Voltar ao site Reserva sem pagamento online Escolha 2 Personalização 3 Confirmação ETAPA 2 DE 3 Quanto tempo vamos jogar? Escolhe a duração e, se quiseres, algo para acompanhar. Duração 1h 6,00 € / estação 2h 12,00 € / estação 3h 18,00 € / estação BENEFÍCIO EXTRA · 3 HORAS Mais uma hora. Brinde incluído. 18,00 € Total do jogo · 1 estação Troca 2h por 3h por mais 6,00 € e ganha 1 × Copo Gamer · oferta em sessão de 3h, um por estação. Quero 3h + brinde Jogo de 3h: 18,00 €. Extras pagos à parte. Prepara a tua sessão Os extras pagos são opcionais. Vês o total antes de enviar. BEBIDAS Monster Branco Para consumir durante a sessão ou levantar no lounge. +3,00 € 0 COMBOS Combo Copo Gamer · bebida + snack Bebida e snack para acompanhar a tua partida. +6,50 € 0 BEBIDAS Coca Cola KS 20cl Para consumir durante a sessão ou levantar no lounge. +1,50 € 0 Ver mais extras (7) O teu próximo jogo Editar 25/11 · 15h–17h PS5 · 2 jogadores por estação Jogo · 2h × 1 estação 12,00 € Total 12,00 € Preço da consola, com os jogadores incluídos. Continuar Seguir sem extras pagos Voltar",
+  "marks": {
+   "h1": {
+    "x": 16,
+    "y": 470.375,
+    "w": 114,
+    "h": 71.4375
+   }
+  }
+ },
+ "s2_continue": {
+  "tap": {
+   "x": 16,
+   "y": 402.890625,
+   "w": 358,
+   "h": 50
+  },
+  "text": "Saltar para o conteúdo Voltar ao site Reserva sem pagamento online Escolha 2 Personalização 3 Confirmação ETAPA 2 DE 3 Quanto tempo vamos jogar? Escolhe a duração e, se quiseres, algo para acompanhar. Duração 1h 6,00 € / estação 2h 12,00 € / estação 3h 18,00 € / estação BENEFÍCIO EXTRA · 3 HORAS Mais uma hora. Brinde incluído. 18,00 € Total do jogo · 1 estação Troca 2h por 3h por mais 6,00 € e ganha 1 × Copo Gamer · oferta em sessão de 3h, um por estação. Quero 3h + brinde Jogo de 3h: 18,00 €. Extras pagos à parte. Prepara a tua sessão Os extras pagos são opcionais. Vês o total antes de enviar. BEBIDAS Monster Branco Para consumir durante a sessão ou levantar no lounge. +3,00 € 0 COMBOS Combo Copo Gamer · bebida + snack Bebida e snack para acompanhar a tua partida. +6,50 € 0 BEBIDAS Coca Cola KS 20cl Para consumir durante a sessão ou levantar no lounge. +1,50 € 0 Ver mais extras (7) O teu próximo jogo Editar 25/11 · 15h–17h PS5 · 2 jogadores por estação Jogo · 2h × 1 estação 12,00 € Total 12,00 € Preço da consola, com os jogadores incluídos. Continuar Seguir sem extras pagos Voltar",
+  "marks": {}
+ },
+ "s3_form": {
+  "tap": {
+   "x": 16,
+   "y": 505.1875,
+   "w": 358,
+   "h": 24
+  },
+  "text": "Saltar para o conteúdo Voltar ao site Reserva sem pagamento online Escolha Personalização 3 Confirmação ETAPA 3 DE 3 Confirma a tua reserva. O teu pedido vai diretamente para a equipa da Pixel Zone. Nome completo Telefone Usar o meu perfil Li a Política de Privacidade e autorizo o uso dos dados para gerir esta reserva. Quero receber novidades da Pixel Zone. Opcional. O teu próximo jogo Editar 25/11 · 15h–17h PS5 · 2 jogadores por estação Jogo · 2h × 1 estação 12,00 € Total 12,00 € Preço da consola, com os jogadores incluídos. Enviar pedido de reserva A equipa confirma o horário. Pagamento no espaço. Precisas de cancelar? Pedimos que avises a equipa com pelo menos 1h de antecedência. Se te atrasares, fala com a equipa. hello@pixelzone.pt Voltar",
+  "marks": {
+   "nome": {
+    "x": 16,
+    "y": 430.1875,
+    "w": 358,
+    "h": 56
+   },
+   "tel": {
+    "x": 16,
+    "y": 536.1875,
+    "w": 358,
+    "h": 56
+   }
+  }
+ },
+ "s3_name": {
+  "tap": {
+   "x": 16,
+   "y": 505.1875,
+   "w": 358,
+   "h": 24
+  },
+  "text": "Saltar para o conteúdo Voltar ao site Reserva sem pagamento online Escolha Personalização 3 Confirmação ETAPA 3 DE 3 Confirma a tua reserva. O teu pedido vai diretamente para a equipa da Pixel Zone. Nome completo Telefone Usar o meu perfil Li a Política de Privacidade e autorizo o uso dos dados para gerir esta reserva. Quero receber novidades da Pixel Zone. Opcional. O teu próximo jogo Editar 25/11 · 15h–17h PS5 · 2 jogadores por estação Jogo · 2h × 1 estação 12,00 € Total 12,00 € Preço da consola, com os jogadores incluídos. Enviar pedido de reserva A equipa confirma o horário. Pagamento no espaço. Precisas de cancelar? Pedimos que avises a equipa com pelo menos 1h de antecedência. Se te atrasares, fala com a equipa. hello@pixelzone.pt Voltar",
+  "marks": {
+   "nome": {
+    "x": 16,
+    "y": 430.1875,
+    "w": 358,
+    "h": 56
+   },
+   "tel": {
+    "x": 16,
+    "y": 536.1875,
+    "w": 358,
+    "h": 56
+   }
+  }
+ },
+ "s3_filled": {
+  "tap": {
+   "x": 16,
+   "y": 505.1875,
+   "w": 358,
+   "h": 24
+  },
+  "text": "Saltar para o conteúdo Voltar ao site Reserva sem pagamento online Escolha Personalização 3 Confirmação ETAPA 3 DE 3 Confirma a tua reserva. O teu pedido vai diretamente para a equipa da Pixel Zone. Nome completo Telefone Usar o meu perfil Li a Política de Privacidade e autorizo o uso dos dados para gerir esta reserva. Quero receber novidades da Pixel Zone. Opcional. O teu próximo jogo Editar 25/11 · 15h–17h PS5 · 2 jogadores por estação Jogo · 2h × 1 estação 12,00 € Total 12,00 € Preço da consola, com os jogadores incluídos. Enviar pedido de reserva A equipa confirma o horário. Pagamento no espaço. Precisas de cancelar? Pedimos que avises a equipa com pelo menos 1h de antecedência. Se te atrasares, fala com a equipa. hello@pixelzone.pt Voltar",
+  "marks": {
+   "nome": {
+    "x": 16,
+    "y": 430.1875,
+    "w": 358,
+    "h": 56
+   },
+   "tel": {
+    "x": 16,
+    "y": 536.1875,
+    "w": 358,
+    "h": 56
+   }
+  }
+ },
+ "s3_send": {
+  "tap": {
+   "x": 16,
+   "y": 373.9375,
+   "w": 358,
+   "h": 50
+  },
+  "text": "Saltar para o conteúdo Voltar ao site Reserva sem pagamento online Escolha Personalização 3 Confirmação ETAPA 3 DE 3 Confirma a tua reserva. O teu pedido vai diretamente para a equipa da Pixel Zone. Nome completo Telefone Usar o meu perfil Li a Política de Privacidade e autorizo o uso dos dados para gerir esta reserva. Quero receber novidades da Pixel Zone. Opcional. O teu próximo jogo Editar 25/11 · 15h–17h PS5 · 2 jogadores por estação Jogo · 2h × 1 estação 12,00 € Total 12,00 € Preço da consola, com os jogadores incluídos. Enviar pedido de reserva A equipa confirma o horário. Pagamento no espaço. Precisas de cancelar? Pedimos que avises a equipa com pelo menos 1h de antecedência. Se te atrasares, fala com a equipa. hello@pixelzone.pt Voltar",
+  "marks": {
+   "aviso": {
+    "x": 16,
+    "y": 438.9375,
+    "w": 358,
+    "h": 14.84375
+   }
+  }
+ }
+}
