@@ -7,7 +7,7 @@ motion-design cut, synthesises the score + SFX, and muxes the final MP4.
     python3 build.py            # -> pixel-zone-reel-revanche.mp4, poster.jpg
 Requires: python3 with numpy + Pillow, ffmpeg.
 """
-import os, subprocess, math, wave
+import os, subprocess, math, wave, json
 import numpy as np
 from PIL import Image, ImageFilter
 
@@ -349,13 +349,13 @@ def build_audio():
     put(sfx, lp(buzz, 0.3), 3.0)
     put(sfx, sweep(500, 1400, 0.12, 0.22), 3.9)
     for g0, d in ((4.5, 0.35), (5.35, 0.2)):
-        n = noise(int(d * SR)); n = np.repeat(n[::40], 40)[:len(n)] * 0.18
+        n = noise(int(d * SR)); n = np.repeat(n[::40], 40)[:len(n)] * 0.09
         n *= (np.sin(np.arange(len(n)) / SR * 2 * np.pi * 23) > 0)
         put(sfx, n, g0)
     wn = noise(int(0.45 * SR)); put(sfx, lp(wn, 0.08) * np.hanning(len(wn)) * 0.7, 5.85)
     t = T(0.9); boom = np.sin(2 * np.pi * np.cumsum(40 + 60 * np.exp(-t / 0.08)) / SR) * np.exp(-t / 0.3) * 0.8
     put(sfx, boom + lp(noise(len(t)), 0.2) * np.exp(-t / 0.05) * 0.3, 7.2)
-    put(sfx, sweep(300, 900, 0.18, 0.18), 8.45)             # eyebrow "bwip"
+    put(sfx, sweep(300, 900, 0.18, 0.16), 9.0)              # eyebrow "bwip" (after the line)
     put(sfx, beep(2000, 0.02, 0.3, lambda f, t: noise(len(t))), 9.6)
     put(sfx, beep(1500, 0.03, 0.15), 9.6)
     rn = noise(int(0.8 * SR)); rs = lp(rn, 0.15) * np.linspace(0, 1, len(rn)) ** 2 * 0.35
@@ -372,9 +372,24 @@ def build_audio():
     put(sfx, beep(2000, 0.02, 0.3, lambda f, t: noise(len(t))), 18.1)
     put(sfx, arp([523, 659, 784, 1047, 1319], 0.055, 0.35, 0.28, lambda f, t: np.sin(2 * np.pi * f * t) + 0.25 * sq(f, t)), 18.12)
 
-    mus_env = np.ones(L)
+    # narration (voices/ from tools/tts.py; timings in lines.json)
+    vox = np.zeros(L); duck = np.zeros(L)
+    for l in json.load(open(P('lines.json'))):
+        with wave.open(P('voices', l['id'] + '.wav')) as w:
+            v = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float64) / 32768
+        v = v / (np.abs(v).max() + 1e-9) * 0.62
+        if l['id'].startswith('f'):                          # friend: chat/phone colour
+            v = lp(v - lp(v, 0.06), 0.5) * 1.6
+        if l['id'].startswith('l'):                          # Lagzilla: a little slap-back room
+            d = int(0.07 * SR); v = v + np.concatenate([np.zeros(d), v[:-d]]) * 0.25
+        put(vox, v, l['at'])
+        s0 = int(l['at'] * SR); duck[s0:s0 + len(v)] = 1
+    k = int(0.08 * SR); duck = np.convolve(duck, np.ones(k) / k, 'same')
+    sfx = sfx * (1 - 0.35 * duck) + vox
+
+    mus_env = np.ones(L) * (1 - 0.55 * duck)
     s, e = int((DUR - 1.2) * SR), int(DUR * SR)
-    mus_env[s:e] = np.linspace(1, 0, e - s); mus_env[e:] = 0
+    mus_env[s:e] *= np.linspace(1, 0, e - s); mus_env[e:] = 0
     out = mus * 0.75 * mus_env + sfx
     out = np.tanh(out * 1.2) * 0.85
     st = np.stack([out, out], 1)
@@ -404,7 +419,7 @@ if __name__ == '__main__':
         for t in map(float, sys.argv[2:]):
             Image.fromarray(np.clip(frame(t), 0, 255).astype(np.uint8)).save(P('out', f'still_{t:05.2f}.jpg'), quality=88)
         sys.exit()
-    print('audio…'); build_audio()
+    print("audio…"); build_audio()
     print('video…'); render()
     final = P('pixel-zone-reel-revanche.mp4')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', P('out', 'video.mp4'), '-i', P('out', 'mix.wav'),

@@ -1,0 +1,8 @@
+[
+ {"id": "n1", "at": 0.30, "voice": "pt-BR-AntonioNeural", "rate": "+6%", "pitch": "+0Hz", "text": "Cadê o player dois?"},
+ {"id": "f1", "at": 3.95, "voice": "pt-BR-FranciscaNeural", "rate": "+8%", "pitch": "+0Hz", "text": "Se eu perder, quero revanche."},
+ {"id": "l1", "at": 7.30, "voice": "pt-BR-AntonioNeural", "rate": "-6%", "pitch": "-28Hz", "text": "Já tá negociando a derrota?"},
+ {"id": "n2", "at": 11.30, "voice": "pt-BR-AntonioNeural", "rate": "+8%", "pitch": "+0Hz", "text": "Seis euros a hora por consola. Até quatro jogadores."},
+ {"id": "n3", "at": 15.25, "voice": "pt-BR-AntonioNeural", "rate": "+8%", "pitch": "+0Hz", "text": "Manda pra quem vai pedir revanche."},
+ {"id": "n4", "at": 18.30, "voice": "pt-BR-AntonioNeural", "rate": "+6%", "pitch": "+0Hz", "text": "Reserva no link da bio."}
+]
