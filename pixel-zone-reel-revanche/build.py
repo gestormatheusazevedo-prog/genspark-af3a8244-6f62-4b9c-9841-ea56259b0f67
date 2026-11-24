@@ -159,25 +159,28 @@ def shake(t, t0, dur, amp):
     return amp * k * math.sin(t * 97), amp * k * math.cos(t * 83)
 
 # ───────────────────────── timeline ─────────────────────────
-def frame(t):
+def shot(t):
     D = lambda v: v * K           # design px -> output px
     # 0–3 s · CADÊ O PLAYER 2?
     if t < 0.6:
         img = xform(F['01.png'], 1.06 - 0.06 * eout(t / 0.6))
         return fade(img, 1 - ease(t / 0.35))
     if t < 1.3:
-        return flash(F['02.png'], 0.5 * (1 - (t - 0.6) / 0.12))
+        return flash(mix(F['01.png'], F['02.png'], ease((t - 0.6) / 0.15)), 0.35 * (1 - (t - 0.6) / 0.15))
     if t < 2.3:
         on = int((t - 1.3) / 0.12) % 2 == 0 if t < 1.9 else True       # P2 slot blinks
         return F['03.png'] if on else F['02.png']
     if t < 3.0:
         dx, dy = shake(t, 2.3, 0.25, 10)
-        return xform(F['04.png'], 1.0, dx=dx, dy=dy)
+        return mix(F['03.png'], xform(F['04.png'], 1.0, dx=dx, dy=dy), ease((t - 2.3) / 0.1))
     # 3–6 s · chat
     if t < 3.9:
-        dx, dy = shake(t, 3.0, 0.45, 9)                                 # phone buzz
-        img = xform(F['05.png'], 1.0, dx=dx, dy=dy)
-        return mix(F['04.png'], img, ease((t - 3.0) / 0.12))
+        dx, dy = shake(t, 3.15, 0.4, 9)                                 # phone buzz
+        p = eout((t - 3.0) / 0.3)
+        img = xform(F['05.png'], 0.88 + 0.12 * p, dx=dx, dy=dy)
+        if p < 1:                                                       # zoom-through
+            img = mix(xform(F['04.png'], 1.0 + 0.35 * p, cy=H * 0.55), img, ease((t - 3.0) / 0.2))
+        return img
     if t < 6.0:
         base = F['06a_clean.png'] if t < 4.5 else F['06.png']
         img = mix(F['05.png'], base, ease((t - 3.9) / 0.15)) if t < 4.05 else base
@@ -188,13 +191,13 @@ def frame(t):
         return img
     # 6–10 s · Lagzilla
     if t < 7.2:
-        p = eout((t - 6.0) / 0.4)                                      # push in from the left
+        p = eout((t - 6.0) / 0.32)                                     # push in from the left
         if p < 1:
             a = xform(F['06.png'], 1.02, dx=W * p)
             b = xform(F['07.png'], 1.0, dx=-W * (1 - p))
             img = np.where(np.arange(W)[None, :, None] < W * p, b, a)
         else:
-            img = xform(F['07.png'], 1.0 + 0.03 * (t - 6.4), cx=D(200), cy=D(1100))
+            img = xform(F['07.png'], 1.0 + 0.05 * (t - 6.32), cx=D(200), cy=D(1100))
         return img
     if t < 8.4:                                                         # headline punch (beat drops out)
         s = 1.10 - 0.10 * eout((t - 7.2) / 0.22)
@@ -207,6 +210,7 @@ def frame(t):
     if t < 10.0:                                                        # presses the button
         s = 1.07 - 0.02 * ease((t - 9.2) / 0.8)
         img = xform(F['10.png'], s, cx=D(470), cy=D(760))
+        img = mix(xform(F['09.png'], s, cx=D(470), cy=D(760)), img, ease((t - 9.2) / 0.1))
         if t >= 9.6:
             dx, dy = shake(t, 9.6, 0.15, 6)
             img = xform(img, 1.0, dx=dx, dy=dy)
@@ -241,35 +245,83 @@ def frame(t):
         return mix(a, b, ease((t - 13.7) / 0.25))
     # 15–20 s · REVANCHE → RESERVAR HORÁRIO
     if t < 16.2:
-        s = 1.06 - 0.06 * eout((t - 15.0) / 0.5)
-        img = xform(F['15.png'], s, cy=D(1500))
-        img = flash(img, 0.45 * (1 - (t - 15.0) / 0.12))
-        return mix(F['14.png'], img, ease((t - 15.0) / 0.1))
-    if t < 17.3:
+        p = eout((t - 15.0) / 0.35)
+        img = xform(F['15.png'], 1.04 - 0.04 * eout((t - 15.0) / 0.9), cy=D(1500), dy=H * (1 - p))
+        if p < 1:                                                       # whip up
+            out = xform(F['14.png'], 1.0, dy=-H * p)
+            img = np.where(np.arange(H)[:, None, None] < H * (1 - p), out, img)
+        return flash(img, 0.3 * (1 - abs(t - 15.12) / 0.12))
+    if t < 17.0:
         b = xform(F['16.png'], 1.03 - 0.03 * eout((t - 16.2) / 0.4))
+        b = mix(b, F['16c'], ease((t - 16.85) / 0.15))                  # hand over to the drawn cursor
+        if t >= 16.85: b = over_tip(b, S['cur_w'], D(733) - D(4), D(717) - D(4), alpha=ease((t - 16.85) / 0.15))
         return pixel_wipe(F['15.png'], b, (t - 16.2) / 0.35, seed_shift=0.71)
-    if t < 17.55:
-        return mix(F['16.png'], F['16b_move.png'], ease((t - 17.3) / 0.06))
-    # cursor glides from between the buttons onto RESERVAR HORÁRIO, then clicks
-    t0, tArr, tClick = 17.55, 17.95, 18.1
-    start, end = (D(511), D(789)), (D(600), D(948))
-    p = eout((t - t0) / (tArr - t0))
-    cx_, cy_ = start[0] + (end[0] - start[0]) * p, start[1] + (end[1] - start[1]) * p
+    # cursor curves from REVANCHE down onto RESERVAR HORÁRIO, then clicks
+    t0, tArr, tClick = 17.0, 17.75, 17.9
+    P0, P1, P2 = (D(733), D(717)), (D(760), D(880)), (D(600), D(948))
+    u = ease((t - t0) / (tArr - t0)) ** 0.9
+    cx_ = (1 - u) ** 2 * P0[0] + 2 * u * (1 - u) * P1[0] + u * u * P2[0]
+    cy_ = (1 - u) ** 2 * P0[1] + 2 * u * (1 - u) * P1[1] + u * u * P2[1]
+    end = P2
     if t < tClick:
         img = F['16c'].copy()
-        cur = S['cur_c'] if t >= tArr - 0.08 else S['cur_w']
+        if t >= tArr - 0.15:                                           # hover glow before the click
+            img = mix(img, F['16d'], 0.12 * ease((t - (tArr - 0.15)) / 0.15))
+        cur = S['cur_c'] if t >= tArr - 0.15 else S['cur_w']
         return over_tip(img, cur, cx_ - D(4), cy_ - D(4))
     # clicked
     k = (t - tClick)
     img = F['16d'] if k > 0.06 else F['16c']
     sbtn = 1.0 - 0.02 * math.sin(min(k / 0.18, 1) * math.pi)
     img = xform(img, sbtn, cx=D(475), cy=D(945))
-    img = flash(img, 0.35 * (1 - k / 0.15), (40, 230, 255))
+    img = flash(img, 0.12 * (1 - k / 0.12), (40, 230, 255))
     rs = 0.6 + 1.6 * eout(k / 0.5)
     img = over(img, S['ring'], end[0], end[1], alpha=max(0, 1 - k / 0.55), scale=rs)
     img = over_tip(img, S['cur_c'], end[0] - D(4) + D(2) * (k < 0.1), end[1] - D(4) + D(3) * (k < 0.1))
     if t > DUR - 0.2:
         img = fade(img, (t - (DUR - 0.2)) / 0.2 * 0.6)
+    return img
+
+BEAT, OFF = 0.466667, 0.2
+KICKS = [OFF + k * BEAT for k in range(44) if 0.6 <= OFF + k * BEAT < DUR - 0.1 and not (7.2 <= OFF + k * BEAT < 10.0 - 1e-3)]
+_np = 46
+PT = dict(x=rng.uniform(0, W, _np), y=rng.uniform(0, H, _np), v=rng.uniform(40, 140, _np),
+          s=rng.integers(5, 15, _np), ph=rng.uniform(0, 6.28, _np),
+          c=np.where(rng.random(_np) < 0.5, 0, 1))
+PCOL = np.array([[40, 230, 255], [255, 50, 200]], np.float32)
+
+def particles(img, t):
+    img = img.copy()
+    xs = (PT['x'] + 18 * np.sin(t * 0.9 + PT['ph'])) % W
+    ys = (PT['y'] - PT['v'] * t) % H
+    a = 0.22 + 0.18 * np.sin(t * 5 + PT['ph'] * 3)
+    for x, y, sz, al, c in zip(xs.astype(int), ys.astype(int), PT['s'], a, PT['c']):
+        x1, y1 = min(W, x + sz), min(H, y + sz)
+        img[y:y1, x:x1] = img[y:y1, x:x1] + (PCOL[c] - img[y:y1, x:x1]) * al
+    return img
+
+def camera(t):
+    """Never-still camera: slow float + a push on every kick."""
+    s = 1.0 + 0.008 * math.sin(t * 1.3)
+    dx, dy = 7 * math.sin(t * 0.8), 6 * math.sin(t * 1.1 + 1)
+    bump = 0.0
+    for kt in KICKS:
+        if 0 <= t - kt < 0.3:
+            bump = max(bump, math.exp(-(t - kt) / 0.08) * (0.018 if kt >= 10.0 else 0.011))
+    return s + bump, dx, dy, bump
+
+FAST = [(2.98, 3.3), (5.98, 6.32), (7.18, 7.42), (9.98, 10.35), (14.98, 15.4), (17.0, 17.78)]
+
+def frame(t):
+    if any(a <= t < b for a, b in FAST):                               # motion blur where things move fast
+        sub = [t + (j / 8 - 0.5) * 0.6 / FPS for j in range(9)]
+    else:
+        sub = [t]
+    img = sum(shot(max(0.0, min(DUR - 1e-3, u))) for u in sub) / len(sub)
+    s, dx, dy, bump = camera(t)
+    img = xform(img, s, dx=dx, dy=dy)
+    img = img * (1 + bump * 3)
+    if t > 0.3: img = particles(img, t)
     return img
 
 # ───────────────────────── audio ─────────────────────────
@@ -313,7 +365,6 @@ def build_audio():
     mus = np.zeros(L); sfx = np.zeros(L)
     def put(buf, x, at):
         s = int(at * SR); e = min(L, s + len(x)); buf[s:e] += x[:e - s]
-    BEAT, OFF = 0.466667, 0.2
     notes = [55.0, 55.0, 65.41, 49.0]                       # A1 A1 C2 G1 — one chord per bar
     for k in range(0, 44):
         tb = OFF + k * BEAT
@@ -364,7 +415,7 @@ def build_audio():
     put(sfx, arp([1047, 1319, 1568, 2093, 2637, 3136], 0.035, 0.08, 0.12), 10.0)
     put(sfx, beep(660, 0.05, 0.12), 10.25)
     put(sfx, arp([784, 988, 1175, 1568], 0.06, 0.18, 0.2, lambda f, t: np.sin(2 * np.pi * f * t) + 0.3 * sq(f, t)), 10.7)
-    for ts in (11.1, 12.4, 16.2):
+    for ts in (2.95, 11.1, 12.4, 14.92, 16.2):
         wn = noise(int(0.3 * SR)); put(sfx, (wn - lp(wn, 0.3)) * np.hanning(len(wn)) * 0.25, ts)
     put(sfx, beep(1200, 0.025, 0.14), 16.55)
     put(sfx, beep(1000, 0.025, 0.12), 17.35)
@@ -400,17 +451,21 @@ def build_audio():
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
 
 # ───────────────────────── render ─────────────────────────
+def _render_one(i):
+    np.random.seed(i); rng.bit_generator.state = np.random.default_rng(1000 + i).bit_generator.state
+    return np.clip(frame(i / FPS), 0, 255).astype(np.uint8).tobytes()
+
 def render():
     os.makedirs(P('out'), exist_ok=True)
     cmd = ['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}',
            '-r', str(FPS), '-i', '-', '-c:v', 'libx264', '-preset', 'medium', '-crf', '17',
            '-pix_fmt', 'yuv420p', P('out', 'video.mp4')]
     pr = subprocess.Popen(cmd, stdin=subprocess.PIPE)
-    for i in range(N):
-        t = i / FPS
-        img = frame(t)
-        pr.stdin.write(np.clip(img, 0, 255).astype(np.uint8).tobytes())
-        if i % 60 == 0: print(f'  frame {i}/{N}', flush=True)
+    from multiprocessing import Pool
+    with Pool(os.cpu_count() or 2) as pool:
+        for i, buf in enumerate(pool.imap(_render_one, range(N), chunksize=4)):
+            pr.stdin.write(buf)
+            if i % 60 == 0: print(f'  frame {i}/{N}', flush=True)
     pr.stdin.close(); pr.wait()
 
 if __name__ == '__main__':
