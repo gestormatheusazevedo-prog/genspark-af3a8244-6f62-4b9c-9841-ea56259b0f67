@@ -13,7 +13,7 @@ MODE = sys.argv[1] if len(sys.argv) > 1 else 'intro'
 W, H = 1080, 1920
 CY, MG, INK, WHITE = '#00e5f5', '#ff0a9c', '#04050c', '#f7f5f0'
 STING_END = 1.62 if MODE == 'intro' else 2.45
-DUR = 4.60 if MODE == 'intro' else 2.45
+DUR = {'intro': 4.60, 'outro': 2.45, 'logo': 2.40}[MODE]
 INFO = json.load(open(P('assets/img/logo_parts.json')))
 
 # brand diagonal (the slash slant, ~47 deg rising to the right) and its normal
@@ -187,6 +187,8 @@ def build():
                      f'data-has-audio="true" playsinline style="position:absolute;left:0;top:0;width:1080px;height:1920px"></video></div>')
         travellers = (f'<div id="tc" style="position:absolute;left:0;top:0;width:0;height:0;opacity:0">{slash("tc-s", SC, CY)}</div>'
                       f'<div id="tm" style="position:absolute;left:0;top:0;width:0;height:0;opacity:0">{slash("tm-s", SM, MG)}</div>')
+    elif MODE == 'logo':
+        plate_in = plate_out = travellers = ''          # the logo on its own: no video under it
     else:
         plate_in = ('<video id="plate-in" class="clip" src="assets/plates/tutorial.mp4" data-start="0" data-duration="0.80" data-media-start="27.45" muted playsinline '
                     'style="position:absolute;left:0;top:0;width:1080px;height:1920px"></video>')

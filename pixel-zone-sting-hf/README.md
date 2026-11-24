@@ -3,6 +3,7 @@
 Animatic (ritmo e transições reais, acabamento provisório) para aprovar o movimento antes do acabamento.
 Vertical 1080x1920, 60 fps.
 
+- `logo-animada.mp4` (2,4 s): **só a logo animada**, sem vídeo por baixo, terminando fixa na logo (`python3 tools/animatic.py logo`).
 - `animatic-abertura.mp4` (4,6 s): vinheta de 1,6 s sobre o início do Reel do squad; o espaço entre os traços revela o vídeo, que continua.
 - `animatic-encerramento.mp4` (2,45 s): sobre o fim do tutorial; os traços recolhem o vídeo e fixam a logo.
 - `*-lento.mp4`: as mesmas a 0,4x, para ver cada movimento.
