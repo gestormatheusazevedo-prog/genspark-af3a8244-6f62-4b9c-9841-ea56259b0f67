@@ -1,0 +1,26 @@
+<template>
+  <style>
+@font-face { font-family: 'BarlowX'; src: url('assets/fonts/BarlowCondensed-ExtraBoldItalic.ttf') format('truetype'); font-weight: 800; }
+@font-face { font-family: 'BarlowB'; src: url('assets/fonts/BarlowCondensed-BoldItalic.ttf') format('truetype'); font-weight: 700; }
+
+    #root { position:absolute; inset:0; }
+    .hk { position:absolute; left:0; width:1080px; text-align:center; font-family:BarlowX; font-weight:800; letter-spacing:-2px; line-height:1; }
+  </style>
+  <div id="root" data-composition-id="hook" data-width="1080" data-height="1920">
+    <div id="hk-a" class="hk" style="top:300px;font-size:210px;color:#fff">4 AMIGOS</div>
+    <div id="hk-b" class="hk" style="top:505px;font-size:210px;color:#28e6ff;text-shadow:0 0 18px #28e6ff">1 CONSOLA</div>
+    <div id="hk-c" class="hk" style="top:730px;font-size:104px;color:#ff2dc8;text-shadow:0 0 16px #ff2dc8">
+      <span class="w">QUAL</span> <span class="w">É</span> <span class="w">O</span> <span class="w">SEU</span> <span class="w">SQUAD?</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#hk-a", {opacity:1}, {opacity:1, duration:0.01}, 0);
+    tl.fromTo("#hk-b", {opacity:0, filter:"blur(8px)", scale:1.08}, {opacity:1, filter:"blur(0px)", scale:1, duration:0.18, ease:"power4.out"}, 1.06);
+    gsap.utils.toArray("#hk-c .w").forEach((el, i) =>
+      tl.fromTo(el, {opacity:0, filter:"blur(6px)"}, {opacity:1, filter:"blur(0px)", duration:0.13, ease:"power4.out"}, 1.98 + i * 0.08));
+    tl.to(["#hk-a", "#hk-b"], {opacity:0, filter:"blur(8px)", duration:0.18, ease:"power3.in", stagger:0.04}, 2.70);
+    tl.to("#hk-c", {y:-450, scale:0.81, duration:0.32, ease:"power3.inOut"}, 2.70);
+    tl.to("#hk-c", {color:"#ffffff", textShadow:"0 0 0px #ff2dc8", duration:0.32}, 2.70);
+    window.__timelines["hook"] = tl;
+  </script>
+</template>

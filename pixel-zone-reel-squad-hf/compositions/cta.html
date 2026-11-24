@@ -1,0 +1,25 @@
+<template>
+  <style>
+@font-face { font-family: 'BarlowX'; src: url('assets/fonts/BarlowCondensed-ExtraBoldItalic.ttf') format('truetype'); font-weight: 800; }
+@font-face { font-family: 'BarlowB'; src: url('assets/fonts/BarlowCondensed-BoldItalic.ttf') format('truetype'); font-weight: 700; }
+
+    #root { position:absolute; inset:0; }
+    .ct { position:absolute; left:0; width:1080px; text-align:center; font-family:BarlowX; font-weight:800; line-height:1; }
+  </style>
+  <div id="root" data-composition-id="cta" data-width="1080" data-height="1920">
+    <div id="ct-all" style="position:absolute;inset:0">
+      <img id="ct-logo" src="assets/img/logo_alpha.png" style="position:absolute;left:320px;top:300px;width:440px">
+      <div class="ct" style="top:540px;font-size:190px;color:#fff">MARCA O</div>
+      <div class="ct" style="top:740px;font-size:190px;color:#ff2dc8;text-shadow:0 0 18px #ff2dc8">SEU SQUAD</div>
+      <div id="ct-bio" class="ct" style="top:1010px;font:700 64px BarlowB;color:#fff">Reserva no link da bio</div>
+    </div>
+    <img id="ct-lz" src="assets/img/lagzilla.png" style="position:absolute;left:300px;top:1180px;height:900px">
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#ct-all", {y:700, filter:"blur(16px)"}, {y:0, filter:"blur(0px)", duration:0.3, ease:"expo.out"}, 0);
+    tl.fromTo("#ct-bio", {opacity:0}, {opacity:1, duration:0.2}, 0.9);
+    tl.fromTo("#ct-lz", {y:500}, {y:0, duration:0.7, ease:"expo.out"}, 0.35);
+    window.__timelines["cta"] = tl;
+  </script>
+</template>

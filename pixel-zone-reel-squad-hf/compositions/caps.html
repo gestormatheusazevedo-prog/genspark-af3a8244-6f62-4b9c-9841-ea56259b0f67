@@ -1,0 +1,48 @@
+<template>
+  <style>
+@font-face { font-family: 'BarlowX'; src: url('assets/fonts/BarlowCondensed-ExtraBoldItalic.ttf') format('truetype'); font-weight: 800; }
+@font-face { font-family: 'BarlowB'; src: url('assets/fonts/BarlowCondensed-BoldItalic.ttf') format('truetype'); font-weight: 700; }
+
+    #root { position:absolute; inset:0; }
+    .cap { position:absolute; left:0; width:1080px; top:1145px; text-align:center; font:800 70px BarlowX; color:#fff;
+           text-shadow:0 4px 0 #000, 0 0 14px rgba(0,0,0,0.9); }
+  </style>
+  <div id="root" data-composition-id="caps" data-width="1080" data-height="1920">
+    <div id="cap0" class="clip cap" data-start="0.10" data-duration="0.89">O 1 PERDEU?</div>
+    <div id="cap1" class="clip cap" data-start="1.57" data-duration="0.61">A CULPA É</div>
+    <div id="cap2" class="clip cap" data-start="2.18" data-duration="0.75">DO COMANDO.</div>
+    <div id="cap3" class="clip cap" data-start="2.95" data-duration="0.59">O 2 SÓ</div>
+    <div id="cap4" class="clip cap" data-start="3.54" data-duration="0.70">JOGA SE FOR</div>
+    <div id="cap5" class="clip cap" data-start="4.24" data-duration="0.51">O PRIMEIRO.</div>
+    <div id="cap6" class="clip cap" data-start="4.95" data-duration="0.65">O 3 TÁ</div>
+    <div id="cap7" class="clip cap" data-start="5.60" data-duration="0.48">NO "SÓ MAIS</div>
+    <div id="cap8" class="clip cap" data-start="6.08" data-duration="0.76">UMA" HÁ TRÊS</div>
+    <div id="cap9" class="clip cap" data-start="6.84" data-duration="0.53">HORAS.</div>
+    <div id="cap10" class="clip cap" data-start="7.50" data-duration="0.77">O 4 PAGA</div>
+    <div id="cap11" class="clip cap" data-start="8.27" data-duration="0.63">OS SNACKS.</div>
+    <div id="cap12" class="clip cap" data-start="9.00" data-duration="1.02">SEGURA ESSE.</div>
+    <div id="cap14" class="clip cap" data-start="11.32" data-duration="1.18">O LAGZILLA.</div>
+    <div id="cap15" class="clip cap" data-start="12.50" data-duration="1.14">QUE CULPA O</div>
+    <div id="cap16" class="clip cap" data-start="13.64" data-duration="0.43">LAG.</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#cap0 ", {opacity:0}, {opacity:1, duration:0.06}, 0.10);
+    tl.fromTo("#cap1 ", {opacity:0}, {opacity:1, duration:0.06}, 1.57);
+    tl.fromTo("#cap2 ", {opacity:0}, {opacity:1, duration:0.06}, 2.18);
+    tl.fromTo("#cap3 ", {opacity:0}, {opacity:1, duration:0.06}, 2.95);
+    tl.fromTo("#cap4 ", {opacity:0}, {opacity:1, duration:0.06}, 3.54);
+    tl.fromTo("#cap5 ", {opacity:0}, {opacity:1, duration:0.06}, 4.24);
+    tl.fromTo("#cap6 ", {opacity:0}, {opacity:1, duration:0.06}, 4.95);
+    tl.fromTo("#cap7 ", {opacity:0}, {opacity:1, duration:0.06}, 5.60);
+    tl.fromTo("#cap8 ", {opacity:0}, {opacity:1, duration:0.06}, 6.08);
+    tl.fromTo("#cap9 ", {opacity:0}, {opacity:1, duration:0.06}, 6.84);
+    tl.fromTo("#cap10 ", {opacity:0}, {opacity:1, duration:0.06}, 7.50);
+    tl.fromTo("#cap11 ", {opacity:0}, {opacity:1, duration:0.06}, 8.27);
+    tl.fromTo("#cap12 ", {opacity:0}, {opacity:1, duration:0.06}, 9.00);
+    tl.fromTo("#cap14 ", {opacity:0}, {opacity:1, duration:0.06}, 11.32);
+    tl.fromTo("#cap15 ", {opacity:0}, {opacity:1, duration:0.06}, 12.50);
+    tl.fromTo("#cap16 ", {opacity:0}, {opacity:1, duration:0.06}, 13.64);
+    window.__timelines["caps"] = tl;
+  </script>
+</template>

@@ -1,0 +1,48 @@
+<template>
+  <style>
+@font-face { font-family: 'BarlowX'; src: url('assets/fonts/BarlowCondensed-ExtraBoldItalic.ttf') format('truetype'); font-weight: 800; }
+@font-face { font-family: 'BarlowB'; src: url('assets/fonts/BarlowCondensed-BoldItalic.ttf') format('truetype'); font-weight: 700; }
+
+    #root { position:absolute; inset:0; }
+    #p3-card { position:absolute; left:90px; top:390px; width:900px; height:510px; }
+    #p3-frame { position:absolute; inset:0; background:#a05aff; clip-path:polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px); filter:drop-shadow(0 0 18px #a05aff); }
+    #p3-fill { position:absolute; inset:6px; background:#090b20; clip-path:polygon(37px 0, 100% 0, 100% calc(100% - 37px), calc(100% - 37px) 100%, 0 100%, 0 37px); }
+  </style>
+  <div id="root" data-composition-id="p3" data-width="1080" data-height="1920" data-layout-allow-overlap>
+    
+    
+    <div id="p3-card">
+      <div id="p3-frame"></div><div id="p3-fill"></div>
+      <div style="position:absolute;left:44px;top:22px;font:700 42px BarlowB;color:#a05aff">PLAYER 3</div>
+      <div id="p3-av" style="position:absolute;left:40px;top:60px"><svg viewBox="0 0 200 200" width="290" height="290" style="overflow:visible;filter:drop-shadow(0 0 9px #a05aff)">
+  <circle cx="100" cy="62" r="40" fill="none" stroke="#a05aff" stroke-width="10"/>
+  <path d="M28 178 C28 120 172 120 172 178 Z" fill="none" stroke="#a05aff" stroke-width="10" stroke-linejoin="round"/>
+</svg></div><div id="p3-prop" style="position:absolute;left:700px;top:175px"><svg viewBox="0 0 180 180" width="150" height="150" style="overflow:visible;filter:drop-shadow(0 0 8px #a05aff)"><circle cx="88" cy="88" r="66" fill="none" stroke="#a05aff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M88 88 V46 M88 88 L118 98" fill="none" stroke="#a05aff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><text x="170" y="40" fill="#ff2dc8" font-family="BarlowX" font-size="56" text-anchor="middle">+1</text></svg></div>
+      <div style="position:absolute;left:380px;top:92px;width:500px;font:800 66px BarlowX;color:#fff;white-space:nowrap">O “SÓ MAIS UMA”</div>
+      <div id="p3-timer" style="position:absolute;left:380px;top:192px;font:800 44px BarlowX;color:#ff2dc8">JOGANDO HÁ <span id="p3-clock">3:00:00</span></div>
+      <div style="position:absolute;left:48px;top:340px;font:700 40px BarlowB;color:#d6d9ff">PARTIDAS</div>
+      <div style="position:absolute;left:48px;top:388px;width:700px;height:22px;border:3px solid #5a5f96;border-radius:6px"></div>
+      <div id="p3-bar0" style="position:absolute;left:53px;top:393px;width:683px;height:12px;background:#a05aff;border-radius:3px;box-shadow:0 0 12px #a05aff"></div>
+      <div id="p3-num0" style="position:absolute;left:770px;top:358px;width:90px;text-align:right;font:800 58px BarlowX;color:#a05aff">99</div>
+      <div style="position:absolute;left:48px;top:420px;font:700 40px BarlowB;color:#d6d9ff">HORA DE IR</div>
+      <div style="position:absolute;left:48px;top:468px;width:700px;height:22px;border:3px solid #5a5f96;border-radius:6px"></div>
+      <div id="p3-bar1" style="position:absolute;left:53px;top:473px;width:14px;height:12px;background:#a05aff;border-radius:3px;box-shadow:0 0 12px #a05aff"></div>
+      <div id="p3-num1" style="position:absolute;left:770px;top:438px;width:90px;text-align:right;font:800 58px BarlowX;color:#ff2dc8">0</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#p3-card", {x:0.0, y:367.5, scaleX:0.1867, scaleY:0.3431, opacity:0.6, filter:"blur(12px)"}, {x:0, y:0, scaleX:1, scaleY:1, opacity:1, filter:"blur(0px)", duration:0.4, ease:"expo.out"}, 0);
+      tl.fromTo("#p3-bar0", {scaleX: 0}, {scaleX: 1, duration: 0.6, ease: "power2.out"}, 0.45);
+      (function(){ const o={n:0}, el=document.querySelector("#p3-num0");
+        tl.fromTo(o, {n:0}, {n:99, duration:0.6, ease:"power2.out", onUpdate:()=>{el.textContent=Math.round(o.n)}}, 0.45); })();
+      tl.fromTo("#p3-bar1", {scaleX: 6}, {scaleX: 1, duration: 0.6, ease: "power2.in"}, 0.7);
+      (function(){ const o={n:40}, el=document.querySelector("#p3-num1");
+        tl.fromTo(o, {n:40}, {n:0, duration:0.6, ease:"power2.in", onUpdate:()=>{el.textContent=Math.round(o.n)}}, 0.7); })();
+      (function(){ const o={s:10800}, el=document.querySelector("#p3-clock");
+        tl.fromTo(o, {s:10800}, {s:10800+4590, duration:2.55, ease:"none", onUpdate:()=>{const s=Math.floor(o.s);
+          el.textContent=Math.floor(s/3600)+":"+String(Math.floor(s/60)%60).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}}, 0); })();
+    tl.to("#p3-card", {x:-1150, filter:"blur(10px)", duration:0.18, ease:"power3.in"}, 2.35);
+    window.__timelines["p3"] = tl;
+  </script>
+</template>

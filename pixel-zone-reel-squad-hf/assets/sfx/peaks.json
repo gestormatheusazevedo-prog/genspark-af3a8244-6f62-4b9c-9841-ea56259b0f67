@@ -1,0 +1,50 @@
+{
+ "click_a": {
+  "dur": 0.103,
+  "peak": 0.007
+ },
+ "click_b": {
+  "dur": 0.094,
+  "peak": 0.007
+ },
+ "glitch": {
+  "dur": 0.34,
+  "peak": 0.255
+ },
+ "impact": {
+  "dur": 2.845,
+  "peak": 0.062
+ },
+ "pop_a": {
+  "dur": 0.15,
+  "peak": 0.006
+ },
+ "pop_b": {
+  "dur": 0.16,
+  "peak": 0.005
+ },
+ "riser": {
+  "dur": 1.756,
+  "peak": 1.745
+ },
+ "whoosh_a": {
+  "dur": 1.056,
+  "peak": 0.133
+ },
+ "whoosh_b": {
+  "dur": 1.09,
+  "peak": 0.157
+ },
+ "whoosh_c": {
+  "dur": 0.536,
+  "peak": 0.161
+ },
+ "world": {
+  "dur": 1.03,
+  "peak": 0.137
+ },
+ "world_b": {
+  "dur": 0.765,
+  "peak": 0.134
+ }
+}

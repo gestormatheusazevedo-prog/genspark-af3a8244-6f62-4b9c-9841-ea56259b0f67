@@ -1,0 +1,126 @@
+<template>
+  <style>
+@font-face { font-family: 'BarlowX'; src: url('assets/fonts/BarlowCondensed-ExtraBoldItalic.ttf') format('truetype'); font-weight: 800; }
+@font-face { font-family: 'BarlowB'; src: url('assets/fonts/BarlowCondensed-BoldItalic.ttf') format('truetype'); font-weight: 700; }
+
+    #root { position:absolute; inset:0; }
+  </style>
+  <div id="root" data-composition-id="slots" data-width="1080" data-height="1920" data-layout-allow-overlap>
+    <div id="ov-head" style="position:absolute;left:0;width:1080px;top:290px;text-align:center;font:800 84px BarlowX;color:#fff">QUAL É O SEU SQUAD?</div>
+    
+    <div id="sl0" style="position:absolute;left:90px;top:925px;width:168px;height:175px">
+      <div id="sl0-fr" style="position:absolute;inset:0;background:#28e6ff;clip-path:polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);opacity:0.55"></div>
+      <div id="sl0-bg" style="position:absolute;inset:4px;background:#090b20;clip-path:polygon(17px 0, 100% 0, 100% calc(100% - 17px), calc(100% - 17px) 100%, 0 100%, 0 17px)"></div>
+      <div id="sl0-hot" style="position:absolute;inset:4px;background:#28e6ff;clip-path:polygon(17px 0, 100% 0, 100% calc(100% - 17px), calc(100% - 17px) 100%, 0 100%, 0 17px);opacity:0"></div>
+      <div id="sl0-av" style="position:absolute;left:34px;top:14px;opacity:0.45"><svg viewBox="0 0 200 200" width="100" height="100" style="overflow:visible;filter:drop-shadow(0 0 9px #28e6ff)">
+  <circle cx="100" cy="62" r="40" fill="none" stroke="#28e6ff" stroke-width="10"/>
+  <path d="M28 178 C28 120 172 120 172 178 Z" fill="none" stroke="#28e6ff" stroke-width="10" stroke-linejoin="round"/>
+</svg></div>
+      <div id="sl0-lab" style="position:absolute;left:0;right:0;bottom:12px;text-align:center;font:700 34px BarlowB;color:#e6e8ff">P1</div>
+      <div id="sl0-ok" style="position:absolute;left:12px;right:12px;bottom:8px;height:42px;background:#28e6ff;color:#0a0a1e;text-align:center;font:800 34px/42px BarlowX;opacity:0">PRONTO</div>
+    </div>
+    <div id="sl1" style="position:absolute;left:273px;top:925px;width:168px;height:175px">
+      <div id="sl1-fr" style="position:absolute;inset:0;background:#ff2dc8;clip-path:polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);opacity:0.55"></div>
+      <div id="sl1-bg" style="position:absolute;inset:4px;background:#090b20;clip-path:polygon(17px 0, 100% 0, 100% calc(100% - 17px), calc(100% - 17px) 100%, 0 100%, 0 17px)"></div>
+      <div id="sl1-hot" style="position:absolute;inset:4px;background:#ff2dc8;clip-path:polygon(17px 0, 100% 0, 100% calc(100% - 17px), calc(100% - 17px) 100%, 0 100%, 0 17px);opacity:0"></div>
+      <div id="sl1-av" style="position:absolute;left:34px;top:14px;opacity:0.45"><svg viewBox="0 0 200 200" width="100" height="100" style="overflow:visible;filter:drop-shadow(0 0 9px #ff2dc8)">
+  <circle cx="100" cy="62" r="40" fill="none" stroke="#ff2dc8" stroke-width="10"/>
+  <path d="M28 178 C28 120 172 120 172 178 Z" fill="none" stroke="#ff2dc8" stroke-width="10" stroke-linejoin="round"/>
+</svg></div>
+      <div id="sl1-lab" style="position:absolute;left:0;right:0;bottom:12px;text-align:center;font:700 34px BarlowB;color:#e6e8ff">P2</div>
+      <div id="sl1-ok" style="position:absolute;left:12px;right:12px;bottom:8px;height:42px;background:#ff2dc8;color:#0a0a1e;text-align:center;font:800 34px/42px BarlowX;opacity:0">PRONTO</div>
+    </div>
+    <div id="sl2" style="position:absolute;left:456px;top:925px;width:168px;height:175px">
+      <div id="sl2-fr" style="position:absolute;inset:0;background:#a05aff;clip-path:polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);opacity:0.55"></div>
+      <div id="sl2-bg" style="position:absolute;inset:4px;background:#090b20;clip-path:polygon(17px 0, 100% 0, 100% calc(100% - 17px), calc(100% - 17px) 100%, 0 100%, 0 17px)"></div>
+      <div id="sl2-hot" style="position:absolute;inset:4px;background:#a05aff;clip-path:polygon(17px 0, 100% 0, 100% calc(100% - 17px), calc(100% - 17px) 100%, 0 100%, 0 17px);opacity:0"></div>
+      <div id="sl2-av" style="position:absolute;left:34px;top:14px;opacity:0.45"><svg viewBox="0 0 200 200" width="100" height="100" style="overflow:visible;filter:drop-shadow(0 0 9px #a05aff)">
+  <circle cx="100" cy="62" r="40" fill="none" stroke="#a05aff" stroke-width="10"/>
+  <path d="M28 178 C28 120 172 120 172 178 Z" fill="none" stroke="#a05aff" stroke-width="10" stroke-linejoin="round"/>
+</svg></div>
+      <div id="sl2-lab" style="position:absolute;left:0;right:0;bottom:12px;text-align:center;font:700 34px BarlowB;color:#e6e8ff">P3</div>
+      <div id="sl2-ok" style="position:absolute;left:12px;right:12px;bottom:8px;height:42px;background:#a05aff;color:#0a0a1e;text-align:center;font:800 34px/42px BarlowX;opacity:0">PRONTO</div>
+    </div>
+    <div id="sl3" style="position:absolute;left:639px;top:925px;width:168px;height:175px">
+      <div id="sl3-fr" style="position:absolute;inset:0;background:#ffc428;clip-path:polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);opacity:0.55"></div>
+      <div id="sl3-bg" style="position:absolute;inset:4px;background:#090b20;clip-path:polygon(17px 0, 100% 0, 100% calc(100% - 17px), calc(100% - 17px) 100%, 0 100%, 0 17px)"></div>
+      <div id="sl3-hot" style="position:absolute;inset:4px;background:#ffc428;clip-path:polygon(17px 0, 100% 0, 100% calc(100% - 17px), calc(100% - 17px) 100%, 0 100%, 0 17px);opacity:0"></div>
+      <div id="sl3-av" style="position:absolute;left:34px;top:14px;opacity:0.45"><svg viewBox="0 0 200 200" width="100" height="100" style="overflow:visible;filter:drop-shadow(0 0 9px #ffc428)">
+  <circle cx="100" cy="62" r="40" fill="none" stroke="#ffc428" stroke-width="10"/>
+  <path d="M28 178 C28 120 172 120 172 178 Z" fill="none" stroke="#ffc428" stroke-width="10" stroke-linejoin="round"/>
+</svg></div>
+      <div id="sl3-lab" style="position:absolute;left:0;right:0;bottom:12px;text-align:center;font:700 34px BarlowB;color:#e6e8ff">P4</div>
+      <div id="sl3-ok" style="position:absolute;left:12px;right:12px;bottom:8px;height:42px;background:#ffc428;color:#0a0a1e;text-align:center;font:800 34px/42px BarlowX;opacity:0">PRONTO</div>
+    </div>
+    <div id="sl4" style="position:absolute;left:822px;top:925px;width:168px;height:175px">
+      <div id="sl4-fr" style="position:absolute;inset:0;background:#6e7099;clip-path:polygon(18px 0, 100% 0, 100% calc(100% - 18px), calc(100% - 18px) 100%, 0 100%, 0 18px);opacity:0.55"></div>
+      <div id="sl4-bg" style="position:absolute;inset:4px;background:#090b20;clip-path:polygon(17px 0, 100% 0, 100% calc(100% - 17px), calc(100% - 17px) 100%, 0 100%, 0 17px)"></div>
+      <div id="sl4-hot" style="position:absolute;inset:4px;background:#a05aff;clip-path:polygon(17px 0, 100% 0, 100% calc(100% - 17px), calc(100% - 17px) 100%, 0 100%, 0 17px);opacity:0"></div>
+      <div id="sl4-q" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:800 130px BarlowX;color:#8c8fb8">?</div><img id="sl4-lz" src="assets/img/lagzilla.png" style="position:absolute;left:34px;top:10px;height:150px;opacity:0">
+      <div id="sl4-lab" style="position:absolute;left:0;right:0;bottom:12px;text-align:center;font:700 34px BarlowB;color:#e6e8ff">???</div>
+      <div id="sl4-ok" style="position:absolute;left:12px;right:12px;bottom:8px;height:42px;background:#a05aff;color:#0a0a1e;text-align:center;font:800 34px/42px BarlowX;opacity:0">PRONTO</div>
+    </div>
+    <svg id="ov-cur" viewBox="0 0 60 80" width="60" height="80" style="position:absolute;left:0;top:0;overflow:visible">
+      <path d="M4 4 L4 64 L20 50 L31 76 L42 71 L31 46 L54 46 Z" fill="#fff" stroke="#000" stroke-width="4" stroke-linejoin="round"/></svg>
+    <div id="ov-dip" style="position:absolute;inset:0;background:#000;opacity:0"></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#sl0", {scale:0.4, opacity:0}, {scale:1, opacity:1, duration:0.3, ease:"back.out(1.8)"}, 0.100);
+    tl.fromTo("#sl1", {scale:0.4, opacity:0}, {scale:1, opacity:1, duration:0.3, ease:"back.out(1.8)"}, 0.160);
+    tl.fromTo("#sl2", {scale:0.4, opacity:0}, {scale:1, opacity:1, duration:0.3, ease:"back.out(1.8)"}, 0.220);
+    tl.fromTo("#sl3", {scale:0.4, opacity:0}, {scale:1, opacity:1, duration:0.3, ease:"back.out(1.8)"}, 0.280);
+    tl.fromTo("#sl4", {scale:0.4, opacity:0}, {scale:1, opacity:1, duration:0.3, ease:"back.out(1.8)"}, 0.340);
+    tl.fromTo("#ov-head", {opacity:0}, {opacity:1, duration:0.02}, 0.830);
+    tl.fromTo("#ov-cur", {opacity:0, x:520, y:1260}, {opacity:1, duration:0.2}, 0.550);
+    tl.to("#ov-cur", {x:194, y:1034, duration:0.28, ease:"power2.inOut"}, 0.500);
+    tl.to("#sl0", {scale:0.92, duration:0.06, ease:"power2.in", yoyo:true, repeat:1}, 0.800);
+    tl.to("#ov-cur", {scale:0.85, duration:0.06, yoyo:true, repeat:1}, 0.800);
+    tl.to("#sl0-hot", {opacity:0.35, duration:0.12}, 0.850);
+    tl.to("#sl0-fr", {opacity:1, duration:0.12}, 0.850);
+    tl.to("#sl0-av", {opacity:1, duration:0.12}, 0.850);
+    tl.to("#sl0-hot", {opacity:0, duration:0.12}, 3.750);
+    tl.fromTo("#sl0-ok", {opacity:0, scale:1.3}, {opacity:1, scale:1, duration:0.25, ease:"back.out(2)"}, 3.750);
+    tl.to("#sl0-lab", {opacity:0, duration:0.1}, 3.750);
+    tl.to("#ov-cur", {x:377, y:1034, duration:0.28, ease:"power2.inOut"}, 3.400);
+    tl.to("#sl1", {scale:0.92, duration:0.06, ease:"power2.in", yoyo:true, repeat:1}, 3.700);
+    tl.to("#ov-cur", {scale:0.85, duration:0.06, yoyo:true, repeat:1}, 3.700);
+    tl.to("#sl1-hot", {opacity:0.35, duration:0.12}, 3.750);
+    tl.to("#sl1-fr", {opacity:1, duration:0.12}, 3.750);
+    tl.to("#sl1-av", {opacity:1, duration:0.12}, 3.750);
+    tl.to("#sl1-hot", {opacity:0, duration:0.12}, 5.750);
+    tl.fromTo("#sl1-ok", {opacity:0, scale:1.3}, {opacity:1, scale:1, duration:0.25, ease:"back.out(2)"}, 5.750);
+    tl.to("#sl1-lab", {opacity:0, duration:0.1}, 5.750);
+    tl.to("#ov-cur", {x:560, y:1034, duration:0.28, ease:"power2.inOut"}, 5.400);
+    tl.to("#sl2", {scale:0.92, duration:0.06, ease:"power2.in", yoyo:true, repeat:1}, 5.700);
+    tl.to("#ov-cur", {scale:0.85, duration:0.06, yoyo:true, repeat:1}, 5.700);
+    tl.to("#sl2-hot", {opacity:0.35, duration:0.12}, 5.750);
+    tl.to("#sl2-fr", {opacity:1, duration:0.12}, 5.750);
+    tl.to("#sl2-av", {opacity:1, duration:0.12}, 5.750);
+    tl.to("#sl2-hot", {opacity:0, duration:0.12}, 8.300);
+    tl.fromTo("#sl2-ok", {opacity:0, scale:1.3}, {opacity:1, scale:1, duration:0.25, ease:"back.out(2)"}, 8.300);
+    tl.to("#sl2-lab", {opacity:0, duration:0.1}, 8.300);
+    tl.to("#ov-cur", {x:743, y:1034, duration:0.28, ease:"power2.inOut"}, 7.950);
+    tl.to("#sl3", {scale:0.92, duration:0.06, ease:"power2.in", yoyo:true, repeat:1}, 8.250);
+    tl.to("#ov-cur", {scale:0.85, duration:0.06, yoyo:true, repeat:1}, 8.250);
+    tl.to("#sl3-hot", {opacity:0.35, duration:0.12}, 8.300);
+    tl.to("#sl3-fr", {opacity:1, duration:0.12}, 8.300);
+    tl.to("#sl3-av", {opacity:1, duration:0.12}, 8.300);
+    tl.to("#sl3-hot", {opacity:0, duration:0.12}, 11.200);
+    tl.fromTo("#sl3-ok", {opacity:0, scale:1.3}, {opacity:1, scale:1, duration:0.25, ease:"back.out(2)"}, 11.200);
+    tl.to("#sl3-lab", {opacity:0, duration:0.1}, 11.200);
+    tl.to("#ov-cur", {x:926, y:1034, duration:0.28, ease:"power2.inOut"}, 10.400);
+    tl.to("#sl4", {scale:0.92, duration:0.06, ease:"power2.in", yoyo:true, repeat:1}, 10.700);
+    tl.to("#ov-cur", {scale:0.85, duration:0.06, yoyo:true, repeat:1}, 10.700);
+    tl.to("#sl4-hot", {opacity:0.35, duration:0.12}, 11.200);
+    tl.to("#sl4-fr", {opacity:1, duration:0.12}, 11.200);
+    tl.to("#sl4-q", {x:10, duration:0.04, yoyo:true, repeat:9, ease:"none"}, 10.750);
+    tl.to("#sl4-q", {opacity:0, duration:0.05}, 11.200);
+    tl.fromTo("#sl4-lz", {opacity:0, scale:1.3}, {opacity:1, scale:1, duration:0.3, ease:"back.out(2)"}, 11.200);
+    tl.to("#ov-dip", {opacity:0.4, duration:0.3, ease:"power2.in"}, 10.750);
+    tl.to("#ov-dip", {opacity:0, duration:0.08}, 11.200);
+    tl.to("#ov-cur", {opacity:0, duration:0.15}, 11.400);
+    tl.to("#ov-head", {opacity:0, filter:"blur(8px)", duration:0.12}, 11.180);
+    window.__timelines["slots"] = tl;
+  </script>
+</template>

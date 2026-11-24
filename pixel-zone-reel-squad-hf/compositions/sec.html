@@ -1,0 +1,42 @@
+<template>
+  <style>
+@font-face { font-family: 'BarlowX'; src: url('assets/fonts/BarlowCondensed-ExtraBoldItalic.ttf') format('truetype'); font-weight: 800; }
+@font-face { font-family: 'BarlowB'; src: url('assets/fonts/BarlowCondensed-BoldItalic.ttf') format('truetype'); font-weight: 700; }
+
+    #root { position:absolute; inset:0; }
+    #sec-card { position:absolute; left:90px; top:390px; width:900px; height:510px; }
+    #sec-frame { position:absolute; inset:0; background:#a05aff; clip-path:polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px); filter:drop-shadow(0 0 18px #a05aff); }
+    #sec-fill { position:absolute; inset:6px; background:#090b20; clip-path:polygon(37px 0, 100% 0, 100% calc(100% - 37px), calc(100% - 37px) 100%, 0 100%, 0 37px); }
+  </style>
+  <div id="root" data-composition-id="sec" data-width="1080" data-height="1920" data-layout-allow-overlap>
+    <div id="sec-flood" class="clip" data-start="0" data-duration="0.6" style="position:absolute;inset:0;background:#a05aff"></div>
+    <div id="sec-stamp" class="clip" data-start="0.12" data-duration="3.58" style="position:absolute;left:0;width:1080px;top:296px;text-align:center;font:800 84px BarlowX;color:#ffc428;text-shadow:0 0 18px #ffc428"><span id="sec-stampin" style="display:inline-block">DESBLOQUEADO!</span></div>
+    <div id="sec-card">
+      <div id="sec-frame"></div><div id="sec-fill"></div>
+      <div style="position:absolute;left:44px;top:22px;font:700 42px BarlowB;color:#a05aff">PERSONAGEM SECRETO</div>
+      <img id="sec-lag" src="assets/img/lagzilla.png" style="position:absolute;left:70px;top:62px;height:268px">
+      <div style="position:absolute;left:380px;top:92px;width:500px;font:800 66px BarlowX;color:#fff;white-space:nowrap">LAGZILLA</div>
+      <div id="sec-badge" style="position:absolute;left:380px;top:190px;padding:6px 22px;background:#a05aff;color:#0a0a1e;font:800 40px BarlowX;letter-spacing:1px">SECRETO</div>
+      <div style="position:absolute;left:48px;top:340px;font:700 40px BarlowB;color:#d6d9ff">CULPA O LAG</div>
+      <div style="position:absolute;left:48px;top:388px;width:700px;height:22px;border:3px solid #5a5f96;border-radius:6px"></div>
+      <div id="sec-bar0" style="position:absolute;left:53px;top:393px;width:683px;height:12px;background:#a05aff;border-radius:3px;box-shadow:0 0 12px #a05aff"></div>
+      <div id="sec-num0" style="position:absolute;left:770px;top:358px;width:90px;text-align:right;font:800 58px BarlowX;color:#a05aff">99</div>
+      <div style="position:absolute;left:48px;top:420px;font:700 40px BarlowB;color:#d6d9ff">DERROTAS ADMITIDAS</div>
+      <div style="position:absolute;left:48px;top:468px;width:700px;height:22px;border:3px solid #5a5f96;border-radius:6px"></div>
+      <div id="sec-bar1" style="position:absolute;left:53px;top:473px;width:14px;height:12px;background:#a05aff;border-radius:3px;box-shadow:0 0 12px #a05aff"></div>
+      <div id="sec-num1" style="position:absolute;left:770px;top:438px;width:90px;text-align:right;font:800 58px BarlowX;color:#ff2dc8">0</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#sec-card", {scale:1.18, opacity:0, filter:"blur(14px)"}, {scale:1, opacity:1, filter:"blur(0px)", duration:0.45, ease:"back.out(1.6)"}, 0.08);tl.fromTo("#sec-flood", {opacity:0.85}, {opacity:0, duration:0.4, ease:"power2.inOut"}, 0);tl.fromTo("#sec-lag", {y:40, opacity:0}, {y:0, opacity:1, duration:0.5, ease:"expo.out"}, 0.2);tl.fromTo("#sec-stampin", {scale:1.6, opacity:0}, {scale:1, opacity:1, duration:0.3, ease:"back.out(2)"}, 0.12);
+      tl.fromTo("#sec-bar0", {scaleX: 0}, {scaleX: 1, duration: 0.6, ease: "power2.out"}, 0.45);
+      (function(){ const o={n:0}, el=document.querySelector("#sec-num0");
+        tl.fromTo(o, {n:0}, {n:99, duration:0.6, ease:"power2.out", onUpdate:()=>{el.textContent=Math.round(o.n)}}, 0.45); })();
+      tl.fromTo("#sec-bar1", {scaleX: 6}, {scaleX: 1, duration: 0.6, ease: "power2.in"}, 0.7);
+      (function(){ const o={n:40}, el=document.querySelector("#sec-num1");
+        tl.fromTo(o, {n:40}, {n:0, duration:0.6, ease:"power2.in", onUpdate:()=>{el.textContent=Math.round(o.n)}}, 0.7); })();
+    
+    window.__timelines["sec"] = tl;
+  </script>
+</template>

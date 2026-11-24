@@ -1,0 +1,32 @@
+<template>
+  <style>
+@font-face { font-family: 'BarlowX'; src: url('assets/fonts/BarlowCondensed-ExtraBoldItalic.ttf') format('truetype'); font-weight: 800; }
+@font-face { font-family: 'BarlowB'; src: url('assets/fonts/BarlowCondensed-BoldItalic.ttf') format('truetype'); font-weight: 700; }
+
+    #root { position:absolute; inset:0; }
+    #sq-world { position:absolute; inset:0; }
+    .sq { position:absolute; left:0; width:1080px; text-align:center; font-family:BarlowX; font-weight:800; line-height:1; }
+  </style>
+  <div id="root" data-composition-id="squad" data-width="1080" data-height="1920" data-layout-allow-overlap>
+    <div id="sq-world">
+      <img src="assets/img/lounge_bar.png" style="position:absolute;left:-80px;top:0;width:1240px;height:1000px;object-fit:cover">
+      <img src="assets/img/lounge_puffs.png" style="position:absolute;left:-80px;top:920px;width:1240px;height:1000px;object-fit:cover;-webkit-mask-image:linear-gradient(transparent 0, #000 160px);mask-image:linear-gradient(transparent 0, #000 160px)">
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(5,6,15,0.92) 0%, rgba(5,6,15,0.55) 18%, rgba(5,6,15,0.55) 62%, rgba(5,6,15,0.85) 80%, rgba(5,6,15,0.7) 100%)"></div>
+    </div>
+    <div class="sq" style="top:340px;font-size:200px;color:#fff"><span id="sq-w1" style="display:inline-block">SQUAD</span></div>
+    <div class="sq" style="top:540px;font-size:200px;color:#28e6ff;text-shadow:0 0 18px #28e6ff"><span id="sq-w2" style="display:inline-block">COMPLETO</span></div>
+    <div id="sq-price" class="sq" style="top:780px;font-size:96px;color:#fff"><span style="color:#ff2dc8;font-size:150px">6 €</span> / hora por consola</div>
+    <div id="sq-max" class="sq" style="top:1120px;font:700 64px BarlowB;color:#fff">até 4 jogadores</div>
+    <div id="sq-chip0" style="position:absolute;left:105px;top:1000px;width:195px;height:70px;background:#28e6ff;clip-path:polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);color:#0a0a1e;text-align:center;font:800 44px/70px BarlowX">P1 PRONTO</div><div id="sq-chip1" style="position:absolute;left:330px;top:1000px;width:195px;height:70px;background:#ff2dc8;clip-path:polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);color:#0a0a1e;text-align:center;font:800 44px/70px BarlowX">P2 PRONTO</div><div id="sq-chip2" style="position:absolute;left:555px;top:1000px;width:195px;height:70px;background:#a05aff;clip-path:polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);color:#0a0a1e;text-align:center;font:800 44px/70px BarlowX">P3 PRONTO</div><div id="sq-chip3" style="position:absolute;left:780px;top:1000px;width:195px;height:70px;background:#ffc428;clip-path:polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);color:#0a0a1e;text-align:center;font:800 44px/70px BarlowX">P4 PRONTO</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#sq-world", {clipPath:"inset(390px 90px 1020px 90px)", scale:1.12}, {clipPath:"inset(0px 0px 0px 0px)", scale:1, duration:0.65, ease:"power2.inOut"}, 0);
+    tl.fromTo("#sq-w1", {opacity:0, filter:"blur(6px)"}, {opacity:1, filter:"blur(0px)", duration:0.13, ease:"power4.out"}, 0.20);
+    tl.fromTo("#sq-w2", {opacity:0, filter:"blur(6px)"}, {opacity:1, filter:"blur(0px)", duration:0.13, ease:"power4.out"}, 0.62);
+    tl.fromTo("#sq-price", {opacity:0, filter:"blur(8px)"}, {opacity:1, filter:"blur(0px)", duration:0.18, ease:"power4.out"}, 1.40);
+    [0,1,2,3].forEach(i => tl.fromTo("#sq-chip"+i, {scale:0.3, opacity:0}, {scale:1, opacity:1, duration:0.3, ease:"back.out(1.8)"}, 0.85 + i*0.08));
+    tl.fromTo("#sq-max", {opacity:0, filter:"blur(8px)"}, {opacity:1, filter:"blur(0px)", duration:0.18, ease:"power4.out"}, 2.20);
+    window.__timelines["squad"] = tl;
+  </script>
+</template>
