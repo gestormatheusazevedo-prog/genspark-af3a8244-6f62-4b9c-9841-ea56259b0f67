@@ -1,0 +1,82 @@
+{
+ "brake": {
+  "dur": 0.768,
+  "peak": 0.295
+ },
+ "flick": {
+  "dur": 0.568,
+  "peak": 0.131
+ },
+ "impact": {
+  "dur": 2.845,
+  "peak": 0.065
+ },
+ "pass": {
+  "dur": 1.03,
+  "peak": 0.138
+ },
+ "snatch": {
+  "dur": 0.635,
+  "peak": 0.385
+ },
+ "sub": {
+  "dur": 0.286,
+  "peak": 0.021
+ },
+ "swish": {
+  "dur": 0.736,
+  "peak": 0.259
+ },
+ "wh1": {
+  "dur": 0.536,
+  "peak": 0.16
+ },
+ "wh2": {
+  "dur": 1.056,
+  "peak": 0.13
+ },
+ "cy_sig": {
+  "dur": 0.997,
+  "peak": 0.193
+ },
+ "cy_snap": {
+  "dur": 0.568,
+  "peak": 0.131
+ },
+ "mg_sig": {
+  "dur": 0.765,
+  "peak": 0.135
+ },
+ "mg_snap": {
+  "dur": 0.676,
+  "peak": 0.176
+ },
+ "confirm_hit": {
+  "dur": 0.282,
+  "peak": 0.057
+ },
+ "confirm_sub": {
+  "dur": 0.286,
+  "peak": 0.021
+ },
+ "pass2": {
+  "dur": 1.09,
+  "peak": 0.157
+ },
+ "confirm_tone": {
+  "dur": 1.817,
+  "peak": 0.196
+ },
+ "success_done": {
+  "dur": 0.36,
+  "peak": 0.1
+ },
+ "success_triad": {
+  "dur": 0.36,
+  "peak": 0.1
+ },
+ "success_fifth": {
+  "dur": 0.36,
+  "peak": 0.1
+ }
+}
