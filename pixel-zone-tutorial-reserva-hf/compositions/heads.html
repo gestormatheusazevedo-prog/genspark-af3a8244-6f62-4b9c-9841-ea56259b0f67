@@ -6,7 +6,7 @@
     .hd b { color:#28e6ff; text-shadow:0 0 16px #28e6ff; }
   </style>
   <div id="root" data-composition-id="heads" data-width="1080" data-height="1920">
-    <div id="hd0" class="clip hd" data-start="0.00" data-duration="3.60"><span id="hd0-t" style="display:inline-block">RESERVAR EM <b id="hd-3p" style="display:inline-block">3 PASSOS</b></span></div>
+    <div id="hd0" class="clip" data-start="0" data-duration="3.60" style="position:absolute;left:0;top:0;width:1080px"><div id="hd0-t" style="position:absolute;left:0;width:1080px;top:270px;text-align:center"><div style="font:800 66px BarlowX;color:#fff;letter-spacing:0">RESERVA NO PIXEL ZONE</div><div style="font:800 178px/0.95 BarlowX;color:#28e6ff;text-shadow:0 0 22px #28e6ff;letter-spacing:-3px">EM 3 PASSOS</div></div></div>
     <div id="hd1" class="clip hd" data-start="3.60" data-duration="3.90"><span id="hd1-t" style="display:inline-block"><b>PIXELZONE.PT</b></span></div>
     <div id="hd2" class="clip hd" data-start="7.50" data-duration="4.25"><span id="hd2-t" style="display:inline-block">PASSO 1 · <b>ESCOLHE</b></span></div>
     <div id="hd3" class="clip hd" data-start="11.75" data-duration="4.50"><span id="hd3-t" style="display:inline-block">PASSO 2 · <b>DURAÇÃO</b></span></div>
@@ -15,7 +15,8 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-        tl.fromTo("#hd-3p", {opacity:0, scale:1.6}, {opacity:1, scale:1, duration:0.3, ease:"back.out(2)"}, 2.630);
+        tl.fromTo("#hd0-t", {scale:1.08}, {scale:1, duration:0.3, ease:"expo.out"}, 0);
+    tl.to("#hd0-t", {opacity:0, filter:"blur(8px)", duration:0.15, ease:"power2.in"}, 3.10);
     tl.to("#hd0-t", {opacity:0, filter:"blur(8px)", duration:0.12, ease:"power2.in"}, 3.48);
     tl.fromTo("#hd1-t", {opacity:0, filter:"blur(8px)"}, {opacity:1, filter:"blur(0px)", duration:0.15, ease:"power4.out"}, 3.60);
     tl.to("#hd1-t", {opacity:0, filter:"blur(8px)", duration:0.12, ease:"power2.in"}, 7.38);

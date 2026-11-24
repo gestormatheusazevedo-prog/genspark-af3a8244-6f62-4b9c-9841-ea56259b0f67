@@ -19,3 +19,8 @@
 
 ## Weakest shot
 - Step 1 is fast (four taps in 2.3 s, each on its word); readable at full speed but a viewer may need a replay.
+
+## Revision 2 (owner feedback)
+- Hook: full headline on frame 0 plus a 1.6 s flick through the real step screens (with ticks) before the walkthrough.
+- Removed the cyan/magenta edge walls (plain ground). Removed "São só 3 passos." from voice and CTA; film is now 29.4 s.
+- Re-measured: -15.5 LUFS, true peak -1.8 dBTP, no clipping; check ok.

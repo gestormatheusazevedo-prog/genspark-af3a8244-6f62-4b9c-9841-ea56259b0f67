@@ -330,52 +330,32 @@
   ]
  },
  "v8": {
-  "dur": 3.545,
+  "dur": 1.415,
   "words": [
    {
     "text": "Reserva",
     "start": 0.0,
-    "end": 0.52
+    "end": 0.54
    },
    {
     "text": "pelo",
-    "start": 0.52,
-    "end": 0.68
+    "start": 0.54,
+    "end": 0.7
    },
    {
     "text": "link",
-    "start": 0.68,
+    "start": 0.7,
     "end": 1.0
    },
    {
     "text": "na",
     "start": 1.0,
-    "end": 1.16
+    "end": 1.18
    },
    {
     "text": "bio.",
-    "start": 1.16,
-    "end": 1.36
-   },
-   {
-    "text": "São",
-    "start": 2.02,
-    "end": 2.5
-   },
-   {
-    "text": "só",
-    "start": 2.5,
-    "end": 2.74
-   },
-   {
-    "text": "3",
-    "start": 2.74,
-    "end": 2.96
-   },
-   {
-    "text": "passos.",
-    "start": 2.96,
-    "end": 3.44
+    "start": 1.18,
+    "end": 1.38
    }
   ]
  }

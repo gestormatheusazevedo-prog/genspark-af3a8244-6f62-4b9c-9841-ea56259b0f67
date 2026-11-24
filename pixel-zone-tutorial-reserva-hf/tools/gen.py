@@ -4,7 +4,7 @@ Inputs: assets/shots/meta.json (live captures + tap boxes, 390x664 CSS viewport)
 assets/sfx/peaks.json. Run from the project root: python3 tools/gen.py"""
 import json, os, subprocess
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); P = lambda *a: os.path.join(ROOT, *a)
-W, H, DUR, FPS = 1080, 1920, 30.5, 30
+W, H, DUR, FPS = 1080, 1920, 29.4, 30
 CY, MG = '#28e6ff', '#ff2dc8'
 META = json.load(open(P('assets/shots/meta.json'))); WORDS = json.load(open(P('assets/words.json')))
 VOICE = {'v0': 0.15, 'v1': 3.70, 'v2': 7.60, 'v3': 11.85, 'v4': 14.15, 'v5': 16.35, 'v6': 19.85, 'v7': 23.15, 'v8': 25.95}
@@ -28,7 +28,9 @@ m = lambda n: META[n]['tap']
 TOP = {n: top_for(center(m(n))[1]) for n in META}
 TOP['s3_form'] = top_for((META['s3_form']['marks']['nome']['y'] + META['s3_form']['marks']['tel']['y'] + 56) / 2)
 TOP['s3_send'] = top_for(415); TOP['s3_name'] = TOP['s3_filled'] = TOP['s3_form']
-SEQ = [('home', 0.0), ('s1_console', T_RES + 0.10), ('s1_players', T_PS5 + 0.10), ('s1_day', T_J2 + 0.10), ('s1_time', T_DIA + 0.10),
+FLICK = [('s1_time', 0.30), ('s2_duration', 0.70), ('s3_filled', 1.10), ('s3_send', 1.50)]; FLICK_END = 1.90
+HOOK_DROP = 200     # phone sits lower during the hook so the headline can be big
+SEQ = [('home', FLICK_END), ('s1_console', T_RES + 0.10), ('s1_players', T_PS5 + 0.10), ('s1_day', T_J2 + 0.10), ('s1_time', T_DIA + 0.10),
        ('s1_continue', T_HORA + 0.10), ('s2_duration', T_C1 + 0.10), ('s2_continue', T_6 + 1.15), ('s3_form', T_C2 + 0.10), ('s3_name', T_NOME + 0.10), ('s3_filled', T_TEL + 0.10), ('s3_send', T_ENV - 0.30)]
 TAPS = [(T_RES, 'home', m('home'), 'pan'), (T_PS5, 's1_console', m('s1_console'), None), (T_J2, 's1_players', m('s1_players'), None),
         (T_DIA, 's1_day', m('s1_day'), None), (T_HORA, 's1_time', m('s1_time'), None), (T_C1, 's1_continue', m('s1_continue'), None),
@@ -39,6 +41,14 @@ HOME_PAN = wt('v1', 2)        # the camera scrolls to RESERVAR SESSÃO while "pi
 
 def phone():
     imgs, js = '', []
+    imgs += (f'\n      <img id="sc-open" class="clip" src="assets/shots/home.png" data-start="0" data-duration="{FLICK[0][1]:.3f}" '
+             f'style="position:absolute;left:0;top:0;width:{WW}px;height:{SCREEN_H:.0f}px">')
+    for i, (n, st) in enumerate(FLICK):
+        en = FLICK[i + 1][1] if i + 1 < len(FLICK) else FLICK_END
+        imgs += (f'\n      <img id="fl-{n}" class="clip" src="assets/shots/{n}.png" data-start="{st:.3f}" data-duration="{en - st:.3f}" '
+                 f'style="position:absolute;left:0;top:{TOP[n]:.1f}px;width:{WW}px;height:{SCREEN_H:.0f}px">')
+        js.append(f'tl.fromTo("#fl-{n}", {{y:110, filter:"brightness(1.5)"}}, {{y:0, filter:"brightness(1)", duration:0.2, ease:"expo.out"}}, {st:.3f});')
+    js.append(f'tl.fromTo("#sc-home", {{y:-90, filter:"brightness(1.5)"}}, {{y:0, filter:"brightness(1)", duration:0.25, ease:"expo.out"}}, {FLICK_END:.3f});')
     for i, (n, st) in enumerate(SEQ):
         en = SEQ[i + 1][1] if i + 1 < len(SEQ) else PHONE_END
         top = 0 if n == 'home' else TOP[n]
@@ -46,8 +56,9 @@ def phone():
                  f'style="position:absolute;left:0;top:{top:.1f}px;width:{WW}px;height:{SCREEN_H:.0f}px">')
         if n != 'home':
             js.append(f'tl.fromTo("#sc-{n}", {{scale:1.02, filter:"brightness(1.25)"}}, {{scale:1, filter:"brightness(1)", duration:0.25, ease:"expo.out"}}, {st:.3f});')
-    js.append(f'tl.fromTo("#ph-all", {{y:140}}, {{y:0, duration:0.7, ease:"expo.out"}}, 0);')
-    js.append(f'tl.fromTo("#sc-home", {{y:0}}, {{y:{TOP["home"]:.1f}, duration:0.7, ease:"power2.inOut"}}, {HOME_PAN:.3f});')
+    js.append(f'tl.fromTo("#ph-all", {{y:{HOOK_DROP + 120}}}, {{y:{HOOK_DROP}, duration:0.45, ease:"expo.out"}}, 0);')
+    js.append(f'tl.to("#ph-all", {{y:0, duration:0.45, ease:"power2.inOut"}}, 3.22);')
+    js.append(f'tl.to("#sc-home", {{y:{TOP["home"]:.1f}, duration:0.7, ease:"power2.inOut"}}, {HOME_PAN:.3f});')
     # finger
     js.append(f'tl.fromTo("#finger", {{opacity:0}}, {{opacity:1, duration:0.2}}, {HOME_PAN + 0.4:.3f});')
     prev = None
@@ -98,14 +109,21 @@ def phone():
 </template>'''
     os.makedirs(P('compositions'), exist_ok=True); open(P('compositions/phone.html'), 'w').write(html)
 
-HEADS = [(0.0, 'RESERVAR EM <b id="hd-3p" style="display:inline-block">3 PASSOS</b>'), (3.60, '<b>PIXELZONE.PT</b>'), (7.50, 'PASSO 1 · <b>ESCOLHE</b>'),
+HEADS = [(0.0, 'HOOK'), (3.60, '<b>PIXELZONE.PT</b>'), (7.50, 'PASSO 1 · <b>ESCOLHE</b>'),
          (11.75, 'PASSO 2 · <b>DURAÇÃO</b>'), (16.25, 'PASSO 3 · <b>CONFIRMA</b>'), (19.75, 'PAGAMENTO <b>NO ESPAÇO</b>')]
 def heads():
     items, js = '', []
     for i, (t, txt) in enumerate(HEADS):
         en = HEADS[i + 1][0] if i + 1 < len(HEADS) else PHONE_END
-        items += f'\n    <div id="hd{i}" class="clip hd" data-start="{t:.2f}" data-duration="{en - t:.2f}"><span id="hd{i}-t" style="display:inline-block">{txt}</span></div>'
-        if i == 0: js.append(f'tl.fromTo("#hd-3p", {{opacity:0, scale:1.6}}, {{opacity:1, scale:1, duration:0.3, ease:"back.out(2)"}}, {wt("v0", 5):.3f});')
+        if i == 0:
+            items += (f'\n    <div id="hd0" class="clip" data-start="0" data-duration="{en:.2f}" style="position:absolute;left:0;top:0;width:{W}px">'
+                      f'<div id="hd0-t" style="position:absolute;left:0;width:{W}px;top:270px;text-align:center">'
+                      f'<div style="font:800 66px BarlowX;color:#fff;letter-spacing:0">RESERVA NO PIXEL ZONE</div>'
+                      f'<div style="font:800 178px/0.95 BarlowX;color:{CY};text-shadow:0 0 22px {CY};letter-spacing:-3px">EM 3 PASSOS</div></div></div>')
+            js.append('tl.fromTo("#hd0-t", {scale:1.08}, {scale:1, duration:0.3, ease:"expo.out"}, 0);')
+            js.append('tl.to("#hd0-t", {opacity:0, filter:"blur(8px)", duration:0.15, ease:"power2.in"}, 3.10);')
+        else:
+            items += f'\n    <div id="hd{i}" class="clip hd" data-start="{t:.2f}" data-duration="{en - t:.2f}"><span id="hd{i}-t" style="display:inline-block">{txt}</span></div>'
         if i: js.append(f'tl.fromTo("#hd{i}-t", {{opacity:0, filter:"blur(8px)"}}, {{opacity:1, filter:"blur(0px)", duration:0.15, ease:"power4.out"}}, {t:.2f});')
         js.append(f'tl.to("#hd{i}-t", {{opacity:0, filter:"blur(8px)", duration:0.12, ease:"power2.in"}}, {en - 0.12:.2f});')
     html = f'''<template>
@@ -171,7 +189,6 @@ def cta():
     <div id="ct-days" class="ct" style="top:520px;font-size:150px;color:#fff">SEG–SÁB</div>
     <div id="ct-hours" class="ct" style="top:680px;font-size:150px;color:{CY};text-shadow:0 0 18px {CY}">11H–20H</div>
     <div id="ct-link" class="ct" style="top:880px;font-size:92px;color:{MG};text-shadow:0 0 14px {MG}">RESERVA PELO LINK NA BIO</div>
-    <div id="ct-steps" class="ct" style="top:1010px;font:700 66px BarlowB;color:#fff">São só 3 passos.</div>
     <img id="ct-lz" src="assets/img/lagzilla.png" style="position:absolute;left:330px;top:1160px;height:860px">
   </div>
   <script>
@@ -180,7 +197,6 @@ def cta():
     tl.fromTo("#ct-days", {{opacity:0, filter:"blur(6px)"}}, {{opacity:1, filter:"blur(0px)", duration:0.13, ease:"power4.out"}}, {l(v7w[0]):.3f});
     tl.fromTo("#ct-hours", {{opacity:0, filter:"blur(6px)"}}, {{opacity:1, filter:"blur(0px)", duration:0.13, ease:"power4.out"}}, {l(v7w[3]):.3f});
     tl.fromTo("#ct-link", {{opacity:0, scale:1.15}}, {{opacity:1, scale:1, duration:0.3, ease:"back.out(1.8)"}}, {l(v8w[0]):.3f});
-    tl.fromTo("#ct-steps", {{opacity:0, filter:"blur(6px)"}}, {{opacity:1, filter:"blur(0px)", duration:0.15, ease:"power4.out"}}, {l(v8w[5]):.3f});
     tl.fromTo("#ct-lz", {{y:520}}, {{y:0, duration:0.8, ease:"expo.out"}}, 0.25);
     window.__timelines["cta"] = tl;
   </script>
@@ -189,7 +205,7 @@ def cta():
 
 def root():
     peaks = json.load(open(P('assets/sfx/peaks.json')))
-    sfx = [('whoosh_c', 3.62, 0.45)]
+    sfx = [('whoosh_c', 0.0, 0.5), ('whoosh_b', 3.30, 0.4)] + [(['tap_c', 'tap_a'][i % 2], t, 0.6) for i, (_, t) in enumerate(FLICK)] + [('tap_c', FLICK_END, 0.6)]
     for i, (t, *_ ) in enumerate(TAPS): sfx.append((['tap_a', 'tap_b', 'tap_c'][i % 3], t, 0.9))
     sfx += [('whoosh_a', 7.50, 0.45), ('whoosh_b', 11.75, 0.45), ('whoosh_c', 16.25, 0.45), ('pop', T_6 + 0.35, 0.6),
             ('pop', T_AVISO + 0.35, 0.6), ('world', PHONE_END - 0.1, 0.6)]
@@ -229,8 +245,7 @@ def root():
       html, body {{ width:{W}px; height:{H}px; overflow:hidden; background:#05060f; }}
       #root {{ position:relative; width:100%; height:100%; }}
       #bg {{ position:absolute; inset:0; z-index:0; background:
-          linear-gradient(90deg, rgba(40,230,255,0.55) 0px, rgba(40,230,255,0.12) 60px, rgba(40,230,255,0) 140px),
-          linear-gradient(270deg, rgba(255,45,200,0.55) 0px, rgba(255,45,200,0.12) 60px, rgba(255,45,200,0) 140px), #05060f; }}
+ #05060f; }}
     </style>
   </head>
   <body>
